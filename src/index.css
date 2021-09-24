@@ -21,3 +21,7 @@ body {
   color: #fff;
   font-size: 1.5em;
 }
+
+.bgimage {
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, transparent);
+}
