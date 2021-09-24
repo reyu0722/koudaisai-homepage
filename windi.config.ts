@@ -1,3 +1,11 @@
 import { defineConfig } from 'vite-plugin-windicss'
 
-export default defineConfig({})
+export default defineConfig({
+  theme: {
+    extend: {
+      colors: {
+        background: '#131229'
+      }
+    }
+  }
+})
