@@ -17,9 +17,6 @@ body {
 
 #app {
   @apply bg-background;
-  text-align: center;
-  color: #fff;
-  font-size: 1.5em;
 }
 
 .bgimage {

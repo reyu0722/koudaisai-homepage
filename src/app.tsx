@@ -1,4 +1,5 @@
 import Background from '/@/components/Background'
+import Footer from './components/Footer'
 
 export function App(): JSX.Element {
   return (
@@ -16,6 +17,7 @@ export function App(): JSX.Element {
         {/* テスト用 */}
         <div className="py-400"> </div>
       </div>
+      <Footer />
       <Background />
     </>
   )
