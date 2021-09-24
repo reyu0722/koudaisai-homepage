@@ -1,3 +1,5 @@
+import Background from './components/background'
+
 export function App(): JSX.Element {
   return (
     <>
@@ -14,10 +16,7 @@ export function App(): JSX.Element {
         {/* テスト用 */}
         <div className="py-400"> </div>
       </div>
-      <img
-        src="/src/assets/background/bg-w1920.webp"
-        className="absolute top-0 z-0 w-full bgimage"
-      />
+      <Background />
     </>
   )
 }
