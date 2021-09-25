@@ -4,8 +4,8 @@ import WoGBefore from '/@/assets/images/logo-before'
 const Logo: FC = () => {
   return (
     <>
-      <WoG className="absolute top-52 left-28 w-180 fade-in-wog" />
-      <WoGBefore className="absolute top-52 left-28 w-180" />
+      <WoG className="absolute top-[13vw] left-[7vw] w-[45vw] fade-in-wog" />
+      <WoGBefore className="absolute top-[13vw] left-[7vw] w-[45vw]" />
     </>
   )
 }

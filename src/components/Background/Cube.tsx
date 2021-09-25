@@ -19,9 +19,9 @@ const Cube: FC<Props> = ({ offset }) => {
     <CubeImg
       className="absolute overflow-x-hidden fade-in-illust"
       style={`
-				width: ${getCubeWidth(offset)}rem;
-				left: ${getCubeX(offset)}rem;
-				top: ${getCubeY(offset)}rem;
+				width: ${getCubeWidth(offset)}vw;
+				left: ${getCubeX(offset)}vw;
+				top: ${getCubeY(offset)}vw;
 				transform: scale(1) rotate(${getCubeDeg(offset)}deg);
 			`}
     />
