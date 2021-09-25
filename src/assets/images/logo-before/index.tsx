@@ -5,8 +5,8 @@ type Props = {
   style?: string
 }
 
-const WoGBefore: FC<Props> = ({ className, style }) => {
+const LogoBefore: FC<Props> = ({ className, style }) => {
   return <img src={svg} className={className} style={style} />
 }
 
-export default WoGBefore
+export default LogoBefore

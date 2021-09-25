@@ -5,8 +5,8 @@ type Props = {
   style?: string
 }
 
-const WoG: FC<Props> = ({ className, style }) => {
+const Logo: FC<Props> = ({ className, style }) => {
   return <img src={webp} className={className} style={style} />
 }
 
-export default WoG
+export default Logo
