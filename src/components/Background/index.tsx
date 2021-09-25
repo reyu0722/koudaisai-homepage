@@ -5,12 +5,15 @@ import Header from '/@/components/Header'
 import Cube from './Cube'
 import Logo from './Logo'
 
+// 背景画像が切り替わるタイミング
+const CHANGE_OFFSET = 0.64
+
 const Background: FC = () => {
   const [offset, setOffset] = useState(0)
   useEffect(() => {
     const listener = () => {
       let offset = window.pageYOffset / window.innerWidth
-      if (offset > 0.63) offset = 0.63
+      if (offset > CHANGE_OFFSET) offset = CHANGE_OFFSET
       return setOffset(offset)
     }
     window.addEventListener('scroll', listener)
@@ -21,10 +24,9 @@ const Background: FC = () => {
 
   const [changed, setChanged] = useState(false)
   useEffect(() => {
-    // 背景画像が切り替わるタイミング
-    if (offset > 0.62) {
+    if (offset >= CHANGE_OFFSET) {
       // アニメーションの時間に合わせて調整
-      setTimeout(() => setChanged(true), 120)
+      setTimeout(() => setChanged(true), 210)
     }
   }, [offset])
 
@@ -40,7 +42,7 @@ const Background: FC = () => {
         <>
           <div className="absolute w-full h-full bg-white z-20 white-out opacity-0" />
           <Header />
-          <Illust className="absolute top-0 z-0 w-full gradation" />
+            <Illust className="absolute top-0 z-0 w-full gradation" />
         </>
       )}
       <Logo />

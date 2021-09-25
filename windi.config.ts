@@ -22,7 +22,7 @@ export default defineConfig({
           animation: 'headerAnimation 2s ease 0s 1 normal'
         },
         '.white-out': {
-          animation: 'whiteOut 0.2s ease 0s 1 normal'
+          animation: 'whiteOut 0.4s ease 0s 1 normal'
         }
       })
     })
