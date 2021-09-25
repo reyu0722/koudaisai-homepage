@@ -1,5 +1,3 @@
-import Contact from '/@/components/Footer/Contact'
-
 type ContactType = {
   iconSrc: string
   text: string
@@ -18,7 +16,10 @@ const Content: FC<Props> = ({ logo, name, contacts }) => {
       <div className="text-2xl">{name}</div>
       <div className="my-3">
         {contacts.map(({ iconSrc, text }) => (
-          <Contact iconSrc={iconSrc} text={text} key={text}></Contact>
+          <div className="flex item-center" key={text}>
+            <img src={iconSrc} className="mr-4" />
+            {text}
+          </div>
         ))}
       </div>
     </div>
