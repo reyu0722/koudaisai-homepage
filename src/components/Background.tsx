@@ -5,27 +5,18 @@ import Cube from '/@/assets/images/cube'
 import WoG from '/@/assets/images/wog'
 import WoGBefore from '/@/assets/images/wog-before'
 
-const getCubeX = (offset: number): number => {
-  return 36 + offset * offset * -25 + offset * 40
-}
+// cubeの挙動を決める関数たち
+const getCubeX = (offset: number): number =>
+  36 + offset * offset * -25 + offset * 40
 
-const getCubeY = (offset: number): number => {
-  return 20 + offset * 100
-}
+const getCubeY = (offset: number): number => 20 + offset * 100
 
-const getCubeWidth = (offset: number): number => {
-  return 20 + offset * 30
-}
+const getCubeWidth = (offset: number): number => 20 + offset * 40
 
-const getCubeDeg = (offset: number): number => {
-  return 25 + offset * -30
-}
+const getCubeDeg = (offset: number): number => 25 + offset * -40
 
 const Background: FC = () => {
   const [offset, setOffset] = useState(0)
-
-  const [changed, setChanged] = useState(false)
-
   useEffect(() => {
     window.onscroll = () => {
       setOffset(window.pageYOffset / window.innerWidth)
@@ -35,8 +26,10 @@ const Background: FC = () => {
     }
   }, [])
 
+  const [changed, setChanged] = useState(false)
   useEffect(() => {
-    if (offset > 0.65) {
+    // 背景画像が切り替わるタイミング
+    if (offset > 0.62) {
       setChanged(true)
     }
   }, [offset])
