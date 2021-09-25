@@ -13,7 +13,7 @@ const getCubeY = (offset: number): number => 20 + offset * 100
 
 const getCubeWidth = (offset: number): number => 20 + offset * 40
 
-const getCubeDeg = (offset: number): number => 25 + offset * -40
+const getCubeDeg = (offset: number): number => -25 + offset * 40
 
 const Background: FC = () => {
   const [offset, setOffset] = useState(0)
