@@ -22,7 +22,7 @@ body {
   @apply bg-background relative overflow-x-hidden;
 }
 
-.bgimage {
+.gradation {
   -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, transparent);
 }
 
