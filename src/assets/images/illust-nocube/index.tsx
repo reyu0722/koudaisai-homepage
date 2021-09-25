@@ -4,8 +4,8 @@ type Props = {
   className?: string
 }
 
-const Cube: FC<Props> = ({ className }) => {
+const IllustNoCube: FC<Props> = ({ className }) => {
   return <img src={webp} className={className} />
 }
 
-export default Cube
+export default IllustNoCube
