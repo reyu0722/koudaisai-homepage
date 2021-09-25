@@ -8,7 +8,6 @@ const App: FC = () => {
       {/* テスト用 */}
       <div className="py-400"> </div>
       <Footer />
-      
     </>
   )
 }

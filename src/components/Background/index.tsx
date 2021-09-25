@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks'
 import Illust, { PrefetchIllust } from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
-import Header from '/@/components/Header'
+import AnimationHeader from './AnimationHeader'
 import Cube from './Cube'
 import Logo from './Logo'
 
@@ -41,8 +41,8 @@ const Background: FC = () => {
       ) : (
         <>
           <div className="absolute w-full h-full bg-white z-20 white-out opacity-0" />
-          <Header />
-            <Illust className="absolute top-0 z-0 w-full gradation" />
+          <AnimationHeader />
+          <Illust className="absolute top-0 z-0 w-full gradation" />
         </>
       )}
       <Logo />
