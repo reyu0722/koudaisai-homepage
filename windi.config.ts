@@ -17,6 +17,9 @@ export default defineConfig({
         },
         '.fade-in-illust': {
           animation: 'fadeInDelay 3s ease 0s 1 normal'
+        },
+        '.header-animation': {
+          animation: 'headerAnimation 2s ease 0s 1 normal'
         }
       })
     })

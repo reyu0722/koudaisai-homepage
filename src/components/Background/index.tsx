@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks'
 import Illust, { PreloadIllust } from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
+import Header from '/@/components/Header'
 import Cube from './Cube'
 import Logo from './Logo'
 
@@ -31,7 +32,10 @@ const Background: FC = () => {
           <Cube offset={offset} />
         </>
       ) : (
-        <Illust className="absolute top-0 z-0 w-full gradation" />
+        <>
+          <Header />
+          <Illust className="absolute top-0 z-0 w-full gradation" />
+        </>
       )}
       <Logo />
     </>
