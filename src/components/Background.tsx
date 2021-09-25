@@ -33,9 +33,9 @@ const Background: FC = () => {
 
   return (
     <>
-      <IllustNoCube className="absolute top-0 z-0 w-full bgimage" />
+      <IllustNoCube className="absolute top-0 z-0 w-full bgimage fade-in" />
       <Cube
-        className="absolute overflow-x-hidden"
+        className="absolute overflow-x-hidden fade-in"
         style={`
           width: ${getCubeWidth(offset)}vw;
           left: ${getCubeX(offset)}vw;
