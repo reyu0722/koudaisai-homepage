@@ -1,4 +1,7 @@
-html,
+html {
+  font-size: 1vw;
+}
+,
 body {
   height: 100%;
   width: 100%;
@@ -25,6 +28,18 @@ body {
 
 @keyframes fadeIn {
   0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDelay {
+  0% {
+    opacity: 0;
+  }
+  30% {
     opacity: 0;
   }
   100% {

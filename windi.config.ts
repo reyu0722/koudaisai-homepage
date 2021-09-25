@@ -12,8 +12,11 @@ export default defineConfig({
   plugins: [
     plugin(({ addUtilities }) => {
       addUtilities({
-        '.fade-in': {
-          animation: 'fadeIn 2s ease 0s 1 normal'
+        '.fade-in-wog': {
+          animation: 'fadeInDelay 1s ease 0s 1 normal'
+        },
+        '.fade-in-illust': {
+          animation: 'fadeInDelay 3s ease 0s 1 normal'
         }
       })
     })

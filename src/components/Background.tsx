@@ -2,6 +2,8 @@ import { useEffect, useState } from 'preact/hooks'
 import Illust from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
 import Cube from '/@/assets/images/cube'
+import WoG from '/@/assets/images/wog'
+import WoGBefore from '/@/assets/images/wog-before'
 
 const getCubeX = (offset: number): number => {
   return 36 + offset * offset * -25 + offset * 40
@@ -33,13 +35,15 @@ const Background: FC = () => {
 
   return (
     <>
-      <IllustNoCube className="absolute top-0 z-0 w-full bgimage fade-in" />
+      <IllustNoCube className="absolute top-0 z-0 w-full bgimage fade-in-illust" />
+      <WoG className="absolute top-52 left-28 w-180 fade-in-wog" />
+      <WoGBefore className="absolute top-52 left-28 w-180" />
       <Cube
-        className="absolute overflow-x-hidden fade-in"
+        className="absolute overflow-x-hidden fade-in-illust"
         style={`
-          width: ${getCubeWidth(offset)}vw;
-          left: ${getCubeX(offset)}vw;
-          top: ${getCubeY(offset)}vw;
+          width: ${getCubeWidth(offset)}rem;
+          left: ${getCubeX(offset)}rem;
+          top: ${getCubeY(offset)}rem;
           transform: scale(1) rotate(${getCubeDeg(offset)}deg);
         `}
       />
