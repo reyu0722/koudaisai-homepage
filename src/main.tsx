@@ -1,7 +1,7 @@
 import { render } from 'preact'
-import App from '/@/app'
+import Router from '/@/router'
 import '/@/index.css'
 import 'virtual:windi.css'
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-render(<App />, document.getElementById('app')!)
+render(<Router />, document.getElementById('app')!)
