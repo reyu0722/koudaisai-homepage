@@ -16,7 +16,7 @@ body {
 }
 
 #app {
-  @apply bg-background;
+  @apply bg-background relative overflow-x-hidden;
 }
 
 .bgimage {
