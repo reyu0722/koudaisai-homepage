@@ -5,7 +5,15 @@ type Props = {
 }
 
 const Illust: FC<Props> = ({ className }) => {
-  return <img src={webp} className={className} />
+  return (
+    <>
+      <img src={webp} className={className} />
+    </>
+  )
+}
+
+export const PreloadIllust: FC = () => {
+  return <link rel="preload" href={webp} as="image" type="image/webp" />
 }
 
 export default Illust

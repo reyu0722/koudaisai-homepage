@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks'
-import Illust from '/@/assets/images/illust'
+import Illust, { PreloadIllust } from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
 import Cube from '/@/assets/images/cube'
 import WoG from '/@/assets/images/wog'
@@ -36,6 +36,7 @@ const Background: FC = () => {
 
   return (
     <>
+      <PreloadIllust />
       {!changed ? (
         <>
           <IllustNoCube className="absolute top-0 z-0 w-full gradation fade-in-illust" />
