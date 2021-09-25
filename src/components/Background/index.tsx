@@ -7,11 +7,10 @@ import Logo from './Logo'
 const Background: FC = () => {
   const [offset, setOffset] = useState(0)
   useEffect(() => {
-    window.onscroll = () => {
-      setOffset(window.pageYOffset / window.innerWidth)
-    }
-    window.onresize = () => {
-      setOffset(window.pageYOffset / window.innerWidth)
+    const listener = () => setOffset(window.pageYOffset / window.innerWidth)
+    window.addEventListener('scroll', listener)
+    return () => {
+      window.removeEventListener('scroll', listener)
     }
   }, [])
 
