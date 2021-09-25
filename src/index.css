@@ -17,7 +17,7 @@ body {
 }
 
 #app {
-  @apply bg-background relative min-h-screen;
+  @apply bg-background relative min-h-screen text-white;
 }
 
 .gradation {

@@ -5,7 +5,8 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        background: '#131229'
+        background: '#131229',
+        mypurple: '#B7B4EA'
       }
     }
   },
