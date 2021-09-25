@@ -1,7 +1,7 @@
 import Background from '/@/components/Background'
-import Footer from './components/Footer'
+import Footer from '/@/components/Footer'
 
-export function App(): JSX.Element {
+const App: FC = () => {
   return (
     <>
       <div className="relative z-1">
@@ -22,3 +22,5 @@ export function App(): JSX.Element {
     </>
   )
 }
+
+export default App
