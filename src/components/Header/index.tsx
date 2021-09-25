@@ -16,7 +16,7 @@ const Header: FC = () => {
   }, [])
   if (visible)
     return (
-      <div className="flex items-center top-0 sticky h-20 bg-background z-100 header-animation">
+      <div className="flex items-center top-0 sticky h-20 bg-background z-10 header-animation">
         <HeaderLogo className="ml-6 h-6" />
       </div>
     )

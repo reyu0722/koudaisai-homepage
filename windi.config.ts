@@ -20,6 +20,9 @@ export default defineConfig({
         },
         '.header-animation': {
           animation: 'headerAnimation 2s ease 0s 1 normal'
+        },
+        '.white-out': {
+          animation: 'whiteOut 0.2s ease 0s 1 normal'
         }
       })
     })

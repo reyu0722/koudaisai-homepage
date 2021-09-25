@@ -12,7 +12,7 @@ const Illust: FC<Props> = ({ className }) => {
   )
 }
 
-export const PreloadIllust: FC = () => {
+export const PrefetchIllust: FC = () => {
   return <link rel="prefetch" href={webp} as="image" type="image/webp" />
 }
 
