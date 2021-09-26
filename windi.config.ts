@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite-plugin-windicss'
-import plugin from 'windicss/plugin'
 
 export default defineConfig({
   theme: {
@@ -9,23 +8,5 @@ export default defineConfig({
         mypurple: '#B7B4EA'
       }
     }
-  },
-  plugins: [
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        '.fade-in-wog': {
-          animation: 'fadeInDelay 1s ease 0s 1 normal'
-        },
-        '.fade-in-illust': {
-          animation: 'fadeInDelay 3s ease 0s 1 normal'
-        },
-        '.header-animation': {
-          animation: 'headerAnimation 2s ease 0s 1 normal'
-        },
-        '.white-out': {
-          animation: 'whiteOut 0.4s ease 0s 1 normal'
-        }
-      })
-    })
-  ]
+  }
 })

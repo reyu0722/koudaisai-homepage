@@ -1,12 +1,10 @@
-type ContactType = {
-  iconSrc: string
-  text: string
-}
-
 type Props = {
   logo: JSX.Element
   name: string
-  contacts: ContactType[]
+  contacts: {
+    iconSrc: string
+    text: string
+  }[]
 }
 
 const Content: FC<Props> = ({ logo, name, contacts }) => {

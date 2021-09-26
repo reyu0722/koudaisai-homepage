@@ -10,19 +10,17 @@ const CHANGE_OFFSET = 0.64
 
 const Background: FC = () => {
   const [offset, setOffset] = useState(0)
+
   useEffect(() => {
-    const listener = () => {
-      let offset = window.pageYOffset / window.innerWidth
-      if (offset > CHANGE_OFFSET) offset = CHANGE_OFFSET
-      return setOffset(offset)
-    }
+    const listener = () =>
+      setOffset(Math.min(window.pageYOffset / window.innerWidth, CHANGE_OFFSET))
+
     window.addEventListener('scroll', listener)
-    return () => {
-      window.removeEventListener('scroll', listener)
-    }
-  }, [])
+    return () => window.removeEventListener('scroll', listener)
+  })
 
   const [changed, setChanged] = useState(false)
+
   useEffect(() => {
     if (offset >= CHANGE_OFFSET) {
       // アニメーションの時間に合わせて調整
@@ -36,14 +34,14 @@ const Background: FC = () => {
       <Logo />
       {!changed ? (
         <>
-          <IllustNoCube className="absolute top-0 z-0 w-full gradation fade-in-illust" />
+          <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
           <Cube offset={offset} />
         </>
       ) : (
         <>
           <div className="absolute w-full h-full bg-white z-20 white-out opacity-0" />
           <AnimationHeader />
-          <Illust className="absolute top-0 z-0 w-full gradation" />
+          <Illust className="absolute top-0 w-full gradation" />
         </>
       )}
     </>

@@ -17,12 +17,12 @@ type Props = {
 const Cube: FC<Props> = ({ offset }) => {
   return (
     <CubeImg
-      className="absolute overflow-x-hidden fade-in-illust"
+      className="absolute fade-in-illust"
       style={`
 				width: ${getCubeWidth(offset)}vw;
 				left: ${getCubeX(offset)}vw;
 				top: ${getCubeY(offset)}vw;
-				transform: scale(1) rotate(${getCubeDeg(offset)}deg);
+				transform: rotate(${getCubeDeg(offset)}deg);
 			`}
     />
   )

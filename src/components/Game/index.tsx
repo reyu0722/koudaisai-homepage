@@ -3,20 +3,19 @@ import Ray from './Ray'
 import Title from './Title'
 import noImage from '/@/assets/images/noimage.jpg'
 
+const options = {
+  rootMargin: `-${Math.floor(window.innerHeight) / 3}px`
+}
+
 const Game: FC = () => {
   const [visible, setVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const cur = ref.current
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible(true)
-      },
-      {
-        rootMargin: `-${Math.floor(window.innerHeight) / 3}px`
-      }
-    )
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setVisible(true)
+    }, options)
     if (cur) observer.observe(cur)
     return () => {
       if (cur) observer.unobserve(cur)

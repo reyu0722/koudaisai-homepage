@@ -1,0 +1,27 @@
+html {
+}
+,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  font-weight: 400;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  @apply bg-background relative min-h-screen text-white;
+}
+
+.gradation {
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, transparent);
+}
+

@@ -1,11 +1,11 @@
-import WoG from '/@/assets/images/logo'
-import WoGBefore from '/@/assets/images/logo-before'
+import LogoImg from '/@/assets/images/logo'
+import LogoBeforeImg from '/@/assets/images/logo-before'
 
 const Logo: FC = () => {
   return (
     <>
-      <WoG className="absolute top-[13vw] left-[7vw] w-[45vw] fade-in-wog z-2" />
-      <WoGBefore className="absolute top-[13vw] left-[7vw] w-[45vw] z-2" />
+      <LogoImg className="absolute top-[13vw] left-[7vw] w-[45vw] fade-in-logo z-1" />
+      <LogoBeforeImg className="absolute top-[13vw] left-[7vw] w-[45vw] z-1" />
     </>
   )
 }
