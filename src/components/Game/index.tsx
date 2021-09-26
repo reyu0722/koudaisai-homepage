@@ -26,7 +26,6 @@ const Game: FC = () => {
       <div className="z-3" ref={ref} />
       {visible ? (
         <>
-          <ShootingStar />
           <div className="text-6xl text-mypurple">traPDispel </div>
           <div className="my-8 flex gap-32">
             <div className="w-96">
