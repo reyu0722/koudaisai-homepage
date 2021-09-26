@@ -4,6 +4,10 @@ type Props = {
   text: string
 }
 
+// アニメーションでの文字の間隔
+// 1だと遅い気がする
+const INTERVAL = 3
+
 // 現状アルファベットにのみ対応
 // 他もやろうと思えばできる
 const Title: FC<Props> = ({ text }) => {
@@ -12,22 +16,18 @@ const Title: FC<Props> = ({ text }) => {
   useEffect(() => {
     if (animationText != text) {
       const timer = setInterval(() => {
-        // アニメーションでの文字の間隔
-        // 1だと遅い気がする
-        const interval = 3
         let pushNewChar = true
         let newText = animationText
           .split('')
           .map((c, i) => {
             if (c != text[i]) {
               pushNewChar = false
-              // 3文字飛ばし
-              let newCharCode = c.charCodeAt(0) + interval
+              let newCharCode = c.charCodeAt(0) + INTERVAL
 
               // 通り過ぎた場合は途中で止まる
               if (
                 newCharCode > text.charCodeAt(i) &&
-                newCharCode < text.charCodeAt(i) + interval
+                newCharCode < text.charCodeAt(i) + INTERVAL
               ) {
                 newCharCode = text.charCodeAt(i)
               }
@@ -50,6 +50,7 @@ const Title: FC<Props> = ({ text }) => {
           })
           .join('')
         if (pushNewChar) {
+          // ランダムのほうがいいような気もする
           newText += 'a'
         }
         setAnimationText(newText)

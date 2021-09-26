@@ -33,6 +33,7 @@ const Background: FC = () => {
   return (
     <>
       <PrefetchIllust />
+      <Logo />
       {!changed ? (
         <>
           <IllustNoCube className="absolute top-0 z-0 w-full gradation fade-in-illust" />
@@ -45,7 +46,6 @@ const Background: FC = () => {
           <Illust className="absolute top-0 z-0 w-full gradation" />
         </>
       )}
-      <Logo />
     </>
   )
 }

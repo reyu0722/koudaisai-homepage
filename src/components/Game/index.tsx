@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
-import Lay from './Ray'
+import Ray from './Ray'
 import Title from './Title'
 
 const Game: FC = () => {
@@ -27,7 +27,7 @@ const Game: FC = () => {
       <div className="z-3" ref={ref} />
       {visible ? (
         <>
-          <Lay />
+          <Ray />
           <div className="mx-24">
             <Title text="traPDispel" />
             <div className="my-16 flex gap-32">
