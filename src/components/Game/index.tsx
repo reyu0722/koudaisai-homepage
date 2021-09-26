@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
 import Lay from './Lay'
+import Title from './Title'
 
 const Game: FC = () => {
   const [visible, setVisible] = useState(false)
@@ -28,7 +29,7 @@ const Game: FC = () => {
         <>
           <Lay />
           <div className="mx-24">
-            <div className="text-6xl text-mypurple">traPDispel </div>
+            <Title text="traPDispel" />
             <div className="my-16 flex gap-32">
               <div className="w-96">
                 <div className="text-lg mb-12">
