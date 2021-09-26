@@ -1,15 +1,30 @@
-import { useInView } from 'react-intersection-observer'
+import { useEffect, useState, useRef } from 'preact/hooks'
 import ShootingStar from './ShootingStar'
 
 const Game: FC = () => {
-  const [ref, inView] = useInView({
-    rootMargin: `-${Math.floor(window.innerHeight / 3)}px`,
-    triggerOnce: true
-  })
+  const [visible, setVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const cur = ref.current
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true)
+      },
+      {
+        rootMargin: `-${Math.floor(window.innerHeight) / 3}px`
+      }
+    )
+    if (cur) observer.observe(cur)
+    return () => {
+      if (cur) observer.unobserve(cur)
+    }
+  }, [ref])
+
   return (
     <div className="py-32">
       <div className="z-3" ref={ref} />
-      {inView ? (
+      {visible ? (
         <>
           <ShootingStar />
           <div className="text-6xl text-mypurple">traPDispel </div>
@@ -24,7 +39,6 @@ const Game: FC = () => {
           </div>
         </>
       ) : null}
-      
     </div>
   )
 }
