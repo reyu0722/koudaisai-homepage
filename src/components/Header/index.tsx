@@ -1,5 +1,5 @@
 import HeaderLogo from '/@/assets/images/header-logo'
-import { Link } from 'wouter'
+import { Link } from 'wouter-preact'
 
 type Props = {
   className?: string

@@ -7,9 +7,7 @@ import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig({
   resolve: {
     alias: {
-      '/@': resolve(__dirname, 'src').replace(/\\/g, '/'),
-      react: 'preact/compat',
-      'react-dom': 'preact/compat'
+      '/@': resolve(__dirname, 'src').replace(/\\/g, '/')
     }
   },
   plugins: [preact(), WindiCSS()]

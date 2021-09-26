@@ -1,5 +1,5 @@
 import { useEffect } from 'preact/hooks'
-import { useLocation } from 'wouter'
+import { useLocation } from 'wouter-preact'
 
 const ScrollToTop: FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

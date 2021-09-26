@@ -1,4 +1,4 @@
-import { Route } from 'wouter'
+import { Route } from 'wouter-preact'
 import App from '/@/pages/App'
 import Games from '/@/pages/Games'
 
