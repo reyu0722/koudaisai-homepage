@@ -6,7 +6,7 @@ import mailIconSrc from '/@/assets/icon/mail.svg'
 const Footer: FC = () => {
   return (
     <>
-      <div className="flex justify-center gap-60 py-12">
+      <div className="flex justify-center gap-60 py-12 overflow-x-hidden">
         <Content
           logo={TrapLogo}
           name="東京工業大学デジタル創作同好会traP"
