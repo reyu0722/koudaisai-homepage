@@ -1,5 +1,4 @@
 import svg from './ray.svg'
-import './animation.css'
 
 const Ray: FC = () => {
   return (
