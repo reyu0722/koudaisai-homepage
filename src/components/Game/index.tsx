@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
-import ShootingStar from './ShootingStar'
+import Lay from './Lay'
 
 const Game: FC = () => {
   const [visible, setVisible] = useState(false)
@@ -22,19 +22,22 @@ const Game: FC = () => {
   }, [ref])
 
   return (
-    <div className="py-32">
+    <div className="py-64 my-128">
       <div className="z-3" ref={ref} />
       {visible ? (
         <>
-          <div className="text-6xl text-mypurple">traPDispel </div>
-          <div className="my-8 flex gap-32">
-            <div className="w-96">
-              <div className="text-lg mb-12">
-                ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。
+          <Lay />
+          <div className="mx-24">
+            <div className="text-6xl text-mypurple">traPDispel </div>
+            <div className="my-16 flex gap-32">
+              <div className="w-96">
+                <div className="text-lg mb-12">
+                  ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。
+                </div>
+                <div className="h-12 outline-blue-400" />
               </div>
-              <div className="h-12 outline-blue-400" />
+              <div className="outline-white flex-1"></div>
             </div>
-            <div className="outline-white flex-1"></div>
           </div>
         </>
       ) : null}

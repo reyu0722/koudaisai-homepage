@@ -1,0 +1,42 @@
+.lay {
+  animation: layAnimation 1s linear 0s 1 normal;
+  transform-origin: bottom left;
+}
+
+@keyframes layAnimation {
+  0% {
+    transform: rotate(-30deg);
+    top: -180rem;
+    left: 100vw;
+  }
+  20% {
+    // transform: rotate(-60deg);
+    top: -140rem;
+    left: 80vm;
+  }
+  40% {
+    // transforleft: rotate(-50deg);
+    top: -105rem;
+    left: 60vm;
+  }
+  50% {
+    top: -87rem;
+  }
+  60% {
+    // transform: rotate(-20deg);
+    top: -75ren;
+    left: 40vm;
+  }
+  70% {
+    top: -72rem;
+  }
+  80% {
+    top: -65ren;
+    left: 20vm;
+  }
+  100% {
+    transform: rotate(0deg);
+    top: -60rem;
+    left: 0;
+  }
+}
