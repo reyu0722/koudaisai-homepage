@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
-import Lay from './Lay'
+import Lay from './Ray'
 import Title from './Title'
 
 const Game: FC = () => {
