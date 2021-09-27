@@ -1,15 +1,15 @@
-import { useState } from 'preact/hooks'
 import Background from './Background'
 import Body from './Body'
+import { useModalState } from '/@/store/Modal'
 
 const Modal: FC = () => {
-  const [opened, setOpened] = useState(true)
+  const modalState = useModalState()
 
-  if (opened)
+  if (modalState)
     return (
       <>
-				<Background setOpened={setOpened} />
-				<Body />
+        <Background />
+        <Body />
       </>
     )
   return null

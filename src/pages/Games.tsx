@@ -3,10 +3,11 @@ import Footer from '/@/components/Footer'
 import Game from '/@/components/Game'
 import Modal from '/@/components/Modal'
 import ScrollToTop from '/@/components/ScrollToTop'
+import { ModalStateProvider } from '/@/store/Modal'
 
 const Games: FC = () => {
   return (
-    <>
+    <ModalStateProvider>
       <ScrollToTop />
       <Modal />
       <Header />
@@ -28,7 +29,7 @@ const Games: FC = () => {
         <div className="py-400"> </div>
         <Footer />
       </div>
-    </>
+    </ModalStateProvider>
   )
 }
 

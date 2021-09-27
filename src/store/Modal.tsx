@@ -1,0 +1,30 @@
+// 参考 : https://mizchi.dev/202005271609-react-app-context
+
+import { useState, useContext, StateUpdater } from 'preact/hooks'
+import { createContext } from 'preact'
+
+const ModalStateContext = createContext(false)
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const SetModalStateContext = createContext<StateUpdater<boolean>>(() => {})
+
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+export const useModalState = () => useContext(ModalStateContext)
+export const useSetModalState = () => useContext(SetModalStateContext)
+
+type Props = {
+  children: preact.ComponentChildren
+  initialState?: boolean
+}
+
+export const ModalStateProvider: FC<Props> = ({ children, initialState }) => {
+  const [state, setState] = useState(initialState ?? false)
+
+  return (
+    <ModalStateContext.Provider value={state}>
+      <SetModalStateContext.Provider value={setState}>
+        {children}
+      </SetModalStateContext.Provider>
+    </ModalStateContext.Provider>
+  )
+}

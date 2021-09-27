@@ -1,15 +1,11 @@
-import { StateUpdater } from 'preact/hooks'
+import { useSetModalState } from '/@/store/Modal'
 
-type Props = {
-  setOpened: StateUpdater<boolean>
-}
-
-const Background: FC<Props> = ({ setOpened }) => {
-  const close = () => setOpened(false)
+const Background: FC = () => {
+  const setModalState = useSetModalState()
   return (
     <div
       className="fixed w-full h-full bg-black z-20 opacity-80 blur-md"
-      onClick={close}
+      onClick={() => setModalState(false)}
     />
   )
 }
