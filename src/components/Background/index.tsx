@@ -39,7 +39,7 @@ const Background: FC = () => {
         </>
       ) : (
         <>
-          <div className="absolute w-full h-full bg-white z-20 white-out opacity-0" />
+          <div className="absolute w-full h-full bg-white z-20 white-out opacity-0 pointer-events-none" />
           <AnimationHeader />
           <Illust className="absolute top-0 w-full gradation" />
         </>
