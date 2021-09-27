@@ -8,7 +8,7 @@ type Props = {
 const Header: FC<Props> = ({ className }) => {
   return (
     <div
-      className={`flex items-center top-0 sticky h-20 bg-background z-100 ${className}`}>
+      className={`flex items-center top-0 sticky h-20 bg-background z-10 ${className}`}>
       <HeaderLogo className="ml-6 h-6" />
       <div className="ml-auto mr-24">
         これは仮置き →

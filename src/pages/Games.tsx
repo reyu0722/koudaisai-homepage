@@ -1,12 +1,14 @@
 import Header from '/@/components/Header'
 import Footer from '/@/components/Footer'
 import Game from '/@/components/Game'
+import Modal from '/@/components/Modal'
 import ScrollToTop from '/@/components/ScrollToTop'
 
 const Games: FC = () => {
   return (
     <>
       <ScrollToTop />
+      <Modal />
       <Header />
       <div className="overflow-hidden">
         <div className="ml-24 mr-48 mt-24">
