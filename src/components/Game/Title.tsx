@@ -45,7 +45,7 @@ const Title: FC<Props> = ({ text }) => {
       setAnimationText(newText)
     }, 0)
     return () => clearInterval(timer)
-  })
+  }, [text, animationText])
 
   return <div className="text-6xl text-mypurple">{animationText}</div>
 }

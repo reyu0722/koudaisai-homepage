@@ -20,7 +20,7 @@ const Game: FC = () => {
     return () => {
       if (cur) observer.unobserve(cur)
     }
-  }, [ref])
+  }, [])
 
   return (
     <div className="py-64 my-128">

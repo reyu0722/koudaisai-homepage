@@ -1,6 +1,6 @@
 html {
 }
-,
+
 body {
   height: 100%;
   width: 100%;
@@ -24,4 +24,3 @@ body {
 .gradation {
   -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, transparent);
 }
-

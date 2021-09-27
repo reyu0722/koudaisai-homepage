@@ -12,7 +12,7 @@ const AnimationHeader: FC = () => {
     }
     window.addEventListener('scroll', listener)
     return () => window.removeEventListener('scroll', listener)
-  })
+  }, [])
 
   if (visible) return <Header className="header-animation" />
   else return null

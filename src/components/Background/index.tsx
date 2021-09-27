@@ -17,7 +17,7 @@ const Background: FC = () => {
 
     window.addEventListener('scroll', listener)
     return () => window.removeEventListener('scroll', listener)
-  })
+  }, [])
 
   const [changed, setChanged] = useState(false)
 
