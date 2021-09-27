@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
-import Ray from './Ray'
+// import Ray from './Ray'
 import Title from './Title'
 import noImage from '/@/assets/images/noimage.jpg'
 
