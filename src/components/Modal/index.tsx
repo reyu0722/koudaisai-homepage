@@ -3,9 +3,9 @@ import Body from './Body'
 import { useModalState } from '/@/store/Modal'
 
 const Modal: FC = () => {
-  const modalState = useModalState()
+  const { isOpen } = useModalState()
 
-  if (modalState)
+  if (isOpen)
     return (
       <>
         <Background />

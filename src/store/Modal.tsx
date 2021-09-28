@@ -3,10 +3,26 @@
 import { useState, useContext, StateUpdater } from 'preact/hooks'
 import { createContext } from 'preact'
 
-const ModalStateContext = createContext(false)
+export type ModalState = {
+  isOpen: boolean
+  explanation: string
+  imgUrls: string[]
+  blogUrl: string
+  gameUrl: string
+}
+
+const initialState: ModalState = {
+  isOpen: false,
+  explanation: '',
+  imgUrls: [],
+  blogUrl: '',
+  gameUrl: ''
+}
+
+const ModalStateContext = createContext(initialState)
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const SetModalStateContext = createContext<StateUpdater<boolean>>(() => {})
+const SetModalStateContext = createContext<StateUpdater<ModalState>>(() => {})
 
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 export const useModalState = () => useContext(ModalStateContext)
@@ -14,16 +30,16 @@ export const useSetModalState = () => useContext(SetModalStateContext)
 
 type Props = {
   children: preact.ComponentChildren
-  initialState?: boolean
+  initialState?: ModalState
 }
 
-export const ModalStateProvider: FC<Props> = ({ children, initialState }) => {
-  const [state, setState] = useState(initialState ?? false)
+export const ModalStateProvider: FC<Props> = props => {
+  const [state, setState] = useState(props.initialState ?? initialState)
 
   return (
     <ModalStateContext.Provider value={state}>
       <SetModalStateContext.Provider value={setState}>
-        {children}
+        {props.children}
       </SetModalStateContext.Provider>
     </ModalStateContext.Provider>
   )

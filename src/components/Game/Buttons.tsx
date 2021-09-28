@@ -4,7 +4,16 @@ import moreButton from '/@/assets/buttons/more.svg'
 
 const Buttons: FC = () => {
   const setModalState = useSetModalState()
-  const openModal = () => setModalState(true)
+  const openModal = () =>
+    setModalState(s => {
+      return {
+        isOpen: true,
+        explanation: s.explanation,
+        imgUrls: s.imgUrls,
+        blogUrl: s.blogUrl,
+        gameUrl: s.gameUrl
+      }
+    })
 
   return (
     <div className="flex justify-between">

@@ -2,7 +2,16 @@ import { useSetModalState } from '/@/store/Modal'
 
 const Background: FC = () => {
   const setModalState = useSetModalState()
-  const closeModal = () => setModalState(false)
+  const closeModal = () =>
+    setModalState(() => {
+      return {
+        isOpen: false,
+        explanation: '',
+        imgUrls: [],
+        blogUrl: '',
+        gameUrl: ''
+      }
+    })
   return (
     <div
       className="fixed w-full h-full bg-black z-20 opacity-50"
