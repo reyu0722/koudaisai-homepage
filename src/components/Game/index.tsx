@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
+import Buttons from './Buttons'
 // import Ray from './Ray'
 import Title from './Title'
 import noImage from '/@/assets/images/noimage.jpg'
-import { useSetModalState } from '/@/store/Modal'
+
 
 const options = {
   rootMargin: `-${Math.floor(window.innerHeight) / 3}px`
@@ -11,7 +12,6 @@ const options = {
 const Game: FC = () => {
   const [visible, setVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
-  const setModalState = useSetModalState()
 
   useEffect(() => {
     const cur = ref.current
@@ -23,6 +23,8 @@ const Game: FC = () => {
       if (cur) observer.unobserve(cur)
     }
   }, [])
+
+
 
   return (
     <div className="py-64 my-128">
@@ -40,11 +42,7 @@ const Game: FC = () => {
                 <div className="text-lg mb-12">
                   ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。
                 </div>
-                <div
-                  className="h-12 outline-blue-400"
-                  onClick={() => setModalState(true)}>
-                  ボタンを置くところ
-                </div>
+                <Buttons />
               </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-import 'preact/debug'
 import { render } from 'preact'
 import Router from '/@/router'
 import '/@/styles/index.css'
