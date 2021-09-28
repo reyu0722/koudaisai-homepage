@@ -8,7 +8,7 @@ import Logo from './Logo'
 // 背景画像が切り替わるタイミング
 const CHANGE_OFFSET = 0.64
 
-const Background: FC = () => {
+const BackgroundIllust: FC = () => {
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
@@ -28,22 +28,29 @@ const Background: FC = () => {
     }
   }, [offset])
 
+  if (changed)
+    return (
+      <>
+        <div className="absolute w-full h-full bg-white z-20 white-out opacity-0 pointer-events-none" />
+        <AnimationHeader />
+        <Illust className="absolute top-0 w-full gradation" />
+      </>
+    )
+  else
+    return (
+      <>
+        <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
+        <Cube offset={offset} />
+      </>
+    )
+}
+
+const Background: FC = () => {
   return (
     <>
       <PrefetchIllust />
       <Logo />
-      {!changed ? (
-        <>
-          <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
-          <Cube offset={offset} />
-        </>
-      ) : (
-        <>
-          <div className="absolute w-full h-full bg-white z-20 white-out opacity-0 pointer-events-none" />
-          <AnimationHeader />
-          <Illust className="absolute top-0 w-full gradation" />
-        </>
-      )}
+      <BackgroundIllust />
     </>
   )
 }

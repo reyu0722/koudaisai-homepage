@@ -9,7 +9,7 @@ const Body: FC = () => {
           ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
         </div>
         <div className="w-full">
-          {/* 画像スライダーになる */}
+          {/* 画像スライダーになる 多分prefetchするべき */}
           <img src={noImage} />
           <div className="mt-12 h-12 outline-blue-200">ボタン置くところ</div>
         </div>
