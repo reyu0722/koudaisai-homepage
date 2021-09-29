@@ -1,5 +1,5 @@
-import noImage from '/@/assets/images/noimage.jpg'
 import Buttons from './Buttons'
+import Carousel from './Carousel'
 
 const Body: FC = () => {
   return (
@@ -10,8 +10,7 @@ const Body: FC = () => {
           ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
         </div>
         <div className="w-full">
-          {/* 画像スライダーになる 多分prefetchするべき */}
-          <img src={noImage} />
+          <Carousel />
           <Buttons />
         </div>
       </div>
