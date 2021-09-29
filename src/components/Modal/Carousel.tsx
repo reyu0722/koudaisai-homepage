@@ -7,14 +7,16 @@ import left from '/@/assets/buttons/left.svg'
 const WIDTH = 480
 
 const Carousel: FC = () => {
-  const [index, setIndex] = useState(1)
-  const srcs = [noImage, illust]
+  const [index, setIndex] = useState(0)
+  
+  // TODO: propsで受け取る
+  const srcs = [illust, noImage, illust]
 
   const increment = () => setIndex((index + 1) % srcs.length)
   const decrement = () => setIndex((index - 1 + srcs.length) % srcs.length)
 
   return (
-    <div className="h-90 w-120 outline-red-400 overflow-x-hidden relative">
+    <div className="h-90 w-120 overflow-x-hidden relative">
       {index != 0 && (
         <img
           src={left}
