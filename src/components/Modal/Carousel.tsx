@@ -1,4 +1,4 @@
-import { useRef, useState } from 'preact/hooks'
+import { useState } from 'preact/hooks'
 import noImage from '/@/assets/images/noimage.jpg'
 import illust from '/@/assets/images/illust/img.webp'
 import right from '/@/assets/buttons/right.svg'
@@ -8,16 +8,13 @@ const WIDTH = 480
 
 const Carousel: FC = () => {
   const [index, setIndex] = useState(1)
-  const ref = useRef<HTMLDivElement>(null)
   const srcs = [noImage, illust]
 
   const increment = () => setIndex((index + 1) % srcs.length)
   const decrement = () => setIndex((index - 1 + srcs.length) % srcs.length)
 
   return (
-    <div
-      className="h-90 w-120 outline-red-400 overflow-x-hidden relative"
-      ref={ref}>
+    <div className="h-90 w-120 outline-red-400 overflow-x-hidden relative">
       {index != 0 && (
         <img
           src={left}
