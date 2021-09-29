@@ -4,8 +4,11 @@ import Game from '/@/components/Game'
 import Modal from '/@/components/Modal'
 import ScrollToTop from '/@/components/ScrollToTop'
 import { ModalStateProvider } from '/@/store/Modal'
+import noImage from '/@/assets/images/noimage.jpg'
 
 const Games: FC = () => {
+  const testDescription =
+    'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。'
   return (
     <ModalStateProvider>
       <ScrollToTop />
@@ -23,8 +26,16 @@ const Games: FC = () => {
           <div className="my-128" />
         </div>
 
-        <Game />
-        <Game />
+        <Game
+          title="traPDispel"
+          description={testDescription}
+          imageUrl={noImage}
+        />
+        <Game
+          title="traPDispel"
+          description={testDescription}
+          imageUrl={noImage}
+        />
         {/* テスト用 */}
         <div className="py-400"> </div>
         <Footer />
