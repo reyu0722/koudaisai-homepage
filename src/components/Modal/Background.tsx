@@ -6,7 +6,7 @@ const Background: FC = () => {
     setModalState(() => {
       return {
         isOpen: false,
-        explanation: '',
+        howToPlay: '',
         imgUrls: [],
         blogUrl: '',
         gameUrl: ''
