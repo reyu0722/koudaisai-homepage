@@ -18,7 +18,7 @@ const Buttons: FC = () => {
     })
 
   return (
-    <div className="flex justify-between h-18">
+    <div className="flex justify-between h-12">
       <img
         src={playButton}
         onMouseOver={e => (e.currentTarget.src = playButtonHover)}

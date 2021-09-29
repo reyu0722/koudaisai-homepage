@@ -47,7 +47,7 @@ const Title: FC<Props> = ({ text }) => {
     return () => clearInterval(timer)
   }, [text, animationText])
 
-  return <div className="text-6xl text-mypurple">{animationText}</div>
+  return <div className="text-6xl h-15 text-mypurple">{animationText}</div>
 }
 
 export default Title

@@ -29,7 +29,7 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
   }, [])
 
   return (
-    <div className="py-64 my-128">
+    <div className="py-64 my-32">
       <div className="z-3" ref={ref} />
       {visible ? (
         <>
