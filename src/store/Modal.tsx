@@ -5,7 +5,7 @@ import { createContext } from 'preact'
 
 export type ModalState = {
   isOpen: boolean
-  explanation: string
+  howToPlay: string
   imgUrls: string[]
   blogUrl: string
   gameUrl: string
@@ -13,7 +13,7 @@ export type ModalState = {
 
 const initialState: ModalState = {
   isOpen: false,
-  explanation: '',
+  howToPlay: '',
   imgUrls: [],
   blogUrl: '',
   gameUrl: ''

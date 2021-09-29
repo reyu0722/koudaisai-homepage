@@ -10,7 +10,7 @@ const Buttons: FC = () => {
     setModalState(s => {
       return {
         isOpen: true,
-        explanation: s.explanation,
+        howToPlay: s.howToPlay,
         imgUrls: s.imgUrls,
         blogUrl: s.blogUrl,
         gameUrl: s.gameUrl
