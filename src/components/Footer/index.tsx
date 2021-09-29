@@ -5,8 +5,8 @@ import mailIconSrc from '/@/assets/icon/mail.svg'
 
 const Footer: FC = () => {
   return (
-    <>
-      <div className="flex justify-center gap-60 py-12 overflow-x-hidden">
+    <div className="<lg:flex <lg:justify-center">
+      <div className="flex <lg:flex-col justify-center gap-32 <lg:gap-12 py-12 overflow-x-hidden">
         <Content
           logo={TrapLogo}
           name="東京工業大学デジタル創作同好会traP"
@@ -21,7 +21,7 @@ const Footer: FC = () => {
           contacts={[{ iconSrc: twitterIconSrc, text: '@tokyotechfest' }]}
         />
       </div>
-    </>
+    </div>
   )
 }
 
