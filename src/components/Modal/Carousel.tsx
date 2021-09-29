@@ -18,18 +18,22 @@ const Carousel: FC = () => {
     <div
       className="h-90 w-120 outline-red-400 overflow-x-hidden relative"
       ref={ref}>
-      <img
-        src={left}
-        className="absolute left-0 top-0 bottom-0 my-auto z-50"
-        onClick={decrement}
-      />
-      <img
-        src={right}
-        className="absolute right-0 top-0 bottom-0 my-auto z-50"
-        onClick={increment}
-      />
+      {index != 0 && (
+        <img
+          src={left}
+          className="absolute left-0 top-0 bottom-0 my-auto z-50"
+          onClick={decrement}
+        />
+      )}
+      {index != srcs.length - 1 && (
+        <img
+          src={right}
+          className="absolute right-0 top-0 bottom-0 my-auto z-50"
+          onClick={increment}
+        />
+      )}
       <div
-        className="flex h-90 w-120 relative"
+        className="flex h-90 w-120 relative carousel"
         style={`left: ${-WIDTH * index}px`}>
         {srcs.map(src => (
           <div className="flex-none w-full" key={src}>
