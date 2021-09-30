@@ -6,6 +6,9 @@ export default defineConfig({
       colors: {
         background: '#131229',
         mypurple: '#B7B4EA'
+      },
+      fontFamily: {
+        rubik: ['Rubik', 'sans-serif']
       }
     }
   }
