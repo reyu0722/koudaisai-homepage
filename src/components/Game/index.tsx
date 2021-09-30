@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
 import Buttons from './Buttons'
-// import Ray from './Ray'
+import Animation from './Animation'
 import Title from './Title'
 
 type Props = {
@@ -31,9 +31,9 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
   return (
     <div className="py-64 my-32">
       <div className="z-3" ref={ref} />
+      <Animation visible={visible} />
       {visible ? (
         <>
-          {/*<Ray />*/}
           <div className="mx-24 z-1">
             <Title text={title} />
             <div className="my-16 flex flex-col lg:flex-row-reverse items-center lg:items-start lg:justify-between lg:gap-24">
