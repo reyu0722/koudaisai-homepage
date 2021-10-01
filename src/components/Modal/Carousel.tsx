@@ -14,7 +14,7 @@ const Carousel: FC = () => {
   const decrement = () => setIndex((index - 1 + srcs.length) % srcs.length)
 
   return (
-    <div className="overflow-x-hidden relative w-full h-1/3">
+    <div className="overflow-x-hidden relative w-full h-full">
       {index != 0 && (
         <img
           src={left}
