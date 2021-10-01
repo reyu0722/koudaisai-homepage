@@ -4,11 +4,9 @@ import illust from '/@/assets/images/illust/img.webp'
 import right from '/@/assets/buttons/right.svg'
 import left from '/@/assets/buttons/left.svg'
 
-const WIDTH = 480
-
 const Carousel: FC = () => {
   const [index, setIndex] = useState(0)
-  
+
   // TODO: propsで受け取る
   const srcs = [illust, noImage, illust]
 
@@ -16,7 +14,7 @@ const Carousel: FC = () => {
   const decrement = () => setIndex((index - 1 + srcs.length) % srcs.length)
 
   return (
-    <div className="h-90 w-120 overflow-x-hidden relative">
+    <div className="overflow-x-hidden h-1/3 w-full relative">
       {index != 0 && (
         <img
           src={left}
@@ -32,8 +30,8 @@ const Carousel: FC = () => {
         />
       )}
       <div
-        className="flex h-90 w-120 relative carousel"
-        style={`left: ${-WIDTH * index}px`}>
+        className="flex relative h-full carousel"
+        style={`left: calc(-100% * ${index})`}>
         {srcs.map(src => (
           <div className="flex-none w-full" key={src}>
             <img src={src} className="h-full mx-auto" />

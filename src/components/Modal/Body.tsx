@@ -8,11 +8,11 @@ const Body: FC = () => {
       <Decorations />
       <div className="p-20 relative z-31">
         <div className="text-4xl font-bold">あそびかた</div>
-        <div className="flex mt-12 justify-between">
-          <div className="w-120">
+        <div className="flex mt-12 justify-between gap-12">
+          <div className="w-1/2">
             ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
           </div>
-          <div>
+          <div className="w-1/2">
             <Carousel />
             <Buttons />
           </div>
