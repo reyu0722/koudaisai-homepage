@@ -7,12 +7,16 @@ type Props = {
 
 const Animation: FC<Props> = ({ visible }) => {
   return (
-    <div className="ml-[60%] relative h-60">
+    <div className="relative h-60 ml-[60%]">
       <img src={bg} className="absolute top-0 right-60" />
       <img
         src={circle}
         className="absolute light"
-        style={visible ? `top:7.5rem; right:22.5rem; ` : `top:-0.75rem;right:14.25rem`}
+        style={
+          visible
+            ? `top:7.5rem; right:22.5rem; `
+            : `top:-0.75rem;right:14.25rem`
+        }
       />
     </div>
   )

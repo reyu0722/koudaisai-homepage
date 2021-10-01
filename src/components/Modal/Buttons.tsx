@@ -3,7 +3,7 @@ import playDark from '/@/assets/buttons/play-dark.svg'
 
 const Buttons: FC = () => {
   return (
-    <div className="mt-8 w-auto flex justify-between">
+    <div className="flex justify-between mt-8 w-auto">
       <div className="flex-1 w-auto">
         <img src={blog} />
       </div>

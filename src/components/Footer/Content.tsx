@@ -10,11 +10,11 @@ type Props = {
 const Content: FC<Props> = ({ logo, name, contacts }) => {
   return (
     <div className="flex flex-col text-white">
-      <div className="h-32 flex items-center">{logo}</div>
+      <div className="flex items-center h-32">{logo}</div>
       <div className="text-2xl">{name}</div>
       <div className="my-3">
         {contacts.map(({ iconSrc, text }) => (
-          <div className="flex item-center my-4" key={text}>
+          <div className="flex my-4 item-center" key={text}>
             <img src={iconSrc} className="mr-4" />
             <div className="text-lg leading-none">{text}</div>
           </div>

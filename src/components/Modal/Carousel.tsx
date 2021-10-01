@@ -14,18 +14,18 @@ const Carousel: FC = () => {
   const decrement = () => setIndex((index - 1 + srcs.length) % srcs.length)
 
   return (
-    <div className="overflow-x-hidden h-1/3 w-full relative">
+    <div className="overflow-x-hidden relative w-full h-1/3">
       {index != 0 && (
         <img
           src={left}
-          className="absolute left-0 top-0 bottom-0 my-auto z-50"
+          className="absolute top-0 bottom-0 left-0 z-50 my-auto"
           onClick={decrement}
         />
       )}
       {index != srcs.length - 1 && (
         <img
           src={right}
-          className="absolute right-0 top-0 bottom-0 my-auto z-50"
+          className="absolute top-0 right-0 bottom-0 z-50 my-auto"
           onClick={increment}
         />
       )}
@@ -34,7 +34,7 @@ const Carousel: FC = () => {
         style={`left: calc(-100% * ${index})`}>
         {srcs.map(src => (
           <div className="flex-none w-full" key={src}>
-            <img src={src} className="h-full mx-auto" />
+            <img src={src} className="mx-auto h-full" />
           </div>
         ))}
       </div>

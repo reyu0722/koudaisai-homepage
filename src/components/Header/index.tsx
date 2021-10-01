@@ -10,11 +10,11 @@ const Header: FC<Props> = ({ className }) => {
     <div
       className={`flex items-center justify-between top-0 sticky h-20 bg-background z-10 w-full ${className}`}>
       <HeaderLogo className="ml-6 h-3 md:h-6" />
-      <div className="flex flex-row justify-between items-center h-full gap-12 mr-6">
-        <Link href="/" className="text-white text-xl">
+      <div className="flex flex-row gap-12 justify-between items-center mr-6 h-full">
+        <Link href="/" className="text-xl text-white">
           Home
         </Link>
-        <Link href="/games" className="text-white text-xl">
+        <Link href="/games" className="text-xl text-white">
           Games
         </Link>
       </div>

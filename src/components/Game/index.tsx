@@ -36,12 +36,12 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
         <>
           <div className="mx-24 z-1">
             <Title text={title} />
-            <div className="my-16 flex flex-col lg:flex-row-reverse items-center lg:items-start lg:justify-between lg:gap-24">
+            <div className="flex flex-col lg:flex-row-reverse lg:gap-24 lg:justify-between items-center lg:items-start my-16">
               <div className="flex-auto w-full lg:max-w-160">
                 <img src={imageUrl} className="flex-initial w-full h-full" />
               </div>
-              <div className="flex-auto mb-12 lg:w-120 lg:max-w-120 <lg:mt-12">
-                <div className="text-lg mb-12">{description}</div>
+              <div className="flex-auto <lg:mt-12 mb-12 lg:w-120 lg:max-w-120">
+                <div className="mb-12 text-lg">{description}</div>
                 <Buttons />
               </div>
             </div>

@@ -14,7 +14,7 @@ const Background: FC = () => {
     })
   return (
     <div
-      className="fixed w-full h-full bg-black z-20 opacity-50"
+      className="fixed z-20 w-full h-full bg-black opacity-50"
       onClick={closeModal}
     />
   )

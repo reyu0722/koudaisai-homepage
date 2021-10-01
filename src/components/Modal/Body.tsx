@@ -4,11 +4,11 @@ import Decorations from './Decorations'
 
 const Body: FC = () => {
   return (
-    <div className="fixed m-auto inset-0 bg-[#E9FAFF] z-30 max-w-[80vw] max-h-[80vh] text-black">
+    <div className="fixed inset-0 z-30 m-auto text-black bg-[#E9FAFF] max-w-[80vw] max-h-[80vh]">
       <Decorations />
-      <div className="p-20 relative z-31">
+      <div className="relative p-20 z-31">
         <div className="text-4xl font-bold">あそびかた</div>
-        <div className="flex mt-12 justify-between gap-12">
+        <div className="flex gap-12 justify-between mt-12">
           <div className="w-1/2">
             ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
           </div>

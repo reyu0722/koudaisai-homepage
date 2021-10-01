@@ -31,7 +31,7 @@ const BackgroundIllust: FC = () => {
   if (changed)
     return (
       <>
-        <div className="absolute w-full h-full bg-white z-20 white-out opacity-0 pointer-events-none" />
+        <div className="absolute z-20 w-full h-full bg-white opacity-0 pointer-events-none white-out" />
         <AnimationHeader />
         <Illust className="absolute top-0 w-full gradation" />
       </>
