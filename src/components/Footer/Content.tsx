@@ -14,7 +14,7 @@ const Content: FC<Props> = ({ logo, name, contacts }) => {
       <div className="text-2xl">{name}</div>
       <div className="my-3">
         {contacts.map(({ iconSrc, text }) => (
-          <div className="flex my-4 item-center" key={text}>
+          <div className="flex items-center my-4" key={text}>
             <img src={iconSrc} className="mr-4" />
             <div className="text-lg leading-none">{text}</div>
           </div>

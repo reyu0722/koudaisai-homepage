@@ -30,16 +30,20 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
 
   return (
     <div className="py-64 my-32">
+      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="z-3" ref={ref} />
       <Animation visible={visible} />
       {visible ? (
         <>
+          {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
           <div className="mx-24 z-1">
             <Title text={title} />
             <div className="flex flex-col lg:flex-row-reverse lg:gap-24 lg:justify-between items-center lg:items-start my-16">
+              {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="flex-auto w-full lg:max-w-160">
                 <img src={imageUrl} className="flex-initial w-full h-full" />
               </div>
+              {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="flex-auto <lg:mt-12 mb-12 lg:w-120 lg:max-w-120">
                 <div className="mb-12 text-lg">{description}</div>
                 <Buttons />

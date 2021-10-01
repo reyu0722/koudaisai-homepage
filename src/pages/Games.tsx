@@ -17,12 +17,14 @@ const Games: FC = () => {
       <div className="overflow-hidden">
         <div className="mt-24 mr-48 ml-24">
           <div className="ml-12 text-xl">About</div>
+          {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
           <div className="mt-12 text-6xl mb-18 text-mypurple">
             World of Games
           </div>
           <div className="text-lg">
             ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。
           </div>
+          {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
           <div className="my-128" />
         </div>
 
@@ -37,6 +39,7 @@ const Games: FC = () => {
           imageUrl={noImage}
         />
         {/* テスト用 */}
+        {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
         <div className="py-400"> </div>
         <Footer />
       </div>

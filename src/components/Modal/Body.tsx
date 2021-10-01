@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import Buttons from './Buttons'
 import Carousel from './Carousel'
 import Decorations from './Decorations'

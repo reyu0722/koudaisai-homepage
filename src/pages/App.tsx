@@ -8,6 +8,7 @@ const App: FC = () => {
       <ScrollToTop />
       <Background />
       {/* テスト用 */}
+      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="py-400"> </div>
       <Footer />
     </>
