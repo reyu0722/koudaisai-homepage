@@ -32,8 +32,8 @@ const Carousel: FC = () => {
       <div
         className="flex relative h-full carousel"
         style={`left: calc(-100% * ${index})`}>
-        {srcs.map(src => (
-          <div className="flex-none w-full" key={src}>
+        {srcs.map((src, i) => (
+          <div className="flex-none w-full" key={i}>
             <img src={src} className="mx-auto h-full" />
           </div>
         ))}
