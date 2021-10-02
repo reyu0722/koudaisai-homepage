@@ -19,7 +19,7 @@ const Body: FC = () => {
               <Carousel images={imgUrls} />
             </div>
             <div className="row-span-1">
-              <Buttons />
+              <Buttons blogUrl={blogUrl} gameUrl={gameUrl} />
             </div>
           </div>
         </div>

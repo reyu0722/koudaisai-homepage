@@ -35,8 +35,8 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
     howToPlay:
       'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
     imgUrls: [noImage, illust, noImage],
-    blogUrl: '',
-    gameUrl: ''
+    blogUrl: 'https://trap.jp/post/1085/',
+    gameUrl: 'https://trapdispel.trap.games/'
   }
 
   return (
