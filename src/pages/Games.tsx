@@ -4,12 +4,9 @@ import Game from '/@/components/Game'
 import Modal from '/@/components/Modal'
 import ScrollToTop from '/@/components/ScrollToTop'
 import { ModalStateProvider } from '/@/store/Modal'
-import noImage from '/@/assets/images/noimage.jpg'
 import games from '/@/assets/data/games'
 
 const Games: FC = () => {
-  const testDescription =
-    'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。'
   return (
     <ModalStateProvider>
       <ScrollToTop />

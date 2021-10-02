@@ -55,7 +55,7 @@ const Game: FC<Props> = ({
       <Animation visible={visible} />
       {visible && (
         <>
-          <div className="mx-24 space-y-16">
+          <div className="mx-12 md:mx-24 space-y-16">
             <Title text={title} />
             <div className="flex flex-col lg:flex-row-reverse lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12">
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
