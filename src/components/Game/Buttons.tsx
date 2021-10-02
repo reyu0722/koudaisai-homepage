@@ -4,17 +4,24 @@ import playButtonHover from '/@/assets/buttons/playnow-hover.svg'
 import moreButton from '/@/assets/buttons/more.svg'
 import moreButtonHover from '/@/assets/buttons/more-hover.svg'
 
-const Buttons: FC = () => {
+type Props = {
+  howToPlay: string
+  imgUrls: string[]
+  blogUrl: string
+  gameUrl: string
+}
+
+const Buttons: FC<Props> = ({ howToPlay, imgUrls, blogUrl, gameUrl }) => {
   const setModalState = useSetModalState()
 
   const openModal = () =>
-    setModalState(s => {
+    setModalState(() => {
       return {
         isOpen: true,
-        howToPlay: s.howToPlay,
-        imgUrls: s.imgUrls,
-        blogUrl: s.blogUrl,
-        gameUrl: s.gameUrl
+        howToPlay,
+        imgUrls,
+        blogUrl,
+        gameUrl
       }
     })
 

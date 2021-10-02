@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from 'preact/hooks'
 import Buttons from './Buttons'
 import Animation from './Animation'
 import Title from './Title'
+import noImage from '/@/assets/images/noimage.jpg'
+import illust from '/@/assets/images/illust/img.webp'
 
 type Props = {
   title: string
@@ -28,6 +30,15 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
     }
   }, [])
 
+  // TODO: propsで受け取る
+  const modalContent = {
+    howToPlay:
+      'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
+    imgUrls: [noImage, illust, noImage],
+    blogUrl: '',
+    gameUrl: ''
+  }
+
   return (
     <div className="py-64 my-32">
       <div className="z-10" ref={ref} />
@@ -44,7 +55,7 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 lg:w-120">
                 <div className="text-lg">{description}</div>
-                <Buttons />
+                <Buttons {...modalContent} />
               </div>
             </div>
           </div>

@@ -1,17 +1,16 @@
 import { useState } from 'preact/hooks'
-import noImage from '/@/assets/images/noimage.jpg'
-import illust from '/@/assets/images/illust/img.webp'
 import right from '/@/assets/buttons/right.svg'
 import left from '/@/assets/buttons/left.svg'
 
-const Carousel: FC = () => {
+type Props = {
+  images: string[]
+}
+
+const Carousel: FC<Props> = ({ images }) => {
   const [index, setIndex] = useState(0)
 
-  // TODO: propsで受け取る
-  const srcs = [illust, noImage, illust]
-
-  const increment = () => setIndex((index + 1) % srcs.length)
-  const decrement = () => setIndex((index - 1 + srcs.length) % srcs.length)
+  const increment = () => setIndex((index + 1) % images.length)
+  const decrement = () => setIndex((index - 1 + images.length) % images.length)
 
   return (
     <div className="overflow-x-hidden relative w-full h-full">
@@ -22,7 +21,7 @@ const Carousel: FC = () => {
           onClick={decrement}
         />
       )}
-      {index != srcs.length - 1 && (
+      {index != images.length - 1 && (
         <img
           src={right}
           className="absolute inset-y-0 right-0 z-50 my-auto"
@@ -32,7 +31,7 @@ const Carousel: FC = () => {
       <div
         className="flex relative h-full carousel"
         style={`left: calc(-100% * ${index})`}>
-        {srcs.map((src, i) => (
+        {images.map((src, i) => (
           <div className="flex flex-none w-full" key={i}>
             <img src={src} className="items-center m-auto max-h-full" />
           </div>
