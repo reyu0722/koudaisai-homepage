@@ -5,6 +5,7 @@ import Modal from '/@/components/Modal'
 import ScrollToTop from '/@/components/ScrollToTop'
 import { ModalStateProvider } from '/@/store/Modal'
 import noImage from '/@/assets/images/noimage.jpg'
+import games from '/@/assets/data/games'
 
 const Games: FC = () => {
   const testDescription =
@@ -27,16 +28,9 @@ const Games: FC = () => {
         </div>
         {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
         <div className="my-128" />
-        <Game
-          title="traPDispel"
-          description={testDescription}
-          imageUrl={noImage}
-        />
-        <Game
-          title="traPDispel"
-          description={testDescription}
-          imageUrl={noImage}
-        />
+        {games.map(game => (
+          <Game {...game} key={game.title} />
+        ))}
         {/* テスト用 */}
         {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
         <div className="py-200"> </div>

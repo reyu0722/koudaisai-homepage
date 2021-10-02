@@ -2,20 +2,30 @@ import { useEffect, useState, useRef } from 'preact/hooks'
 import Buttons from './Buttons'
 import Animation from './Animation'
 import Title from './Title'
-import noImage from '/@/assets/images/noimage.jpg'
-import illust from '/@/assets/images/illust/img.webp'
 
-type Props = {
+type Props = Game
+
+export type Game = {
   title: string
   description: string
-  imageUrl: string
+  imgUrl: string
+  imgUrls: string[]
+  blogUrl: string
+  gameUrl: string
 }
 
 const options = {
   rootMargin: `-${Math.floor(window.innerHeight) / 3}px`
 }
 
-const Game: FC<Props> = ({ title, description, imageUrl }) => {
+const Game: FC<Props> = ({
+  title,
+  description,
+  imgUrl,
+  imgUrls,
+  blogUrl,
+  gameUrl
+}) => {
   const [visible, setVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -30,13 +40,13 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
     }
   }, [])
 
-  // TODO: propsで受け取る
   const modalContent = {
+    // TODO: ここどうにかする
     howToPlay:
       'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
-    imgUrls: [noImage, illust, noImage],
-    blogUrl: 'https://trap.jp/post/1085/',
-    gameUrl: 'https://trapdispel.trap.games/'
+    imgUrls,
+    blogUrl,
+    gameUrl
   }
 
   return (
@@ -50,7 +60,7 @@ const Game: FC<Props> = ({ title, description, imageUrl }) => {
             <div className="flex flex-col lg:flex-row-reverse lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12">
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="lg:max-w-160">
-                <img src={imageUrl} className="w-full h-auto" />
+                <img src={imgUrl} className="w-full h-auto" />
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 lg:w-120">
