@@ -5,7 +5,7 @@ import Decorations from './Decorations'
 
 const Body: FC = () => {
   return (
-    <div className="fixed inset-0 z-30 m-auto text-black rounded-6xl bg-[#E9FAFF] max-w-[80vw] max-h-[80vh]">
+    <div className="overflow-hidden fixed inset-0 z-30 m-auto text-black rounded-6xl bg-[#E9FAFF] max-w-[80vw] max-h-[80vh]">
       <div className="relative w-full h-full">
         <Decorations />
         <div className="relative z-40 py-20 px-8 md:px-20 space-y-6 md:space-y-12 w-full h-full">
