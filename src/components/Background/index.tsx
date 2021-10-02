@@ -33,7 +33,7 @@ const BackgroundIllust: FC = () => {
       <>
         <AnimationHeader />
         <Illust className="absolute top-0 w-full gradation" />
-        <div className="absolute z-20 w-full h-full bg-white opacity-0 pointer-events-none white-out" />
+        <div className="absolute top-0 z-20 w-full h-full bg-white opacity-0 pointer-events-none white-out" />
       </>
     )
   else
