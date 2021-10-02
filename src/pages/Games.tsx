@@ -24,10 +24,9 @@ const Games: FC = () => {
           <div className="text-lg">
             ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。
           </div>
-          {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-          <div className="my-128" />
         </div>
-
+        {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+        <div className="my-128" />
         <Game
           title="traPDispel"
           description={testDescription}
@@ -40,7 +39,7 @@ const Games: FC = () => {
         />
         {/* テスト用 */}
         {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-        <div className="py-400"> </div>
+        <div className="py-200"> </div>
         <Footer />
       </div>
     </ModalStateProvider>

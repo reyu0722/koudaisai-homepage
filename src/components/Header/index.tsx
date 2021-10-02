@@ -8,9 +8,9 @@ type Props = {
 const Header: FC<Props> = ({ className }) => {
   return (
     <div
-      className={`flex items-center justify-between top-0 sticky h-20 bg-background z-10 w-full ${className}`}>
-      <HeaderLogo className="ml-6 h-3 md:h-6" />
-      <div className="flex flex-row gap-12 justify-between items-center mr-6 h-full">
+      className={`flex sticky top-0 z-10 justify-between items-center pr-12 pl-6 w-full h-20 bg-background ${className}`}>
+      <HeaderLogo className="h-3 md:h-6" />
+      <div className="flex flex-row gap-12 justify-between items-center">
         <Link href="/" className="text-xl text-white">
           Home
         </Link>

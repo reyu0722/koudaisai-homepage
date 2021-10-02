@@ -18,14 +18,14 @@ const Carousel: FC = () => {
       {index != 0 && (
         <img
           src={left}
-          className="absolute top-0 bottom-0 left-0 z-50 my-auto"
+          className="absolute inset-y-0 left-0 z-50 my-auto"
           onClick={decrement}
         />
       )}
       {index != srcs.length - 1 && (
         <img
           src={right}
-          className="absolute top-0 right-0 bottom-0 z-50 my-auto"
+          className="absolute inset-y-0 right-0 z-50 my-auto"
           onClick={increment}
         />
       )}

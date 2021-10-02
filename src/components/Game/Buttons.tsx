@@ -6,6 +6,7 @@ import moreButtonHover from '/@/assets/buttons/more-hover.svg'
 
 const Buttons: FC = () => {
   const setModalState = useSetModalState()
+
   const openModal = () =>
     setModalState(s => {
       return {
