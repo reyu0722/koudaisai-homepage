@@ -6,7 +6,7 @@ type Props = {
 
 // アニメーションでの文字の間隔
 // 1だと遅い気がする
-const INTERVAL = 3
+const INTERVAL = 2
 
 // 現状アルファベットにのみ対応
 // 他もやろうと思えばできる
@@ -23,33 +23,55 @@ const Title: FC<Props> = ({ text }) => {
           if (c == text[i]) return c
 
           pushNewChar = false
-          let newCharCode = c.charCodeAt(0) + INTERVAL
           const goal = text.charCodeAt(i)
 
+          let interval = INTERVAL
+          if (c >= 'ぁ') interval *= 3
+
+          let newCharCode = c.charCodeAt(0) + interval
+
           // 通り過ぎた場合も止まる
-          if (newCharCode > goal && newCharCode < goal + INTERVAL)
+          if (newCharCode > goal && newCharCode < goal + interval)
             newCharCode = text.charCodeAt(i)
 
-          // zの次はA
-          if (c > 'z') newCharCode = 'A'.charCodeAt(0)
-          // Zの次はa
-          if (c > 'Z' && c < 'a') newCharCode = 'a'.charCodeAt(0)
+          let res = String.fromCharCode(newCharCode)
 
-          return String.fromCharCode(newCharCode)
+          // zの次はa
+          if (c <= 'z' && res > 'z') res = 'a'
+          // Zの次はA
+          else if (c <= 'Z' && res > 'Z') res = 'A'
+          // 9の次は0
+          else if (c <= '9' && res > '9') res = '0'
+          // んの次はぁ
+          else if (c <= 'ん' && res > 'ん') res = 'ぁ'
+          // ンの次はァ
+          else if (c <= 'ン' && res > 'ン') res = 'ァ'
+
+          return res
         })
         .join('')
 
       // ランダムのほうがいいような気もする
-      if (pushNewChar) newText += 'a'
+      if (pushNewChar) {
+        const newGoal = text[animationText.length]
+
+        if ('a' <= newGoal && newGoal <= 'z') newText += 'a'
+        else if ('A' <= newGoal && newGoal <= 'Z') newText += 'A'
+        else if ('0' <= newGoal && newGoal <= '9') newText += '0'
+        else if ('ぁ' <= newGoal && newGoal <= 'ん') newText += 'ぁ'
+        else if ('ァ' <= newGoal && newGoal <= 'ン') newText += 'ァ'
+        else newText += newGoal
+      }
 
       setAnimationText(newText)
     }, 0)
     return () => clearInterval(timer)
   }, [text, animationText])
 
-
-  // eslint-disable-next-line tailwindcss/no-custom-classname
-  return <div className="text-4xl md:text-6xl text-mypurple">{animationText}</div>
+  return (
+    // eslint-disable-next-line tailwindcss/no-custom-classname
+    <div className="text-4xl md:text-6xl text-mypurple">{animationText}</div>
+  )
 }
 
 export default Title

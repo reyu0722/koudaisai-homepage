@@ -10,6 +10,15 @@ const games: Game[] = [
     imgUrls: [noImage, noImage],
     blogUrl: 'https://trap.jp/post/1085/',
     gameUrl: 'https://trapdispel.trap.games/'
+  },
+  {
+    title: 'じゃぱりぱーく・おんらいん',
+    description:
+      '『けものフレンズ』の二次創作パーティーゲームが遂に登場！！\nフレンズになってジャパリパークを駆け巡り、どったんばったん大騒ぎ？！\n目的地探しやミッションでポイントを集め、フレンズの頂点を目指せ！！',
+    imgUrl: noImage,
+    imgUrls: [noImage, noImage],
+    blogUrl: '',
+    gameUrl: 'https://japari.toki317.dev/'
   }
 ]
 
