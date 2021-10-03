@@ -5,7 +5,8 @@ export default defineConfig({
     extend: {
       colors: {
         background: '#131229',
-        mypurple: '#B7B4EA'
+        mypurple: '#B7B4EA',
+        mycyan: '#96dceb'
       },
       fontFamily: {
         rubik: ['Rubik', 'sans-serif']

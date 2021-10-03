@@ -10,8 +10,8 @@ const Button: FC = () => {
   return (
     <div className="h-16 w-39">
       <div
-        className={`flex justify-center items-center px-6 w-full h-full rounded-[36px] border-solid border-[#96dceb] border-3 ${
-          hover ? 'bg-[#96dceb] text-[#131229]' : 'text-[#96dceb]'
+        className={`flex justify-center items-center px-6 w-full h-full rounded-[36px] border-solid border-mycyan border-3 ${
+          hover ? 'bg-mycyan text-[#131229]' : 'text-mycyan'
         }`}
         onMouseOver={hoverOn}
         onMouseOut={hoverOff}>

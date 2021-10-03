@@ -2,11 +2,8 @@ import { useState, useEffect } from 'preact/hooks'
 
 type Props = {
   text: string
+  reverse: boolean
 }
-
-// アニメーションでの文字の間隔
-// 1だと遅い気がする
-const INTERVAL = 2
 
 // 現状アルファベットにのみ対応
 // 他もやろうと思えばできる
@@ -25,8 +22,10 @@ const Title: FC<Props> = ({ text }) => {
           pushNewChar = false
           const goal = text.charCodeAt(i)
 
-          let interval = INTERVAL
-          if (c >= 'ぁ') interval *= 3
+          let interval = 2
+
+          //ひらがなの場合は少し速くする
+          if (c >= 'ぁ') interval = 6
 
           let newCharCode = c.charCodeAt(0) + interval
 
@@ -70,7 +69,9 @@ const Title: FC<Props> = ({ text }) => {
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
-    <div className="text-4xl md:text-6xl text-mypurple">{animationText}</div>
+    <div className="text-4xl md:text-6xl text-mypurple">
+      {animationText}
+    </div>
   )
 }
 
