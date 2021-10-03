@@ -11,6 +11,7 @@ const Buttons: FC<Props> = ({ blogUrl, gameUrl }) => {
   return (
     <div className="flex justify-between w-full h-full">
       <Blog url={blogUrl} />
+
       <PlayNowDark url={gameUrl} />
     </div>
   )
