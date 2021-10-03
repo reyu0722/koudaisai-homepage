@@ -69,7 +69,7 @@ const Game: FC<Props> = ({
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 lg:w-120">
-                <div className="text-lg">{description}</div>
+                <div className="text-lg whitespace-pre-wrap">{description}</div>
                 <Buttons {...modalContent} />
               </div>
             </div>
