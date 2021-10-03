@@ -9,7 +9,8 @@ export default defineConfig({
         mycyan: '#96dceb'
       },
       fontFamily: {
-        rubik: ['Rubik', 'sans-serif']
+        rubik: ['Rubik', 'sans-serif'],
+        noto: ['Noto Sans JP', 'sans-serif']
       }
     }
   }

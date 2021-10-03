@@ -12,6 +12,8 @@ const Button: FC<Props> = ({ url }) => {
   const hoverOn = () => setHover(true)
   const hoverOff = () => setHover(false)
 
+  const openUrl = () => window.open(url, '_blank')
+
   return (
     <div className="h-16 w-58">
       <div
@@ -19,7 +21,8 @@ const Button: FC<Props> = ({ url }) => {
           hover ? 'bg-[#dcf9ff]' : 'bg-mycyan'
         }`}
         onMouseOver={hoverOn}
-        onMouseOut={hoverOff}>
+        onMouseOut={hoverOff}
+        onClick={openUrl}>
         <p className="font-medium leading-none text-left align-top text-[24px] font-rubik text-[#131229]">
           PLAY NOW
         </p>
