@@ -68,7 +68,7 @@ const Game: FC<Props> = ({
                 <img src={imgUrl} className="w-full h-auto" />
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="space-y-12 lg:w-150">
+              <div className="space-y-12 <lg:w-full lg:w-150">
                 <div className="whitespace-pre-wrap">{description}</div>
                 <Buttons {...modalContent} />
               </div>

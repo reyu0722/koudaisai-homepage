@@ -13,8 +13,8 @@ const Body: FC = () => {
       <div className="relative z-40 py-20 px-8 lg:px-20 space-y-6 lg:space-y-12 w-full h-full">
         <div className="<lg:pl-12 text-4xl font-medium">あそびかた</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-6 lg:grid-rows-4 gap-6 lg:gap-12 justify-between h-[calc(100%-5rem)]">
-          <div className="row-span-3 lg:row-span-4">{howToPlay}</div>
-          <div className="row-span-2 lg:row-span-3 row-start-1">
+          <div className="row-span-2 lg:row-span-4">{howToPlay}</div>
+          <div className="row-span-3 row-start-1">
             <Carousel images={imgUrls} />
           </div>
           <div className="row-span-1">
