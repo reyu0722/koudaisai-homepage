@@ -64,11 +64,11 @@ const Game: FC<Props> = ({
                 reverse ? 'lg:flex-row' : 'lg:flex-row-reverse'
               } lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12`}>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="lg:max-w-160">
+              <div className="lg:max-w-180">
                 <img src={imgUrl} className="w-full h-auto" />
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="space-y-12 lg:w-120">
+              <div className="space-y-12 lg:w-150">
                 <div className="whitespace-pre-wrap">{description}</div>
                 <Buttons {...modalContent} />
               </div>
