@@ -49,6 +49,8 @@ const Game: FC<Props> = ({
     gameUrl
   }
 
+  const reverse = false
+
   return (
     <div className="py-64 my-32">
       <div className="z-10" ref={ref} />
@@ -56,8 +58,11 @@ const Game: FC<Props> = ({
       {visible && (
         <>
           <div className="mx-12 md:mx-24 space-y-16">
-            <Title text={title} />
-            <div className="flex flex-col lg:flex-row-reverse lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12">
+            <Title text={title} reverse={reverse} />
+            <div
+              className={`flex flex-col ${
+                reverse ? 'lg:flex-row' : 'lg:flex-row-reverse'
+              } lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12`}>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="lg:max-w-160">
                 <img src={imgUrl} className="w-full h-auto" />
