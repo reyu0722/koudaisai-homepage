@@ -14,7 +14,7 @@ const Body: FC = () => {
         <div className="<lg:pl-12 text-4xl font-medium">あそびかた</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-6 lg:grid-rows-4 gap-6 lg:gap-12 justify-between h-[calc(100%-5rem)]">
           <div className="row-span-2 lg:row-span-4">{howToPlay}</div>
-          <div className="row-span-3 row-start-1">
+          <div className="lg:col-start-2 row-span-3 row-start-1">
             <Carousel images={imgUrls} />
           </div>
           <div className="row-span-1">
