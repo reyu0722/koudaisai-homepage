@@ -1,11 +1,18 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { useState } from 'preact/hooks'
+import { useSetModalState, ModalState } from '/@/store/Modal'
 
-const Button: FC = () => {
+type Props = ModalState
+
+const Button: FC<Props> = newState => {
   const [hover, setHover] = useState(false)
 
   const hoverOn = () => setHover(true)
   const hoverOff = () => setHover(false)
+
+  const setModalState = useSetModalState()
+
+  const handleClick = () => setModalState(newState)
 
   return (
     <div className="h-16 w-39">
@@ -14,7 +21,8 @@ const Button: FC = () => {
           hover ? 'bg-mycyan text-[#131229]' : 'text-mycyan'
         }`}
         onMouseOver={hoverOn}
-        onMouseOut={hoverOff}>
+        onMouseOut={hoverOff}
+        onClick={handleClick}>
         <p className="font-medium leading-none align-top bg-opa text-[24px] font-rubik">
           MORE
         </p>
