@@ -39,7 +39,7 @@ const BackgroundIllust: FC = () => {
   else
     return (
       <>
-        <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
+        <IllustNoCube className="absolute top-0 w-full fade-in-illust" />
         <Cube offset={offset} />
       </>
     )
