@@ -39,8 +39,7 @@ const BackgroundIllust: FC = () => {
   else
     return (
       <>
-        {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-        <IllustNoCube className="absolute top-0 w-[100vw] gradation fade-in-illust" />
+        <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
         <Cube offset={offset} />
       </>
     )
