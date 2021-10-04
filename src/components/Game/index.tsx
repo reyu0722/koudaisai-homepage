@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
-import Buttons from './Buttons'
 import Animation from './Animation'
 import Title from './Title'
+import PlayNow from '/@/components/Button/PlayNow'
+import More from '/@/components/Button/More'
+import Download from '/@/components/Button/Download'
 
 type Props = Game
 
@@ -12,6 +14,7 @@ export type Game = {
   imgUrls: string[]
   blogUrl: string
   gameUrl: string
+  launcher?: boolean
 }
 
 const options = {
@@ -24,7 +27,8 @@ const Game: FC<Props> = ({
   imgUrl,
   imgUrls,
   blogUrl,
-  gameUrl
+  gameUrl,
+  launcher
 }) => {
   const [visible, setVisible] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -42,6 +46,7 @@ const Game: FC<Props> = ({
 
   const modalContent = {
     // TODO: ここどうにかする
+    isOpen: true,
     howToPlay:
       'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
     imgUrls,
@@ -70,7 +75,16 @@ const Game: FC<Props> = ({
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 <lg:w-full lg:w-150">
                 <div className="whitespace-pre-wrap">{description}</div>
-                <Buttons {...modalContent} />
+                <div className="flex gap-3 w-full h-12">
+                  {launcher ? (
+                    <Download url={gameUrl} />
+                  ) : (
+                    <>
+                      <PlayNow url={gameUrl} />
+                      <More {...modalContent} />
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </div>

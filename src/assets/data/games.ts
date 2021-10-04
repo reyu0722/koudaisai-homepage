@@ -19,6 +19,15 @@ const games: Game[] = [
     imgUrls: [noImage, noImage],
     blogUrl: '',
     gameUrl: 'https://japari.toki317.dev/'
+  },
+  {
+    title: 'traP Collection',
+    description: 'ランチャーだよ',
+    imgUrl: noImage,
+    imgUrls: [],
+    blogUrl: '',
+    gameUrl: '',
+    launcher: true
   }
 ]
 
