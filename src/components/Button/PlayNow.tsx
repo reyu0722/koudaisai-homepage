@@ -1,5 +1,5 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import arrow from '/@/assets/buttons/arrow.svg'
+import ArrowLeft from '/@/assets/buttons/ArrowLeft'
 import { useState } from 'preact/hooks'
 
 type Props = {
@@ -26,7 +26,7 @@ const Button: FC<Props> = ({ url }) => {
         <p className="font-medium leading-none text-left align-top text-[24px] font-rubik text-[#131229]">
           PLAY NOW
         </p>
-        <img src={arrow} className="w-8 h-8" />
+        <ArrowLeft />
       </div>
     </div>
   )

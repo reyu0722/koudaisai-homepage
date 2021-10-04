@@ -1,5 +1,5 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import arrow from '/@/assets/buttons/arrow-white.svg'
+import ArrowLeft from '/@/assets/buttons/ArrowLeft'
 
 type Props = {
   url: string
@@ -16,7 +16,7 @@ const Button: FC<Props> = ({ url }) => {
         <p className="font-medium leading-none text-left align-top text-[24px] font-rubik text-[#eff1f5]">
           PLAY NOW
         </p>
-        <img src={arrow} className="w-8 h-8" />
+        <ArrowLeft color="#EFF1F5" />
       </div>
     </div>
   )
