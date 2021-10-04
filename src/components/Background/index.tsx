@@ -4,21 +4,16 @@ import IllustNoCube from '/@/assets/images/illust-nocube'
 import { useChangedState, useSetChangedState } from '/@/store/Changed'
 import Cube from './Cube'
 import Logo from './Logo'
+import { RefObject } from 'preact'
 
 // 背景画像が切り替わるタイミング
 const CHANGE_OFFSET = 0.64
 
-const BackgroundIllust: FC = () => {
-  const [offset, setOffset] = useState(0)
+type Props = {
+  offset: number
+}
 
-  useEffect(() => {
-    const listener = () =>
-      setOffset(Math.min(window.pageYOffset / window.innerWidth, CHANGE_OFFSET))
-
-    window.addEventListener('scroll', listener)
-    return () => window.removeEventListener('scroll', listener)
-  }, [])
-
+const BackgroundIllust: FC<Props> = ({ offset }) => {
   const changed = useChangedState()
   const setChanged = useSetChangedState()
 
@@ -55,7 +50,7 @@ const BackgroundIllust: FC = () => {
     return (
       <>
         <Illust className="absolute top-0 w-full gradation" />
-        <div className="absolute top-0 z-20 w-full h-full bg-white opacity-0 pointer-events-none white-out" />
+        <div className="fixed top-0 z-20 w-full h-full bg-white opacity-0 pointer-events-none white-out" />
       </>
     )
   else
@@ -75,12 +70,12 @@ const BackgroundIllust: FC = () => {
     )
 }
 
-const Background: FC = () => {
+const Background: FC<Props> = ({ offset }) => {
   return (
     <>
       <PrefetchIllust />
       <Logo />
-      <BackgroundIllust />
+      <BackgroundIllust offset={offset} />
     </>
   )
 }
