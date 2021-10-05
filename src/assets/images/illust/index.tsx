@@ -10,7 +10,7 @@ const Illust: FC<Props> = ({ className }) => {
     <picture>
       <source type="image/avif" srcSet={avif} />
       <source type="image/webp" srcSet={webp} />
-      <img src={jpg} width="1920" height="2718" className={className} loading="lazy" />
+      <img src={jpg} width="1920" height="2718" className={className} />
     </picture>
   )
 }
