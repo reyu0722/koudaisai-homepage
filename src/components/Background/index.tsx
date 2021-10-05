@@ -4,25 +4,13 @@ import IllustNoCube from '/@/assets/images/illust-nocube'
 import { useChangedState, useSetChangedState } from '/@/store/Changed'
 import Cube from './Cube'
 import Logo from './Logo'
+import { useStatusState } from '/@/store/Status'
 
 // 背景画像が切り替わるタイミング
 const CHANGE_OFFSET = 0.64
 
-type Props = {
-  offset: number
-}
-
-const BackgroundIllust: FC<Props> = ({ offset }) => {
-  const changed = useChangedState()
-  const setChanged = useSetChangedState()
-
-  useEffect(() => {
-    if (offset >= CHANGE_OFFSET) {
-      // アニメーションの時間に合わせて調整
-      setTimeout(() => setChanged(true), 210)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [offset])
+const BackgroundIllust: FC = () => {
+  const { illustChanged: changed } = useStatusState()
 
   // const [clicked, setClicked] = useState(false)
   // const autoScroll = () => setClicked(true)
@@ -56,7 +44,7 @@ const BackgroundIllust: FC<Props> = ({ offset }) => {
     return (
       <>
         <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
-        <Cube offset={offset} />
+        <Cube />
         {/*
         <div
           // eslint-disable-next-line tailwindcss/no-custom-classname
@@ -69,12 +57,12 @@ const BackgroundIllust: FC<Props> = ({ offset }) => {
     )
 }
 
-const Background: FC<Props> = ({ offset }) => {
+const Background: FC = () => {
   return (
     <>
       <PrefetchIllust />
       <Logo />
-      <BackgroundIllust offset={offset} />
+      <BackgroundIllust />
     </>
   )
 }

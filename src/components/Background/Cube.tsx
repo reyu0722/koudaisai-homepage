@@ -1,4 +1,5 @@
 import CubeImg from '/@/assets/images/cube'
+import { useOffsetState } from '/@/store/Offset'
 
 // cubeの挙動を決める関数たち
 const getCubeX = (offset: number): number =>
@@ -10,11 +11,8 @@ const getCubeWidth = (offset: number): number => 20 + offset * 50
 
 const getCubeDeg = (offset: number): number => -25 + offset * 40
 
-type Props = {
-  offset: number
-}
-
-const Cube: FC<Props> = ({ offset }) => {
+const Cube: FC = () => {
+  const offset = useOffsetState()
   return (
     <CubeImg
       className="absolute fade-in-illust"
