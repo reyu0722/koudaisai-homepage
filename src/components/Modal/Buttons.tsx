@@ -9,9 +9,8 @@ type Props = {
 
 const Buttons: FC<Props> = ({ blogUrl, gameUrl }) => {
   return (
-    <div className="flex justify-between w-full h-full">
+    <div className="flex <md:flex-col <md:gap-4 md:justify-between <md:items-center w-full h-full">
       <Blog url={blogUrl} />
-
       <PlayNowDark url={gameUrl} />
     </div>
   )

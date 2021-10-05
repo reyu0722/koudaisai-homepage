@@ -12,7 +12,7 @@ const Decorations: FC = () => {
         className="absolute bottom-0 right-[55%] min-w-[45%]"
       />
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-      <img src={titlebg} className="absolute top-16 w-52 left-18" />
+      <img src={titlebg} className="absolute top-16 left-12 w-52 lg:left-18" />
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="absolute top-11 text-sm text-mycyan font-rubik left-22">
         HOW TO PLAY

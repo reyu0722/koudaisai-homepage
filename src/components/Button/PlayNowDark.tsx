@@ -9,7 +9,7 @@ const Button: FC<Props> = ({ url }) => {
   const openUrl = () => window.open(url, '_blank')
 
   return (
-    <div className="w-60 h-16">
+    <div className="w-60 <md:h-12 h-16">
       <div
         className="flex justify-between items-center px-6 w-full h-full rounded-[36px] bg-[#1e2f3f]"
         onClick={openUrl}>
