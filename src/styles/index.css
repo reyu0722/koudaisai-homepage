@@ -1,3 +1,22 @@
+/*
+Rubik
+MORE, HOW TO PLAY, DOWNLOAD
+*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap&text=MOREHOWTOPLAYDOWNLOAD%20');
+
+/*
+Robotto
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto:wght@400;500&display=swap');
+
+/*
+Noto Sans JP
+日本語、でかい
+500は「あそびかた」とゲームタイトルでしか使わない(はず)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap&text=あそびかたじゃぱりぱーく・おんらいん');
+
 html {
 }
 
