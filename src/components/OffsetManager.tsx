@@ -1,7 +1,7 @@
 import { RefObject } from 'preact'
-import { useState, useEffect, useRef } from 'preact/hooks'
+import { useEffect } from 'preact/hooks'
 import { useStatusState, useSetStatusState } from '/@/store/Status'
-import { useOffsetState, useSetOffsetState } from '/@/store/Offset'
+import { useSetOffsetState } from '/@/store/Offset'
 
 type Props = {
   refObj: RefObject<HTMLDivElement>
@@ -11,7 +11,6 @@ const CHANGE_OFFSET = 0.64
 const HEADER_OFFSET = 0.9
 
 const OffsetManager: FC<Props> = ({ refObj: ref }) => {
-  const offset = useOffsetState()
   const setOffset = useSetOffsetState()
 
   const status = useStatusState()

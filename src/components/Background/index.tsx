@@ -1,13 +1,10 @@
-import { useEffect } from 'preact/hooks'
+
 import Illust, { PrefetchIllust } from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
-import { useChangedState, useSetChangedState } from '/@/store/Changed'
 import Cube from './Cube'
 import Logo from './Logo'
 import { useStatusState } from '/@/store/Status'
 
-// 背景画像が切り替わるタイミング
-const CHANGE_OFFSET = 0.64
 
 const BackgroundIllust: FC = () => {
   const { illustChanged: changed } = useStatusState()
