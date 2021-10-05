@@ -1,10 +1,8 @@
-
 import Illust, { PrefetchIllust } from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
 import Cube from './Cube'
 import Logo from './Logo'
 import { useStatusState } from '/@/store/Status'
-
 
 const BackgroundIllust: FC = () => {
   const { illustChanged: changed } = useStatusState()
@@ -57,9 +55,9 @@ const BackgroundIllust: FC = () => {
 const Background: FC = () => {
   return (
     <>
-      <PrefetchIllust />
       <Logo />
       <BackgroundIllust />
+      <PrefetchIllust />
     </>
   )
 }
