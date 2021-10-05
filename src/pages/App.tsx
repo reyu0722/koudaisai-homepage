@@ -3,7 +3,7 @@ import Footer from '/@/components/Footer'
 import Game from '/@/components/Game'
 import Modal from '/@/components/Modal'
 import Provider from '/@/store'
-import { useRef} from 'preact/hooks'
+import { useRef } from 'preact/hooks'
 import games from '/@/assets/data/games'
 import AnimationHeader from '/@/components/Background/AnimationHeader'
 import OffsetManager from '/@/components/OffsetManager'
@@ -18,6 +18,7 @@ const App: FC = () => {
           <AnimationHeader />
           <div
             className="overflow-x-hidden overflow-y-scroll relative w-full h-full"
+            style="overflow-y: overlay"
             ref={ref}>
             <OffsetManager refObj={ref} />
             <Modal />
