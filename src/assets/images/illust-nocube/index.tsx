@@ -5,7 +5,7 @@ type Props = {
 }
 
 const IllustNoCube: FC<Props> = ({ className }) => {
-  return <img src={webp} className={className} />
+  return <img width="1920" height="2718" src={webp} className={className} />
 }
 
 export default IllustNoCube

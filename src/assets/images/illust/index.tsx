@@ -7,7 +7,7 @@ type Props = {
 const Illust: FC<Props> = ({ className }) => {
   return (
     <>
-      <img src={webp} className={className} />
+      <img width="1920" height="2718" src={webp} className={className} />
     </>
   )
 }
