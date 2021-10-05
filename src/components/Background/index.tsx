@@ -1,4 +1,4 @@
-import Illust, { PrefetchIllust } from '/@/assets/images/illust'
+import Illust from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
 import Cube from './Cube'
 import Logo from './Logo'
@@ -31,7 +31,6 @@ const BackgroundIllust: FC = () => {
   if (changed)
     return (
       <>
-        <Illust className="absolute top-0 w-full gradation" />
         <div className="fixed top-0 z-20 w-full h-full bg-white opacity-0 pointer-events-none white-out" />
       </>
     )
@@ -55,9 +54,9 @@ const BackgroundIllust: FC = () => {
 const Background: FC = () => {
   return (
     <>
+      <Illust className="absolute top-0 w-full gradation" />
       <Logo />
       <BackgroundIllust />
-      <PrefetchIllust />
     </>
   )
 }
