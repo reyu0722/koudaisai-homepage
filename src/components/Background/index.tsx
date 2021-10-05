@@ -31,6 +31,7 @@ const BackgroundIllust: FC = () => {
   if (changed)
     return (
       <>
+        <Illust className="absolute top-0 w-full gradation" />
         <div className="fixed top-0 z-20 w-full h-full bg-white opacity-0 pointer-events-none white-out" />
       </>
     )
@@ -39,6 +40,7 @@ const BackgroundIllust: FC = () => {
       <>
         <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
         <Cube />
+        <Illust className="hidden" />
         {/*
         <div
           // eslint-disable-next-line tailwindcss/no-custom-classname
@@ -54,7 +56,6 @@ const BackgroundIllust: FC = () => {
 const Background: FC = () => {
   return (
     <>
-      <Illust className="absolute top-0 w-full gradation" />
       <Logo />
       <BackgroundIllust />
     </>
