@@ -35,12 +35,15 @@ const Game: FC<Props> = ({
   launcher
 }) => {
   const [visible, setVisible] = useState(false)
+
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const cur = ref.current
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setVisible(true)
+      if (entry.isIntersecting) {
+        setVisible(true)
+      }
     }, options)
     if (cur) observer.observe(cur)
     return () => {
@@ -61,10 +64,10 @@ const Game: FC<Props> = ({
   const reverse = false
 
   return (
-    <div className="py-32 my-32">
+    <div className="py-32 my-64">
       <div className="z-10" ref={ref} />
       <Animation visible={visible} />
-      {visible && (
+      {true && (
         <>
           <div className="mx-12 md:mx-24 space-y-16">
             <Title text={title} reverse={reverse} />

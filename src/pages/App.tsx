@@ -1,3 +1,4 @@
+import { createRef, RefObject } from 'preact'
 import { useRef } from 'preact/hooks'
 
 import games from '/@/assets/data/games'
@@ -7,10 +8,17 @@ import Footer from '/@/components/Footer'
 import Game from '/@/components/Game'
 import Modal from '/@/components/Modal'
 import OffsetManager from '/@/components/OffsetManager'
+import ScrollManager from '/@/components/ScrollManager'
 import Provider from '/@/store'
 
 const App: FC = () => {
   const ref = useRef<HTMLDivElement>(null)
+
+  const gameRefs = useRef<RefObject<HTMLDivElement>[]>([])
+
+  games.forEach((_, index) => {
+    gameRefs.current[index] = createRef<HTMLDivElement>()
+  })
 
   return (
     <>
@@ -22,6 +30,7 @@ const App: FC = () => {
             style="overflow-y: overlay"
             ref={ref}>
             <OffsetManager refObj={ref} />
+            <ScrollManager refs={gameRefs} refObj={ref} />
             <Modal />
             <Background />
             {/* テスト用 */}
@@ -40,8 +49,10 @@ const App: FC = () => {
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="my-60" />
-              {games.map(game => (
-                <Game {...game} key={game.title} />
+              {games.map((game, i) => (
+                <div ref={gameRefs.current[i]} key={game.title}>
+                  <Game {...game} />
+                </div>
               ))}
               {/* テスト用 */}
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
