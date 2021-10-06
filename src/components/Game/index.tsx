@@ -18,7 +18,7 @@ export type Game = {
 }
 
 const options = {
-  rootMargin: `-${Math.floor(window.innerHeight) / 3}px`
+  rootMargin: `-30% 0px -30% 0px`
 }
 
 const Game: FC<Props> = ({
