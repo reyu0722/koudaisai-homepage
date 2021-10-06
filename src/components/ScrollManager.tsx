@@ -79,7 +79,11 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       }
     }
     cur?.addEventListener('scroll', listener)
-    return () => cur?.removeEventListener('scroll', listener)
+    cur?.addEventListener('touchmove', listener)
+    return () => {
+      cur?.removeEventListener('scroll', listener)
+      cur?.removeEventListener('touchmove', listener)
+    }
   }, [refObj, ok])
   return null
 }
