@@ -1,12 +1,13 @@
+import { useRef } from 'preact/hooks'
+
+import games from '/@/assets/data/games'
 import Background from '/@/components/Background'
+import AnimationHeader from '/@/components/Background/AnimationHeader'
 import Footer from '/@/components/Footer'
 import Game from '/@/components/Game'
 import Modal from '/@/components/Modal'
-import Provider from '/@/store'
-import { useRef } from 'preact/hooks'
-import games from '/@/assets/data/games'
-import AnimationHeader from '/@/components/Background/AnimationHeader'
 import OffsetManager from '/@/components/OffsetManager'
+import Provider from '/@/store'
 
 const App: FC = () => {
   const ref = useRef<HTMLDivElement>(null)

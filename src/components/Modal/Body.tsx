@@ -1,8 +1,9 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import { useModalState } from '/@/store/Modal'
+
 import Buttons from './Buttons'
 import Carousel from './Carousel'
 import Decorations from './Decorations'
-import { useModalState } from '/@/store/Modal'
 
 const Body: FC = () => {
   const { howToPlay, imgUrls, blogUrl, gameUrl } = useModalState()

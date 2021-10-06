@@ -1,4 +1,5 @@
 import { render } from 'preact'
+
 import App from '/@/pages/App'
 import 'virtual:windi.css'
 import '/@/styles/index.css'

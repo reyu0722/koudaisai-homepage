@@ -1,7 +1,9 @@
+import { useEffect } from 'preact/hooks'
+
+import { useModalState } from '/@/store/Modal'
+
 import Background from './Background'
 import Body from './Body'
-import { useModalState } from '/@/store/Modal'
-import { useEffect } from 'preact/hooks'
 
 const Modal: FC = () => {
   const { isOpen } = useModalState()

@@ -1,5 +1,5 @@
-import { ModalStateProvider } from '/@/store/Modal'
 import { ChangedStateProvider } from '/@/store/Changed'
+import { ModalStateProvider } from '/@/store/Modal'
 import { OffsetStateProvider } from '/@/store/Offset'
 import { StatusStateProvider } from '/@/store/Status'
 

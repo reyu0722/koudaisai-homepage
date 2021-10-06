@@ -1,7 +1,8 @@
-import Content from './Content'
-import { TrapLogo, KoudaisaiLogo } from '/@/assets/logo'
-import twitterIconSrc from '/@/assets/icon/twitter.svg'
 import mailIconSrc from '/@/assets/icon/mail.svg'
+import twitterIconSrc from '/@/assets/icon/twitter.svg'
+import { TrapLogo, KoudaisaiLogo } from '/@/assets/logo'
+
+import Content from './Content'
 
 const Footer: FC = () => {
   return (

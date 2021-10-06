@@ -1,6 +1,6 @@
 import avif from './img.avif'
-import webp from './img.webp'
 import jpg from './img.jpg'
+import webp from './img.webp'
 
 type Props = {
   className?: string

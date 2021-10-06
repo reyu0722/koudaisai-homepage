@@ -1,5 +1,5 @@
-import { useState, useContext, StateUpdater } from 'preact/hooks'
 import { createContext } from 'preact'
+import { useState, useContext, StateUpdater } from 'preact/hooks'
 
 export type StatusState = {
   illustChanged: boolean

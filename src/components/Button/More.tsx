@@ -1,5 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { useState } from 'preact/hooks'
+
 import { useSetModalState, ModalState } from '/@/store/Modal'
 
 type Props = ModalState

@@ -1,8 +1,9 @@
 import Illust from '/@/assets/images/illust'
 import IllustNoCube from '/@/assets/images/illust-nocube'
+import { useStatusState } from '/@/store/Status'
+
 import Cube from './Cube'
 import Logo from './Logo'
-import { useStatusState } from '/@/store/Status'
 
 const BackgroundIllust: FC = () => {
   const { illustChanged: changed } = useStatusState()

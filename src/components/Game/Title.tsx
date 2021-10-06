@@ -69,9 +69,7 @@ const Title: FC<Props> = ({ text }) => {
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
-    <div className="text-4xl md:text-6xl text-mypurple">
-      {animationText}
-    </div>
+    <div className="text-4xl md:text-6xl text-mypurple">{animationText}</div>
   )
 }
 

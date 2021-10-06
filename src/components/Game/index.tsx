@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
-import Animation from './Animation'
-import Title from './Title'
-import PlayNow from '/@/components/Button/PlayNow'
-import More from '/@/components/Button/More'
+
 import Download from '/@/components/Button/Download'
+import More from '/@/components/Button/More'
+import PlayNow from '/@/components/Button/PlayNow'
+
+import Animation from './Animation'
 import Image from './Image'
+import Title from './Title'
 
 type Props = Game
 

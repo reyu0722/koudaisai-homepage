@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks'
-import right from '/@/assets/buttons/right.svg'
+
 import left from '/@/assets/buttons/left.svg'
+import right from '/@/assets/buttons/right.svg'
 
 type Props = {
   images: string[]

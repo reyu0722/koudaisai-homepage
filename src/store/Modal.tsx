@@ -1,7 +1,7 @@
 // 参考 : https://mizchi.dev/202005271609-react-app-context
 
-import { useState, useContext, StateUpdater } from 'preact/hooks'
 import { createContext } from 'preact'
+import { useState, useContext, StateUpdater } from 'preact/hooks'
 
 export type ModalState = {
   isOpen: boolean

@@ -1,6 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import ArrowLeft from '/@/assets/buttons/ArrowLeft'
 import { useState } from 'preact/hooks'
+
+import ArrowLeft from '/@/assets/buttons/ArrowLeft'
 
 type Props = {
   url: string

@@ -1,7 +1,8 @@
 import { RefObject } from 'preact'
 import { useEffect } from 'preact/hooks'
-import { useStatusState, useSetStatusState } from '/@/store/Status'
+
 import { useSetOffsetState } from '/@/store/Offset'
+import { useStatusState, useSetStatusState } from '/@/store/Status'
 
 type Props = {
   refObj: RefObject<HTMLDivElement>

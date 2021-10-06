@@ -1,5 +1,5 @@
-import { Game } from '/@/components/Game'
 import noImage from '/@/assets/images/noimage.jpg'
+import { Game } from '/@/components/Game'
 
 const games: Game[] = [
   {

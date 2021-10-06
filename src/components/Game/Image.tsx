@@ -1,6 +1,8 @@
-import Frame from './Frame'
-import dummy from '/@/assets/images/dummy.svg'
 import { useEffect, useRef, useState } from 'preact/hooks'
+
+import dummy from '/@/assets/images/dummy.svg'
+
+import Frame from './Frame'
 
 const options = {
   rootMargin: `-20% 0px -20% 0px`

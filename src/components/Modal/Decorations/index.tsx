@@ -1,6 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import meshTop from './mesh-top.svg'
 import meshBottom from './mesh-bottom.svg'
+import meshTop from './mesh-top.svg'
 import titlebg from './titlebg.svg'
 
 const Decorations: FC = () => {
