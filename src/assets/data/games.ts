@@ -1,3 +1,4 @@
+import { dummy1, dummy2, dummy3, dummy4 } from '/@/assets/images/carousel'
 import noImage from '/@/assets/images/noimage.jpg'
 import { Game } from '/@/components/Game'
 
@@ -9,7 +10,7 @@ const games: Game[] = [
 最後まで拠点を守り切れた人が勝者だ!!`,
     howToPlay: '',
     imgUrl: noImage,
-    imgUrls: [noImage, noImage],
+    imgUrls: [dummy1, dummy2, dummy3, dummy4],
     blogUrl: 'https://trap.jp/post/1085/',
     gameUrl: 'https://trapdispel.trap.games/'
   },
@@ -20,7 +21,7 @@ const games: Game[] = [
 目的地探しやミッションでポイントを集め、フレンズの頂点を目指せ！！`,
     howToPlay: '',
     imgUrl: noImage,
-    imgUrls: [noImage, noImage],
+    imgUrls: [dummy1, dummy2, dummy3, dummy4],
     blogUrl: '',
     gameUrl: 'https://japari.toki317.dev/'
   },
