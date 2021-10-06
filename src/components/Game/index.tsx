@@ -61,7 +61,7 @@ const Game: FC<Props> = ({
   const reverse = false
 
   return (
-    <div className="py-64 my-32">
+    <div className="py-32 my-32">
       <div className="z-10" ref={ref} />
       <Animation visible={visible} />
       {visible && (

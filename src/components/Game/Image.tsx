@@ -32,7 +32,7 @@ const Image: FC = () => {
     <>
       <div ref={ref} />
       <Frame className="absolute top-2 w-full h-auto" />
-      <Frame className="absolute top-5 w-full h-auto" />
+      <Frame className="absolute top-6 w-full h-auto" />
       <img src={dummy} className={getClass()} />
     </>
   )

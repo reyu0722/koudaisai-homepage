@@ -39,13 +39,13 @@ const App: FC = () => {
                 </div>
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="my-128" />
+              <div className="my-60" />
               {games.map(game => (
                 <Game {...game} key={game.title} />
               ))}
               {/* テスト用 */}
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="py-200"> </div>
+              <div className="py-20"> </div>
             </div>
 
             <Footer />
