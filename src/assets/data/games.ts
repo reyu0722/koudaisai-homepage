@@ -1,5 +1,4 @@
 import { dummy1, dummy2, dummy3, dummy4 } from '/@/assets/images/carousel'
-import noImage from '/@/assets/images/noimage.jpg'
 import { Game } from '/@/components/Game'
 
 const games: Game[] = [
@@ -9,7 +8,7 @@ const games: Game[] = [
 マップの真ん中から進行してくる敵から自分の陣地を守りつつ、他の人を妨害しよう!
 最後まで拠点を守り切れた人が勝者だ!!`,
     howToPlay: '',
-    imgUrl: noImage,
+    imgUrl: "",
     imgUrls: [dummy1, dummy2, dummy3, dummy4],
     blogUrl: 'https://trap.jp/post/1085/',
     gameUrl: 'https://trapdispel.trap.games/'
@@ -20,7 +19,7 @@ const games: Game[] = [
 フレンズになってジャパリパークを駆け巡り、どったんばったん大騒ぎ？！
 目的地探しやミッションでポイントを集め、フレンズの頂点を目指せ！！`,
     howToPlay: '',
-    imgUrl: noImage,
+    imgUrl: "",
     imgUrls: [dummy1, dummy2, dummy3, dummy4],
     blogUrl: '',
     gameUrl: 'https://japari.toki317.dev/'
@@ -29,7 +28,7 @@ const games: Game[] = [
     title: 'traP Collection',
     description: 'ランチャーだよ',
     howToPlay: '',
-    imgUrl: noImage,
+    imgUrl: "",
     imgUrls: [],
     blogUrl: '',
     gameUrl: '',
