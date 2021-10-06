@@ -15,7 +15,6 @@ const Image: FC = () => {
   useEffect(() => {
     const cur = ref.current
     const observer = new IntersectionObserver(([entry]) => {
-      console.log('observed')
       if (entry.isIntersecting) setActive(true)
       else setActive(false)
     }, options)
