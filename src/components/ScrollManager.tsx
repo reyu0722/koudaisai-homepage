@@ -60,10 +60,11 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
     nextRef?.current?.scrollIntoView(false)
 
     setOk(false)
+
     setTimeout(() => {
       setOk(true)
     }, 1000)
-  }, [scrollTop, refObj, refs, upside])
+  }, [scrollTop, refObj, refs])
 
   useEffect(() => {
     const cur = refObj.current
@@ -77,7 +78,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
         })
       }
     }
-    if (ok) cur?.addEventListener('scroll', listener)
+    cur?.addEventListener('scroll', listener)
     return () => cur?.removeEventListener('scroll', listener)
   }, [refObj, ok])
   return null
