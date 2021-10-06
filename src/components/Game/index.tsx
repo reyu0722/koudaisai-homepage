@@ -4,12 +4,14 @@ import Title from './Title'
 import PlayNow from '/@/components/Button/PlayNow'
 import More from '/@/components/Button/More'
 import Download from '/@/components/Button/Download'
+import Image from './Image'
 
 type Props = Game
 
 export type Game = {
   title: string
   description: string
+  howToPlay: string
   imgUrl: string
   imgUrls: string[]
   blogUrl: string
@@ -69,8 +71,8 @@ const Game: FC<Props> = ({
                 reverse ? 'lg:flex-row' : 'lg:flex-row-reverse'
               } lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12`}>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="lg:max-w-180">
-                <img src={imgUrl} className="w-full h-auto" />
+              <div className="relative w-full h-auto lg:w-180">
+                <Image />
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 <lg:w-full lg:w-150">

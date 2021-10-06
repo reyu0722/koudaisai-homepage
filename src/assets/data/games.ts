@@ -4,8 +4,10 @@ import noImage from '/@/assets/images/noimage.jpg'
 const games: Game[] = [
   {
     title: 'traPDispel',
-    description:
-      'ブラウザで遊べるオンライン対戦型タワーディフェンスゲーム!\nマップの真ん中から進行してくる敵から自分の陣地を守りつつ、他の人を妨害しよう!\n最後まで拠点を守り切れた人が勝者だ!!',
+    description: `ブラウザで遊べるオンライン対戦型タワーディフェンスゲーム!
+マップの真ん中から進行してくる敵から自分の陣地を守りつつ、他の人を妨害しよう!
+最後まで拠点を守り切れた人が勝者だ!!`,
+    howToPlay: '',
     imgUrl: noImage,
     imgUrls: [noImage, noImage],
     blogUrl: 'https://trap.jp/post/1085/',
@@ -13,8 +15,10 @@ const games: Game[] = [
   },
   {
     title: 'じゃぱりぱーく・おんらいん',
-    description:
-      '『けものフレンズ』の二次創作パーティーゲームが遂に登場！！\nフレンズになってジャパリパークを駆け巡り、どったんばったん大騒ぎ？！\n目的地探しやミッションでポイントを集め、フレンズの頂点を目指せ！！',
+    description: `『けものフレンズ』の二次創作パーティーゲームが遂に登場！！
+フレンズになってジャパリパークを駆け巡り、どったんばったん大騒ぎ？！
+目的地探しやミッションでポイントを集め、フレンズの頂点を目指せ！！`,
+    howToPlay: '',
     imgUrl: noImage,
     imgUrls: [noImage, noImage],
     blogUrl: '',
@@ -23,6 +27,7 @@ const games: Game[] = [
   {
     title: 'traP Collection',
     description: 'ランチャーだよ',
+    howToPlay: '',
     imgUrl: noImage,
     imgUrls: [],
     blogUrl: '',
