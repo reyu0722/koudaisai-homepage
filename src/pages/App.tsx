@@ -28,7 +28,7 @@ const App: FC = () => {
         <div className="fixed w-full h-full">
           <AnimationHeader />
           <div
-            className="overflow-x-hidden overflow-y-scroll relative w-full h-full"
+            className="overflow-x-hidden overflow-y-auto relative w-full h-full"
             style="overflow-y: overlay"
             ref={ref}>
             <OffsetManager refObj={ref} />
@@ -41,7 +41,7 @@ const App: FC = () => {
 
             <div className="text-lg md:text-2xl">
               <div
-                className="mx-12 pt-60 md:mr-48 md:ml-24 pb-120"
+                className="pt-60 mx-12 md:mr-48 md:ml-24 pb-120"
                 ref={gameRefs.current[0]}>
                 {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
                 <div className="mt-12 text-6xl mb-18 text-mypurple">
