@@ -19,7 +19,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       const start = refObj.current?.scrollTop ?? 0
       const end = scrollY
-      const delta = Math.ceil((end - start) / 20 + Math.sign(end - start))
+      const delta = Math.ceil((end - start) / 20 + Math.sign(end - start) * 5)
       if (refObj.current) {
         if (
           (start < end && start + delta >= end) ||
@@ -27,8 +27,8 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
         ) {
           refObj.current.scrollTop = end
           console.log('finish')
-          setScrolling(false)
           setScrollTop(refObj.current.scrollTop)
+          setScrolling(false)
         } else {
           refObj.current.scrollTop += delta
           setTimeout(scroll, 20)
@@ -45,14 +45,9 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
     const handleScroll = (up: boolean) => {
       if (scrolling) return
-      console.log(up)
-      const top = cur?.scrollTop ?? 0
-      const bottom = top + (refObj.current?.offsetHeight ?? 0)
-
-      const firstRef = (refs.current ?? [null])[0]
-
-      let height =
-        (firstRef?.current?.offsetTop ?? 0) - (refObj.current?.offsetTop ?? 0)
+      const viewTop = cur?.scrollTop ?? 0
+      const viewBottom = viewTop + (cur?.offsetHeight ?? 0)
+      console.log(viewTop, viewBottom)
 
       let index = -1
 
@@ -60,27 +55,25 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
         const cur = ref.current
         if (!cur || cur.offsetHeight == 0 || index != -1) return
 
-        // 上にはみ出た場合
-        if (
-          !up &&
-          height < top &&
-          height + cur.offsetHeight > top &&
-          i != (refs?.current ?? []).length - 1
-        ) {
+        const curTop = cur.offsetTop ?? 0
+        // 上にスクロールした場合
+        if (up && curTop > viewTop && curTop < viewBottom && i != 0) {
+          console.log(curTop, curTop + cur.offsetHeight, viewTop)
           index = i
         }
 
-        // 下にはみ出た場合
+        // 下にスクロールした場合
         if (
-          up &&
-          height < bottom &&
-          height + cur.offsetHeight > top &&
-          i != 0
+          !up &&
+          curTop + cur.offsetHeight > viewTop &&
+          curTop + cur.offsetHeight < viewBottom &&
+          i != (refs?.current ?? []).length - 1
         ) {
+          console.log(curTop, curTop + cur.offsetHeight, viewBottom)
           index = i
         }
+
         if (index != -1) console.log('i:', i)
-        height += cur.offsetHeight
       })
 
       if (index == -1) return
@@ -95,13 +88,15 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       const nextRef = (refs.current ?? [null])[index]
 
       setScrolling(true)
-      setScrollY(nextRef?.current?.offsetTop ?? 0)
+      setScrollY(
+        nextRef?.current?.offsetTop ?? 0 /* +
+          (nextRef?.current?.offsetHeight ?? 0) -
+          (refObj.current?.offsetHeight ?? 0) */
+      )
     }
 
     const listener = () => {
       const newVal = cur?.scrollTop ?? 0
-      console.log(scrollTop, newVal)
-      console.log('upside:', scrollTop > newVal)
       setScrollTop(newVal)
       handleScroll(scrollTop > newVal)
     }
