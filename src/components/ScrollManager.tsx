@@ -8,7 +8,7 @@ type Props = {
 
 const ScrollManager: FC<Props> = ({ refs, refObj }) => {
   const [scrollTop, setScrollTop] = useState(0)
-  const [, setTouchY] = useState(0)
+  const [touchY, setTouchY] = useState(0)
   const [touchUpside, setTouchUpside] = useState(false)
   const [scrolling, setScrolling] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -113,12 +113,10 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
     const touchMoveListener = (e: TouchEvent) => {
       console.log('touch move')
-      setTouchY(now => {
-        const newVal = e.touches[0].clientY
-        if (now > newVal) setTouchUpside(false)
-        else setTouchUpside(true)
-        return newVal
-      })
+      const newVal = e.touches[0].clientY
+      if (touchY > newVal) setTouchUpside(false)
+      else setTouchUpside(true)
+      setTouchY(newVal)
     }
 
     const touchEndListener = () => {
@@ -139,7 +137,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       cur?.removeEventListener('touchmove', touchMoveListener)
       cur?.removeEventListener('touchend', touchEndListener)
     }
-  }, [scrollTop, scrolling, touchUpside, refObj, refs])
+  }, [scrollTop, scrolling, touchUpside, touchY, refObj, refs])
 
   return null
 }
