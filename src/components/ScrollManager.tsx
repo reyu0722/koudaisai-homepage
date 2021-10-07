@@ -106,6 +106,8 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       handleScroll(scrollTop > newVal)
     }
 
+    /*
+
     const touchStartListener = (e: TouchEvent) => {
       console.log('touch start')
       setTouchY(e.touches[0].clientY)
@@ -123,19 +125,20 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       console.log('touch end')
       handleScroll(touchUpside)
     }
+		*/
 
     if (!scrolling) {
       cur?.addEventListener('scroll', listener)
-      cur?.addEventListener('touchstart', touchStartListener)
-      cur?.addEventListener('touchmove', touchMoveListener)
-      cur?.addEventListener('touchend', touchEndListener)
+      // cur?.addEventListener('touchstart', touchStartListener)
+      // cur?.addEventListener('touchmove', touchMoveListener)
+      // cur?.addEventListener('touchend', touchEndListener)
     }
 
     return () => {
       cur?.removeEventListener('scroll', listener)
-      cur?.removeEventListener('touchstart', touchStartListener)
-      cur?.removeEventListener('touchmove', touchMoveListener)
-      cur?.removeEventListener('touchend', touchEndListener)
+      // cur?.removeEventListener('touchstart', touchStartListener)
+      // cur?.removeEventListener('touchmove', touchMoveListener)
+      // cur?.removeEventListener('touchend', touchEndListener)
     }
   }, [scrollTop, scrolling, touchUpside, touchY, refObj, refs])
 
