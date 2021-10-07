@@ -78,8 +78,11 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       const nextRef = (refs.current ?? [null])[index]
 
-      setScrolling(true)
-      setScrollY(nextRef?.current?.offsetTop ?? 0)
+      if (refObj.current) refObj.current.scrollTop = viewTop
+      setTimeout(() => {
+        setScrollY(nextRef?.current?.offsetTop ?? 0)
+        setScrolling(true)
+      }, 1000)
     }
 
     const listener = () => {
