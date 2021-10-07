@@ -8,7 +8,8 @@
     "lint": "eslint --ext .ts,.tsx --cache ."
   },
   "dependencies": {
-    "preact": "^10.5.13"
+    "preact": "^10.5.13",
+    "seamless-scroll-polyfill": "^2.1.4"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",

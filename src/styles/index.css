@@ -28,11 +28,11 @@ body {
   color: #444;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-overflow-scrolling: auto;
 }
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 #app {

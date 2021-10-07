@@ -11,6 +11,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
   const [scrolling, setScrolling] = useState(false)
   const [scrollY, setScrollY] = useState(0)
 
+  /*
   useEffect(() => {
     const scroll = () => {
       if (!scrolling) return
@@ -37,6 +38,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
     setTimeout(scroll, 0)
     return
   }, [scrollY, scrolling, refObj])
+  */
 
   useEffect(() => {
     const cur = refObj.current
@@ -45,7 +47,6 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       if (scrolling) return
       const viewTop = cur?.scrollTop ?? 0
       const viewBottom = viewTop + (cur?.offsetHeight ?? 0)
-      console.log(viewTop, viewBottom)
 
       let index = -1
 
@@ -76,10 +77,14 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       if (index < 0 || index >= (refs.current ?? []).length) return
 
-      const nextRef = (refs.current ?? [null])[index]
+      const nextRef = (refs.current ?? [])[index] ?? null
 
       setScrolling(true)
-      setScrollY(nextRef?.current?.offsetTop ?? 0)
+      console.log(nextRef?.current)
+      nextRef?.current?.scrollIntoView(false)
+      setTimeout(() => setScrolling(false), 1000)
+
+      // setScrollY(nextRef?.current?.offsetTop ?? 0)
     }
 
     const listener = () => {
@@ -89,17 +94,12 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       handleScroll(scrollTop > newVal)
     }
 
-    const stopScroll = (e: Event) => e.preventDefault()
-
     if (!scrolling) {
       cur?.addEventListener('scroll', listener)
-    } else {
-      cur?.addEventListener('scroll', stopScroll)
     }
 
     return () => {
       cur?.removeEventListener('scroll', listener)
-      cur?.removeEventListener('scroll', stopScroll)
     }
   }, [scrollTop, scrolling, refObj, refs])
 
