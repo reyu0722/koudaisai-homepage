@@ -7,7 +7,6 @@ type Props = {
 }
 
 const ScrollManager: FC<Props> = ({ refs, refObj }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollTop, setScrollTop] = useState(0)
   const [, setTouchY] = useState(0)
   const [touchUpside, setTouchUpside] = useState(false)
