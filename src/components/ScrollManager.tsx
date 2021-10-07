@@ -8,8 +8,6 @@ type Props = {
 
 const ScrollManager: FC<Props> = ({ refs, refObj }) => {
   const [scrollTop, setScrollTop] = useState(0)
-  const [touchY, setTouchY] = useState(0)
-  const [touchUpside, setTouchUpside] = useState(false)
   const [scrolling, setScrolling] = useState(false)
   const [scrollY, setScrollY] = useState(0)
 
@@ -57,10 +55,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
         const curTop = cur.offsetTop ?? 0
         // 上にスクロールした場合
-        if (up && curTop > viewTop && curTop < viewBottom && i != 0) {
-          console.log(curTop, curTop + cur.offsetHeight, viewTop)
-          index = i
-        }
+        if (up && curTop > viewTop && curTop < viewBottom && i != 0) index = i
 
         // 下にスクロールした場合
         if (
@@ -68,10 +63,8 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
           curTop + cur.offsetHeight > viewTop &&
           curTop + cur.offsetHeight < viewBottom &&
           i != (refs?.current ?? []).length - 1
-        ) {
-          console.log(curTop, curTop + cur.offsetHeight, viewBottom)
+        )
           index = i
-        }
 
         if (index != -1) console.log('i:', i)
       })
@@ -83,16 +76,10 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       if (index < 0 || index >= (refs.current ?? []).length) return
 
-      console.log(index)
-
       const nextRef = (refs.current ?? [null])[index]
 
       setScrolling(true)
-      setScrollY(
-        nextRef?.current?.offsetTop ?? 0 /* +
-          (nextRef?.current?.offsetHeight ?? 0) -
-          (refObj.current?.offsetHeight ?? 0) */
-      )
+      setScrollY(nextRef?.current?.offsetTop ?? 0)
     }
 
     const listener = () => {
@@ -101,41 +88,14 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       handleScroll(scrollTop > newVal)
     }
 
-    /*
-
-    const touchStartListener = (e: TouchEvent) => {
-      console.log('touch start')
-      setTouchY(e.touches[0].clientY)
-    }
-
-    const touchMoveListener = (e: TouchEvent) => {
-      console.log('touch move')
-      const newVal = e.touches[0].clientY
-      if (touchY > newVal) setTouchUpside(false)
-      else setTouchUpside(true)
-      setTouchY(newVal)
-    }
-
-    const touchEndListener = () => {
-      console.log('touch end')
-      handleScroll(touchUpside)
-    }
-		*/
-
     if (!scrolling) {
       cur?.addEventListener('scroll', listener)
-      // cur?.addEventListener('touchstart', touchStartListener)
-      // cur?.addEventListener('touchmove', touchMoveListener)
-      // cur?.addEventListener('touchend', touchEndListener)
     }
 
     return () => {
       cur?.removeEventListener('scroll', listener)
-      // cur?.removeEventListener('touchstart', touchStartListener)
-      // cur?.removeEventListener('touchmove', touchMoveListener)
-      // cur?.removeEventListener('touchend', touchEndListener)
     }
-  }, [scrollTop, scrolling, touchUpside, touchY, refObj, refs])
+  }, [scrollTop, scrolling, refObj, refs])
 
   return null
 }

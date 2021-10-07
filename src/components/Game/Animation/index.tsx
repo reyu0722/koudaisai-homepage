@@ -8,8 +8,8 @@ type Props = {
 const Animation: FC<Props> = ({ visible }) => {
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
-    <div className="relative left-3/5 h-60 max-w-1/4">
-      <div className="absolute top-0 w-auto">
+    <div className="relative left-3/5 max-w-1/4">
+      <div className="absolute -top-40 w-auto">
         <img src={bg} className="top-0" />
         <img
           src={circle}
