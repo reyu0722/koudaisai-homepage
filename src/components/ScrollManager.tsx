@@ -7,9 +7,10 @@ type Props = {
 }
 
 const ScrollManager: FC<Props> = ({ refs, refObj }) => {
-  const [_scrollTop, setScrollTop] = useState(0)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [, setScrollTop] = useState(0)
   const [upside, setUpside] = useState(false)
-  const [_touchY, setTouchY] = useState(0)
+  const [, setTouchY] = useState(0)
   const [touchUpside, setTouchUpside] = useState(false)
   const [scrolling, setScrolling] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -149,7 +150,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       cur?.removeEventListener('touchend', touchEndListener, { capture: true })
       // cur?.removeEventListener('touch', touchListener, { capture: true })
     }
-  }, [refObj, upside, scrolling, touchUpside])
+  }, [upside, scrolling, touchUpside, refObj, refs])
 
   return null
 }
