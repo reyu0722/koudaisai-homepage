@@ -1,9 +1,6 @@
 import { render } from 'preact'
-import { polyfill } from 'seamless-scroll-polyfill'
 
 import App from '/@/pages/App'
-
-polyfill()
 
 import 'virtual:windi.css'
 import '/@/styles/index.css'
