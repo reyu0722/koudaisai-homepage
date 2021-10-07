@@ -17,7 +17,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       const start = refObj.current?.scrollTop ?? 0
       const end = scrollY
-      const delta = Math.ceil((end - start) / 20 + Math.sign(end - start) * 5)
+      const delta = Math.ceil((end - start) / 50 + Math.sign(end - start) * 2)
       if (refObj.current) {
         if (
           (start < end && start + delta >= end) ||
@@ -29,12 +29,12 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
           setScrolling(false)
         } else {
           refObj.current.scrollTop += delta
-          setTimeout(scroll, 20)
+          setTimeout(scroll, 0)
         }
       }
     }
 
-    setTimeout(scroll, 20)
+    setTimeout(scroll, 0)
     return
   }, [scrollY, scrolling, refObj])
 
