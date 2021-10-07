@@ -78,8 +78,6 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       const nextRef = (refs.current ?? [null])[index]
 
-      if (refObj.current)
-        refObj.current.scrollTop = refObj.current?.offsetTop ?? 0
       setScrolling(true)
       setScrollY(nextRef?.current?.offsetTop ?? 0)
     }
@@ -91,12 +89,17 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       handleScroll(scrollTop > newVal)
     }
 
+    const stopScroll = (e: Event) => e.preventDefault()
+
     if (!scrolling) {
       cur?.addEventListener('scroll', listener)
+    } else {
+      cur?.addEventListener('scroll', stopScroll)
     }
 
     return () => {
       cur?.removeEventListener('scroll', listener)
+      cur?.removeEventListener('scroll', stopScroll)
     }
   }, [scrollTop, scrolling, refObj, refs])
 
