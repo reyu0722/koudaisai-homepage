@@ -10,57 +10,42 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
   const [scrollTop, setScrollTop] = useState(0)
   const [scrolling, setScrolling] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-  const [up, setUp] = useState(false)
 
   useEffect(() => {
-    const scroll = (reachedCount: number) => {
+    const scroll = () => {
       if (!scrolling) return
 
-      if (reachedCount != -1) {
-        if (refObj.current?.scrollTop == scrollY) {
-          reachedCount++
-
-          if (reachedCount == 10) {
-            console.log('finish')
-            setTimeout(() => {
-              setScrollTop(refObj.current?.scrollTop ?? 0)
-              setScrolling(false)
-            }, 100)
-          } else {
-            console.log(refObj.current?.scrollTop, scrollY)
-            setTimeout(scroll, 10, reachedCount)
-          }
-          return
-        }
-      }
-      reachedCount = -1
       const start = refObj.current?.scrollTop ?? 0
       const end = scrollY
-      const delta = Math.ceil((end - start) / 20 + Math.sign(end - start) * 5)
+      const delta = Math.ceil((end - start) / 50 + Math.sign(end - start) * 2)
       if (refObj.current) {
         if (
           (start < end && start + delta >= end) ||
           (start > end && start + delta <= end)
         ) {
           refObj.current.scrollTop = end
-          setTimeout(scroll, 10, 0)
+          console.log('finish')
+          setScrollTop(refObj.current.scrollTop)
+          setScrolling(false)
         } else {
           refObj.current.scrollTop += delta
-          setTimeout(scroll, 10, -1)
+          setTimeout(scroll, 0)
         }
       }
     }
 
-    setTimeout(scroll, 10, -1)
+    setTimeout(scroll, 0)
     return
   }, [scrollY, scrolling, refObj])
 
   useEffect(() => {
     const cur = refObj.current
+
     const handleScroll = (up: boolean) => {
       if (scrolling) return
       const viewTop = cur?.scrollTop ?? 0
       const viewBottom = viewTop + (cur?.offsetHeight ?? 0)
+      console.log(viewTop, viewBottom)
 
       let index = -1
 
@@ -70,8 +55,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
         const curTop = cur.offsetTop ?? 0
         // 上にスクロールした場合
-        if (up && curTop > viewTop && curTop < viewBottom && i != 0)
-          index = i - 1
+        if (up && curTop > viewTop && curTop < viewBottom && i != 0) index = i
 
         // 下にスクロールした場合
         if (
@@ -80,56 +64,42 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
           curTop + cur.offsetHeight < viewBottom &&
           i != (refs?.current ?? []).length - 1
         )
-          index = i + 1
+          index = i
 
-        if (index != -1) console.log(i, '->', index)
+        if (index != -1) console.log('i:', i)
       })
 
       if (index == -1) return
+
+      if (up) index--
+      else index++
 
       if (index < 0 || index >= (refs.current ?? []).length) return
 
       const nextRef = (refs.current ?? [null])[index]
 
-      if (refObj.current) refObj.current.scrollTop = viewTop
-      setScrollY(nextRef?.current?.offsetTop ?? 0)
       setScrolling(true)
+      setScrollY(nextRef?.current?.offsetTop ?? 0)
     }
-    handleScroll(up)
-  }, [scrolling, scrollTop, refs, refObj])
-
-  useEffect(() => {
-    const cur = refObj.current
 
     const listener = () => {
       const newVal = cur?.scrollTop ?? 0
       setScrollTop(newVal)
 
-      setUp(scrollTop > newVal)
+      handleScroll(scrollTop > newVal)
     }
 
-    const touchListener = () => {
-      const newVal = cur?.scrollTop ?? 0
-      setUp(scrollTop > newVal)
-      setScrollTop(newVal)
-      console.log(scrollTop > newVal)
-    }
-
-    const touchEndListener = () => {
-      const newVal = cur?.scrollTop ?? 0
-      setScrollTop(newVal)
-    }
+    const stopScroll = (e: Event) => e.preventDefault()
 
     if (!scrolling) {
-      // cur?.addEventListener('scroll', listener)
-      // cur?.addEventListener('touchstart', listener)
-      cur?.addEventListener('touchmove', touchListener)
-      // cur?.addEventListener('touchend', touchEndListener)
+      cur?.addEventListener('scroll', listener)
+    } else {
+      cur?.addEventListener('scroll', stopScroll)
     }
+
     return () => {
-      // cur?.removeEventListener('scroll', listener)
-      cur?.removeEventListener('touchmove', touchListener)
-      // cur?.removeEventListener('touchend', touchEndListener)
+      cur?.removeEventListener('scroll', listener)
+      cur?.removeEventListener('scroll', stopScroll)
     }
   }, [scrollTop, scrolling, refObj, refs])
 

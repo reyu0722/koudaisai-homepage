@@ -32,7 +32,6 @@ body {
 
 * {
   box-sizing: border-box;
-  -webkit-overflow-scrolling:auto;
 }
 
 #app {
