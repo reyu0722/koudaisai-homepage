@@ -41,7 +41,7 @@ const App: FC = () => {
 
             <div className="text-lg md:text-2xl">
               <div
-                className="pt-60 mx-12 md:mr-48 md:ml-24 pb-120"
+                className="pt-60 mx-12 md:mr-48 md:ml-24 pb-160"
                 ref={gameRefs.current[0]}>
                 {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
                 <div className="mt-12 text-6xl mb-18 text-mypurple">
