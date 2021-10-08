@@ -82,9 +82,11 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       const t = nextRef?.current?.scrollTop ?? 0
 
       window.requestAnimationFrame(() => {
-        if (nextRef?.current) nextRef.current.scrollTop = t
-        setScrolling(true)
-        setScrollY(nextRef?.current?.offsetTop ?? 0)
+        setTimeout(() => {
+          if (nextRef?.current) nextRef.current.scrollTop = t
+          setScrolling(true)
+          setScrollY(nextRef?.current?.offsetTop ?? 0)
+        }, 100)
       })
     }
 
