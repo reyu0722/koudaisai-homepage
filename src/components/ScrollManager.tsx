@@ -17,7 +17,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       const start = refObj.current?.scrollTop ?? 0
       const end = scrollY
-      const delta = Math.ceil((end - start) / 50 + Math.sign(end - start) * 2)
+      const delta = Math.ceil((end - start) / 20 + Math.sign(end - start) * 5)
       if (refObj.current) {
         if (
           (start < end && start + delta >= end) ||
@@ -29,12 +29,12 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
           setScrolling(false)
         } else {
           refObj.current.scrollTop += delta
-          setTimeout(scroll, 0)
+          setTimeout(scroll, 20)
         }
       }
     }
 
-    setTimeout(scroll, 0)
+    setTimeout(scroll, 20)
     return
   }, [scrollY, scrolling, refObj])
 
@@ -89,17 +89,20 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       handleScroll(scrollTop > newVal)
     }
 
-    const stopScroll = (e: Event) => e.preventDefault()
 
-    if (!scrolling) {
+    // https://qiita.com/sakuraya/items/33f93e19438d0694a91d
+    const userAgent = window.navigator.userAgent.toLowerCase()
+    const isAppleBrowser =
+      (userAgent.indexOf('chrome') == -1 &&
+        userAgent.indexOf('safari') != -1) ||
+      userAgent.indexOf('iphone') != -1 ||
+      userAgent.indexOf('ipad') != -1
+
+    if (!isAppleBrowser && !scrolling) {
       cur?.addEventListener('scroll', listener)
-    } else {
-      cur?.addEventListener('scroll', stopScroll)
     }
-
     return () => {
       cur?.removeEventListener('scroll', listener)
-      cur?.removeEventListener('scroll', stopScroll)
     }
   }, [scrollTop, scrolling, refObj, refs])
 
