@@ -13,29 +13,45 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
   const [up, setUp] = useState(false)
 
   useEffect(() => {
-    const scroll = () => {
+    const scroll = (reachedCount: number) => {
       if (!scrolling) return
 
+      if (reachedCount != -1) {
+        if (refObj.current?.scrollTop == scrollY) {
+          reachedCount++
+
+          if (reachedCount == 10) {
+            console.log('finish')
+            setTimeout(() => {
+              setScrollTop(refObj.current?.scrollTop ?? 0)
+              setScrolling(false)
+            }, 100)
+          } else {
+            console.log(refObj.current?.scrollTop, scrollY)
+            setTimeout(scroll, 10, reachedCount)
+          }
+          return
+        }
+      }
+      reachedCount = -1
       const start = refObj.current?.scrollTop ?? 0
       const end = scrollY
-      const delta = Math.ceil((end - start) / 50 + Math.sign(end - start) * 2)
+      const delta = Math.ceil((end - start) / 20 + Math.sign(end - start) * 5)
       if (refObj.current) {
         if (
           (start < end && start + delta >= end) ||
           (start > end && start + delta <= end)
         ) {
           refObj.current.scrollTop = end
-          console.log('finish')
-          setScrollTop(refObj.current.scrollTop)
-          setScrolling(false)
+          setTimeout(scroll, 10, 0)
         } else {
           refObj.current.scrollTop += delta
-          setTimeout(scroll, 0)
+          setTimeout(scroll, 10, -1)
         }
       }
     }
 
-    setTimeout(scroll, 0)
+    setTimeout(scroll, 10, -1)
     return
   }, [scrollY, scrolling, refObj])
 
