@@ -78,8 +78,14 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
       const nextRef = (refs.current ?? [null])[index]
 
-      setScrolling(true)
-      setScrollY(nextRef?.current?.offsetTop ?? 0)
+      // 慣性スクロールを止める
+      const t = nextRef?.current?.scrollTop ?? 0
+
+      window.requestAnimationFrame(() => {
+        if (nextRef?.current) nextRef.current.scrollTop = t
+        setScrolling(true)
+        setScrollY(nextRef?.current?.offsetTop ?? 0)
+      })
     }
 
     const listener = () => {
@@ -89,7 +95,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       handleScroll(scrollTop > newVal)
     }
 
-
+    /*
     // https://qiita.com/sakuraya/items/33f93e19438d0694a91d
     const userAgent = window.navigator.userAgent.toLowerCase()
     const isAppleBrowser =
@@ -97,8 +103,9 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
         userAgent.indexOf('safari') != -1) ||
       userAgent.indexOf('iphone') != -1 ||
       userAgent.indexOf('ipad') != -1
+    */
 
-    if (!isAppleBrowser && !scrolling) {
+    if (!scrolling) {
       cur?.addEventListener('scroll', listener)
     }
     return () => {
