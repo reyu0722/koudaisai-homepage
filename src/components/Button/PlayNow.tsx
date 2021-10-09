@@ -18,13 +18,13 @@ const Button: FC<Props> = ({ url }) => {
   return (
     <div className="h-16 w-58">
       <div
-        className={`flex justify-between items-center px-6 w-full h-full rounded-[36px] ${
+        className={`flex justify-between items-center px-6 <sm:px-4 <sm:py-4 w-full sm:h-full rounded-[36px] ${
           hover ? 'bg-[#dcf9ff]' : 'bg-mycyan'
         }`}
         onMouseOver={hoverOn}
         onMouseOut={hoverOff}
         onClick={openUrl}>
-        <p className="font-medium leading-none text-left align-top text-[24px] font-rubik text-[#131229]">
+        <p className="font-medium leading-none text-left align-top whitespace-nowrap text-[24px] <sm:text-[18px] font-rubik text-[#131229]">
           PLAY NOW
         </p>
         <ArrowLeft />

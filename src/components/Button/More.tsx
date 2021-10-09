@@ -18,13 +18,13 @@ const Button: FC<Props> = newState => {
   return (
     <div className="h-16 w-39">
       <div
-        className={`flex justify-center items-center px-6 w-full h-full rounded-[36px] border-solid border-mycyan border-3 ${
+        className={`flex justify-center items-center px-6 <sm:px-4 <sm:py-4 w-full sm:h-full rounded-[36px] border-solid border-mycyan border-3 ${
           hover ? 'bg-mycyan text-[#131229]' : 'text-mycyan'
         }`}
         onMouseOver={hoverOn}
         onMouseOut={hoverOff}
         onClick={handleClick}>
-        <p className="font-medium leading-none align-top bg-opa text-[24px] font-rubik">
+        <p className="font-medium leading-none align-top whitespace-nowrap bg-opa text-[24px] <sm:text-[18px] font-rubik">
           MORE
         </p>
       </div>

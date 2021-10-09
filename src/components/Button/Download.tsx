@@ -24,7 +24,7 @@ const Button: FC<Props> = ({ url }) => {
         onMouseOver={hoverOn}
         onMouseOut={hoverOff}
         onClick={handleClick}>
-        <p className="font-medium leading-none align-top bg-opa text-[24px] font-rubik">
+        <p className="font-medium leading-none align-top whitespace-nowrap bg-opa text-[24px] font-rubik">
           DOWNLOAD
         </p>{' '}
         <ArrowDown color={hover ? undefined : '#F2518B'} />
