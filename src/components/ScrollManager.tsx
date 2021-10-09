@@ -1,4 +1,5 @@
 import { RefObject } from 'preact'
+import smoothscroll from 'smoothscroll-polyfill'
 
 type Props = {
   refs: RefObject<RefObject<HTMLDivElement>[]>
@@ -7,6 +8,8 @@ type Props = {
 
 const ScrollManager: FC<Props> = ({ refs, refObj }) => {
   // refsは順に並んでいることを想定
+
+  smoothscroll.polyfill()
 
   const scrollUp = () => {
     if (!refObj.current) return
