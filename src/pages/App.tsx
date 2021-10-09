@@ -35,14 +35,12 @@ const App: FC = () => {
             <ScrollManager refs={gameRefs} refObj={ref} />
             <Modal />
             <Background />
-            {/* テスト用 */}
             {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
             <div className="py-[70vw]"> </div>
 
             <div className="text-lg md:text-2xl">
               <div
-                // eslint-disable-next-line tailwindcss/no-custom-classname
-                className="pt-60 mx-12 md:mr-48 md:ml-24 mb-160"
+                className="pt-32 mx-12 md:mr-48 md:ml-24 mb-160"
                 ref={gameRefs.current[0]}>
                 {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
                 <div className="mt-12 text-6xl mb-18 text-mypurple">
@@ -50,15 +48,12 @@ const App: FC = () => {
                 </div>
                 <div>{description}</div>
               </div>
-              {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="my-60" />
               {games.map((game, i) => (
                 <div ref={gameRefs.current[i + 1]} key={game.title}>
                   <Game {...game} />
                 </div>
               ))}
-              {/* テスト用 */}
-              {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="py-20"> </div>
             </div>
 
