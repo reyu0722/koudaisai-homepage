@@ -16,7 +16,7 @@ const Body: FC = () => {
           あそびかた
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-4 gap-2 md:gap-6 justify-between grid-rows-7 h-[calc(100%-5rem)]">
-          <div className="overflow-y-scroll relative row-span-2 lg:row-span-4 md:mr-6 <lg:text-center <md:left-[5px]">
+          <div className="flex overflow-y-scroll relative row-span-2 lg:row-span-4 md:mr-6 <md:left-[5px]">
             {howToPlay}
           </div>
           <div className="lg:col-start-2 row-span-3 row-start-1">
