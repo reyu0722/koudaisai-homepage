@@ -1,5 +1,4 @@
 import { RefObject } from 'preact'
-import { useState, useEffect } from 'preact/hooks'
 
 type Props = {
   refs: RefObject<RefObject<HTMLDivElement>[]>
@@ -7,115 +6,60 @@ type Props = {
 }
 
 const ScrollManager: FC<Props> = ({ refs, refObj }) => {
-  const [scrollTop, setScrollTop] = useState(0)
-  const [scrolling, setScrolling] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
+  // refsは順に並んでいることを想定
 
-  useEffect(() => {
-    const scroll = () => {
-      if (!scrolling) return
+  const scrollUp = () => {
+    if (!refObj.current) return
+    if (!refs.current) return
 
-      const start = refObj.current?.scrollTop ?? 0
-      const end = scrollY
-      const delta = Math.ceil((end - start) / 20 + Math.sign(end - start) * 5)
-      if (refObj.current) {
-        if (
-          (start < end && start + delta >= end) ||
-          (start > end && start + delta <= end)
-        ) {
-          refObj.current.scrollTop = end
-          console.log('finish')
-          setScrollTop(refObj.current.scrollTop)
-          setScrolling(false)
-        } else {
-          refObj.current.scrollTop += delta
-          setTimeout(scroll, 20)
-        }
-      }
-    }
+    const scrollElement = refObj.current
+    const now = scrollElement.scrollTop
+    let dest = -1
+    refs.current.forEach((ref, i) => {
+      const cur = ref.current
+      if (!cur) return
 
-    setTimeout(scroll, 20)
-    return
-  }, [scrollY, scrolling, refObj])
+      const elementTop = cur.offsetTop
+      if (elementTop < now) dest = i
+    })
 
-  useEffect(() => {
-    const cur = refObj.current
+    if (dest === -1) scrollElement.scrollTop = 0
+    else scrollElement.scrollTop = refs.current[dest].current?.offsetTop ?? 0
+  }
 
-    const handleScroll = (up: boolean) => {
-      if (scrolling) return
-      const viewTop = cur?.scrollTop ?? 0
-      const viewBottom = viewTop + (cur?.offsetHeight ?? 0)
-      console.log(viewTop, viewBottom)
+  const scrollDown = () => {
+    if (!refObj.current) return
+    if (!refs.current) return
 
-      let index = -1
+    const scrollElement = refObj.current
+    const now = scrollElement.scrollTop
+    let dest = -1
 
-      refs.current?.forEach((ref, i) => {
-        const cur = ref.current
-        if (!cur || cur.offsetHeight == 0 || index != -1) return
+    refs.current.forEach((ref, i) => {
+      if (dest !== -1) return
 
-        const curTop = cur.offsetTop ?? 0
-        // 上にスクロールした場合
-        if (up && curTop > viewTop && curTop < viewBottom && i != 0) index = i
+      const cur = ref.current
+      if (!cur) return
 
-        // 下にスクロールした場合
-        if (
-          !up &&
-          curTop + cur.offsetHeight > viewTop &&
-          curTop + cur.offsetHeight < viewBottom &&
-          i != (refs?.current ?? []).length - 1
-        )
-          index = i
+      const elementTop = cur.offsetTop
+      if (elementTop > now) dest = i
+    })
+    if (dest === -1) scrollElement.scrollTop = scrollElement.scrollHeight
+    else scrollElement.scrollTop = refs.current[dest].current?.offsetTop ?? 0
+  }
 
-        if (index != -1) console.log('i:', i)
-      })
-
-      if (index == -1) return
-
-      if (up) index--
-      else index++
-
-      if (index < 0 || index >= (refs.current ?? []).length) return
-
-      const nextRef = (refs.current ?? [null])[index]
-
-      // 慣性スクロールを止める
-      const t = nextRef?.current?.scrollTop ?? 0
-
-      window.requestAnimationFrame(() => {
-        setTimeout(() => {
-          if (nextRef?.current) nextRef.current.scrollTop = t
-          setScrolling(true)
-          setScrollY(nextRef?.current?.offsetTop ?? 0)
-        }, 100)
-      })
-    }
-
-    const listener = () => {
-      const newVal = cur?.scrollTop ?? 0
-      setScrollTop(newVal)
-
-      handleScroll(scrollTop > newVal)
-    }
-
-    /*
-    // https://qiita.com/sakuraya/items/33f93e19438d0694a91d
-    const userAgent = window.navigator.userAgent.toLowerCase()
-    const isAppleBrowser =
-      (userAgent.indexOf('chrome') == -1 &&
-        userAgent.indexOf('safari') != -1) ||
-      userAgent.indexOf('iphone') != -1 ||
-      userAgent.indexOf('ipad') != -1
-    */
-
-    if (!scrolling) {
-      cur?.addEventListener('scroll', listener)
-    }
-    return () => {
-      cur?.removeEventListener('scroll', listener)
-    }
-  }, [scrollTop, scrolling, refObj, refs])
-
-  return null
+  return (
+    <div className="fixed right-0 bottom-0 z-50">
+      <div className="flex flex-col w-12 h-24 text-black">
+        <div className="w-full h-full bg-white" onClick={scrollUp}>
+          ↑
+        </div>
+        <div className="w-full h-full bg-white" onClick={scrollDown}>
+          ↓
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default ScrollManager
