@@ -8,27 +8,6 @@ import Logo from './Logo'
 const BackgroundIllust: FC = () => {
   const { illustChanged: changed } = useStatusState()
 
-  // const [clicked, setClicked] = useState(false)
-  // const autoScroll = () => setClicked(true)
-
-  /*
-  useEffect(() => {
-    if (clicked) {
-      const timer = setInterval(() => {
-        if (window.pageYOffset / window.innerWidth <= CHANGE_OFFSET) {
-          // 環境に依存しないようにする
-          const o = window.pageYOffset / window.innerWidth
-          console.log(o)
-          window.scrollBy(0, o * (CHANGE_OFFSET - o) * 5 + 5)
-        } else {
-          clearInterval(timer)
-        }
-      }, 0)
-      return () => clearInterval(timer)
-    }
-  }, [clicked])
-  */
-
   if (changed)
     return (
       <>
@@ -42,14 +21,6 @@ const BackgroundIllust: FC = () => {
         <IllustNoCube className="absolute top-0 w-full gradation fade-in-illust" />
         <Cube />
         <Illust className="hidden" />
-        {/*
-        <div
-          // eslint-disable-next-line tailwindcss/no-custom-classname
-          className="flex absolute inset-x-0 justify-center items-center mx-auto w-60 h-40 text-black bg-white top-[80vh]"
-          onClick={autoScroll}>
-          押してね
-        </div>
-        */}
       </>
     )
 }

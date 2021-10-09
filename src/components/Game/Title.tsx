@@ -5,8 +5,6 @@ type Props = {
   reverse: boolean
 }
 
-// 現状アルファベットにのみ対応
-// 他もやろうと思えばできる
 const Title: FC<Props> = ({ text }) => {
   const [animationText, setAnimationText] = useState('')
 
