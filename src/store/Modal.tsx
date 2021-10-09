@@ -7,7 +7,7 @@ export type ModalState = {
   isOpen: boolean
   howToPlay: string
   carouselImages: string[]
-  blogUrl: string
+  blogUrl?: string
   gameUrl: string
 }
 

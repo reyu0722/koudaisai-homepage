@@ -16,7 +16,7 @@ export type Game = {
   howToPlay: string
   image: string
   carouselImages: string[]
-  blogUrl: string
+  blogUrl?: string
   gameUrl: string
   launcher?: boolean
 }

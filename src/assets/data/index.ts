@@ -12,7 +12,7 @@ description: 説明 (ページ上に載るやつ)
 howToPlay: あそびかた (モーダルに載るやつ)
 image: ページ上に載る画像 (ひし形みたいなやつ)
 carouselImages: モーダルのカルーセルに載せる画像たち (アスペクト比が同じだとバグりにくい)
-blogUrl: モーダルに載るブログのURL
+blogUrl(optional): モーダルに載るブログのURL
 gameUrl: ゲームのURL (ランチャーについてはダウンロードリンク)
 launcher(optional): ランチャーだけtrue入れて他は何も書かなくてok
 */
@@ -39,7 +39,6 @@ export const games: Game[] = [
       'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
     image: dummy,
     carouselImages: [dummy1, dummy2, dummy3, dummy4],
-    blogUrl: '',
     gameUrl: 'https://japari.toki317.dev/'
   },
   {
