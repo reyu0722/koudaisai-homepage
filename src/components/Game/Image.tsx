@@ -8,9 +8,10 @@ const options = {
 
 type Props = {
   image: string
+  launcher?: boolean
 }
 
-const Image: FC<Props> = ({ image }) => {
+const Image: FC<Props> = ({ image, launcher }) => {
   const [active, setActive] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -32,8 +33,14 @@ const Image: FC<Props> = ({ image }) => {
   return (
     <>
       <div ref={ref} />
-      <Frame className="absolute top-2 w-full h-auto" />
-      <Frame className="absolute top-6 w-full h-auto" />
+      <Frame
+        className="absolute top-2 w-full h-auto"
+        color={launcher ? '#f2518b' : undefined}
+      />
+      <Frame
+        className="absolute top-6 w-full h-auto"
+        color={launcher ? '#f2518b' : undefined}
+      />
       <img src={image} className={getClass()} />
     </>
   )

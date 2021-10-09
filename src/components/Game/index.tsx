@@ -76,7 +76,7 @@ const Game: FC<Props> = ({
               } lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12`}>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="relative w-full h-auto lg:w-180">
-                <Image image={image} />
+                <Image image={image} launcher={launcher} />
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 <lg:w-full lg:w-150">
