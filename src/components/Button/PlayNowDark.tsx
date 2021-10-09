@@ -13,7 +13,7 @@ const Button: FC<Props> = ({ url }) => {
       <div
         className="flex justify-between items-center px-6 w-full h-full rounded-[36px] bg-[#1e2f3f]"
         onClick={openUrl}>
-        <p className="font-medium leading-none text-left align-top text-[24px] font-rubik text-[#eff1f5]">
+        <p className="font-medium leading-none text-left align-top whitespace-nowrap text-[24px] font-rubik text-[#eff1f5]">
           PLAY NOW
         </p>
         <ArrowLeft color="#EFF1F5" />
