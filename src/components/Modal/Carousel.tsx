@@ -17,6 +17,24 @@ const Carousel: FC<Props> = ({ images }) => {
   const ref = useRef<HTMLImageElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
+  // 初回ロード用
+  useEffect(() => {
+    const setter = () => {
+      const res =
+        ((containerRef.current?.offsetWidth ?? 1) -
+          (ref.current?.offsetWidth ?? 1)) /
+        2
+      
+      // 画像がロードされてない場合は時間をあけて再取得
+      if (res === (containerRef.current?.offsetWidth ?? 1) / 2) {
+        setTimeout(setter, 10)
+        return
+      }
+      setOffset(res)
+    }
+    setter()
+  }, [])
+
   useEffect(() => {
     const res =
       ((containerRef.current?.offsetWidth ?? 1) -
@@ -29,22 +47,24 @@ const Carousel: FC<Props> = ({ images }) => {
     <div
       className="overflow-x-hidden relative mx-auto w-full h-full"
       ref={containerRef}>
-      {index !== 0 && (
-        <img
-          src={left}
-          className="absolute inset-y-0 z-50 my-auto"
-          style={`left: ${offset}px`}
-          onClick={decrement}
-        />
-      )}
-      {index !== images.length - 1 && (
-        <img
-          src={right}
-          className="absolute inset-y-0 right-0 z-50 my-auto"
-          style={`right: ${offset}px`}
-          onClick={increment}
-        />
-      )}
+      {offset !== (containerRef.current?.offsetWidth ?? 1) / 2 &&
+        index !== 0 && (
+          <img
+            src={left}
+            className="absolute inset-y-0 z-50 my-auto"
+            style={`left: ${offset}px`}
+            onClick={decrement}
+          />
+        )}
+      {offset !== (containerRef.current?.offsetWidth ?? 1) / 2 &&
+        index !== images.length - 1 && (
+          <img
+            src={right}
+            className="absolute inset-y-0 right-0 z-50 my-auto"
+            style={`right: ${offset}px`}
+            onClick={increment}
+          />
+        )}
       <div
         className="flex relative w-full h-full carousel"
         style={`left: calc(-100% * ${index})`}>
