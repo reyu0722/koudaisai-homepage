@@ -1,7 +1,7 @@
 import { createRef, RefObject } from 'preact'
 import { useRef } from 'preact/hooks'
 
-import games from '/@/assets/data/games'
+import { games, description } from '/@/assets/data'
 import Background from '/@/components/Background'
 import AnimationHeader from '/@/components/Background/AnimationHeader'
 import Footer from '/@/components/Footer'
@@ -48,9 +48,7 @@ const App: FC = () => {
                 <div className="mt-12 text-6xl mb-18 text-mypurple">
                   World of Games
                 </div>
-                <div>
-                  ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ。
-                </div>
+                <div>{description}</div>
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="my-60" />

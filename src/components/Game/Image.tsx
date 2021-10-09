@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'preact/hooks'
 
-import dummy from '/@/assets/images/dummy.svg'
-
 import Frame from './Frame'
 
 const options = {
   rootMargin: `-20% 0px -20% 0px`
 }
 
-const Image: FC = () => {
+type Props = {
+  image: string
+}
+
+const Image: FC<Props> = ({ image }) => {
   const [active, setActive] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -32,7 +34,7 @@ const Image: FC = () => {
       <div ref={ref} />
       <Frame className="absolute top-2 w-full h-auto" />
       <Frame className="absolute top-6 w-full h-auto" />
-      <img src={dummy} className={getClass()} />
+      <img src={image} className={getClass()} />
     </>
   )
 }

@@ -28,6 +28,7 @@ const options = {
 const Game: FC<Props> = ({
   title,
   description,
+  howToPlay,
   image,
   carouselImages,
   blogUrl,
@@ -52,10 +53,8 @@ const Game: FC<Props> = ({
   }, [])
 
   const modalContent = {
-    // TODO: ここどうにかする
     isOpen: true,
-    howToPlay:
-      'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
+    howToPlay,
     carouselImages,
     blogUrl,
     gameUrl
@@ -77,7 +76,7 @@ const Game: FC<Props> = ({
               } lg:gap-24 lg:justify-between items-center lg:items-start <lg:space-y-12`}>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="relative w-full h-auto lg:w-180">
-                <Image />
+                <Image image={image} />
               </div>
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 <lg:w-full lg:w-150">
