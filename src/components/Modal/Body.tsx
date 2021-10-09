@@ -6,7 +6,7 @@ import Carousel from './Carousel'
 import Decorations from './Decorations'
 
 const Body: FC = () => {
-  const { howToPlay, imgUrls, blogUrl, gameUrl } = useModalState()
+  const { howToPlay, carouselImages, blogUrl, gameUrl } = useModalState()
 
   return (
     <div className="overflow-hidden fixed inset-0 z-30 m-auto text-black rounded-6xl bg-[#E9FAFF] max-w-[80vw] max-h-[80vh]">
@@ -16,7 +16,7 @@ const Body: FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-4 gap-6 justify-between grid-rows-7 h-[calc(100%-5rem)]">
           <div className="row-span-2 lg:row-span-4 md:mr-6">{howToPlay}</div>
           <div className="lg:col-start-2 row-span-3 row-start-1">
-            <Carousel images={imgUrls} />
+            <Carousel images={carouselImages} />
           </div>
           <div className="row-span-2">
             <Buttons blogUrl={blogUrl} gameUrl={gameUrl} />

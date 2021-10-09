@@ -14,8 +14,8 @@ export type Game = {
   title: string
   description: string
   howToPlay: string
-  imgUrl: string
-  imgUrls: string[]
+  image: string
+  carouselImages: string[]
   blogUrl: string
   gameUrl: string
   launcher?: boolean
@@ -28,8 +28,8 @@ const options = {
 const Game: FC<Props> = ({
   title,
   description,
-  imgUrl,
-  imgUrls,
+  image,
+  carouselImages,
   blogUrl,
   gameUrl,
   launcher
@@ -56,7 +56,7 @@ const Game: FC<Props> = ({
     isOpen: true,
     howToPlay:
       'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
-    imgUrls,
+    carouselImages,
     blogUrl,
     gameUrl
   }
