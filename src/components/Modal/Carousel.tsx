@@ -29,7 +29,7 @@ const Carousel: FC<Props> = ({ images }) => {
     <div
       className="overflow-x-hidden relative mx-auto w-full h-full"
       ref={containerRef}>
-      {index != 0 && (
+      {index !== 0 && (
         <img
           src={left}
           className="absolute inset-y-0 z-50 my-auto"
@@ -37,7 +37,7 @@ const Carousel: FC<Props> = ({ images }) => {
           onClick={decrement}
         />
       )}
-      {index != images.length - 1 && (
+      {index !== images.length - 1 && (
         <img
           src={right}
           className="absolute inset-y-0 right-0 z-50 my-auto"
@@ -53,7 +53,7 @@ const Carousel: FC<Props> = ({ images }) => {
             <img
               src={src}
               className="object-contain items-center mx-auto"
-              ref={i == index ? ref : undefined}
+              ref={i === index ? ref : undefined}
             />
           </div>
         ))}

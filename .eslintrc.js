@@ -25,7 +25,8 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'tailwindcss',
-    'import'
+    'import',
+    'unused-imports'
   ],
   extends: [
     'eslint:recommended',
@@ -36,6 +37,25 @@ module.exports = {
     'prettier'
   ],
   rules: {
+    'no-console': 'warn',
+    'no-debugger': 'warn',
+    'no-empty': ['error', { allowEmptyCatch: true }],
+    eqeqeq: 'error',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/member-delimiter-style': [
+      'error',
+      {
+        multiline: {
+          delimiter: 'none'
+        },
+        singleline: {
+          delimiter: 'semi'
+        }
+      }
+    ],
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'warn',
+    'unused-imports/no-unused-vars': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'tailwindcss/classnames-order': 'warn',

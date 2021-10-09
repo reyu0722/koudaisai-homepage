@@ -11,13 +11,13 @@ const Title: FC<Props> = ({ text }) => {
   const [animationText, setAnimationText] = useState('')
 
   useEffect(() => {
-    if (animationText == text) return
+    if (animationText === text) return
     const timer = setInterval(() => {
       let pushNewChar = true
       let newText = animationText
         .split('')
         .map((c, i) => {
-          if (c == text[i]) return c
+          if (c === text[i]) return c
 
           pushNewChar = false
           const goal = text.charCodeAt(i)
