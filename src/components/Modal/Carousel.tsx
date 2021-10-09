@@ -24,7 +24,7 @@ const Carousel: FC<Props> = ({ images }) => {
         ((containerRef.current?.offsetWidth ?? 1) -
           (ref.current?.offsetWidth ?? 1)) /
         2
-      
+
       // 画像がロードされてない場合は時間をあけて再取得
       if (res === (containerRef.current?.offsetWidth ?? 1) / 2) {
         setTimeout(setter, 10)
@@ -51,7 +51,7 @@ const Carousel: FC<Props> = ({ images }) => {
         index !== 0 && (
           <img
             src={left}
-            className="absolute inset-y-0 z-50 my-auto"
+            className="absolute inset-y-0 z-50 my-auto w-8"
             style={`left: ${offset}px`}
             onClick={decrement}
           />
@@ -60,7 +60,7 @@ const Carousel: FC<Props> = ({ images }) => {
         index !== images.length - 1 && (
           <img
             src={right}
-            className="absolute inset-y-0 right-0 z-50 my-auto"
+            className="absolute inset-y-0 z-50 my-auto w-8"
             style={`right: ${offset}px`}
             onClick={increment}
           />
