@@ -7,7 +7,8 @@ const Background: FC = () => {
       return {
         isOpen: false,
         howToPlay: '',
-        imgUrls: [],
+        image: '',
+        carouselImages: [],
         blogUrl: '',
         gameUrl: ''
       }
