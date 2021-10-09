@@ -38,7 +38,7 @@ const Image: FC<Props> = ({ image, launcher }) => {
         color={launcher ? '#f2518b' : undefined}
       />
       <Frame
-        className="absolute top-6 w-full h-auto"
+        className="absolute top-5 w-full h-auto"
         color={launcher ? '#f2518b' : undefined}
       />
       <img src={image} className={getClass()} />
