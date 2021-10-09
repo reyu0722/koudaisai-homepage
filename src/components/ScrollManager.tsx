@@ -53,7 +53,7 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
     })
     if (dest === -1)
       scrollElement.scroll({
-        top: scrollElement.scrollHeight,
+        top: scrollElement.scrollHeight - scrollElement.clientHeight,
         behavior: 'smooth'
       })
     else
