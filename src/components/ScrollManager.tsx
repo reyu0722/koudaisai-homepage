@@ -23,8 +23,12 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       if (elementTop < now) dest = i
     })
 
-    if (dest === -1) scrollElement.scrollTop = 0
-    else scrollElement.scrollTop = refs.current[dest].current?.offsetTop ?? 0
+    if (dest === -1) scrollElement.scroll({ top: 0, behavior: 'smooth' })
+    else
+      scrollElement.scroll({
+        top: refs.current[dest].current?.offsetTop ?? 0,
+        behavior: 'smooth'
+      })
   }
 
   const scrollDown = () => {
@@ -44,8 +48,16 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
       const elementTop = cur.offsetTop
       if (elementTop > now) dest = i
     })
-    if (dest === -1) scrollElement.scrollTop = scrollElement.scrollHeight
-    else scrollElement.scrollTop = refs.current[dest].current?.offsetTop ?? 0
+    if (dest === -1)
+      scrollElement.scroll({
+        top: scrollElement.scrollHeight,
+        behavior: 'smooth'
+      })
+    else
+      scrollElement.scroll({
+        top: refs.current[dest].current?.offsetTop ?? 0,
+        behavior: 'smooth'
+      })
   }
 
   return (
