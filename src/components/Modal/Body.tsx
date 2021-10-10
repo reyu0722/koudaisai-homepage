@@ -11,8 +11,8 @@ const Body: FC = () => {
   return (
     <div className="overflow-hidden fixed inset-0 z-30 m-auto text-black rounded-4xl md:rounded-6xl bg-[#E9FAFF] w-240 lg:h-160 max-w-[90vw] max-h-[90vh]">
       <Decorations />
-      <div className="relative z-40 px-8 <sm:px-4 lg:px-20 pt-20 <sm:pt-12 pb-4 md:pb-10 space-y-6 lg:space-y-12 w-full h-full">
-        <div className="<lg:pl-6 <sm:pl-4 text-4xl <sm:text-3xl font-medium">
+      <div className="relative z-40 px-8 <sm:px-8 lg:px-20 pt-20 <sm:pt-12 pb-4 md:pb-10 space-y-4 lg:space-y-12 w-full h-full">
+        <div className="relative top-1 -left-1 text-4xl <sm:text-3xl font-medium">
           あそびかた
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-4 gap-2 md:gap-6 justify-between grid-rows-7 h-[calc(100%-5rem)]">
