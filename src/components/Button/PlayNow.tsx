@@ -18,7 +18,7 @@ const Button: FC<Props> = ({ url }) => {
   return (
     <div className="h-16 w-58">
       <div
-        className={`flex justify-between items-center px-6 <sm:px-4 <sm:py-4 w-full sm:h-full rounded-[36px] ${
+        className={`flex justify-evenly items-center <sm:py-4 w-full sm:h-full rounded-[36px] ${
           hover ? 'bg-[#dcf9ff]' : 'bg-mycyan'
         }`}
         onMouseOver={hoverOn}

@@ -9,7 +9,7 @@ const Body: FC = () => {
   const { howToPlay, carouselImages, blogUrl, gameUrl } = useModalState()
 
   return (
-    <div className="overflow-hidden fixed inset-0 z-30 m-auto text-black rounded-6xl bg-[#E9FAFF] w-240 lg:h-160 max-w-[80vw] max-h-[80vh]">
+    <div className="overflow-hidden fixed inset-0 z-30 m-auto text-black rounded-4xl md:rounded-6xl bg-[#E9FAFF] w-240 lg:h-160 max-w-[90vw] max-h-[90vh]">
       <Decorations />
       <div className="relative z-40 px-8 <sm:px-4 lg:px-20 pt-20 <sm:pt-12 pb-4 md:pb-10 space-y-6 lg:space-y-12 w-full h-full">
         <div className="<lg:pl-6 <sm:pl-4 text-4xl <sm:text-3xl font-medium">

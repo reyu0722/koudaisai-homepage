@@ -18,15 +18,15 @@ const Button: FC<Props> = ({ url }) => {
   return (
     <div className="h-16 w-58">
       <div
-        className={`flex justify-center items-center px-6 w-full h-full rounded-[36px] border-solid border-[#f2518b] border-3 ${
+        className={`flex justify-evenly items-center w-full h-full rounded-[36px] border-solid border-[#f2518b] border-3 ${
           hover ? 'bg-[#f2518b] text-[#131229]' : 'text-[#f2518b]'
         }`}
         onMouseOver={hoverOn}
         onMouseOut={hoverOff}
         onClick={handleClick}>
-        <p className="font-medium leading-none align-top whitespace-nowrap bg-opa text-[24px] font-rubik">
+        <p className="font-medium leading-none align-top whitespace-nowrap text-[24px] font-rubik">
           DOWNLOAD
-        </p>{' '}
+        </p>
         <ArrowDown color={hover ? undefined : '#F2518B'} />
       </div>
     </div>
