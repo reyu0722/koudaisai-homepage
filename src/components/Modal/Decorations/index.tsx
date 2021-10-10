@@ -1,9 +1,20 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import { useSetModalState } from '/@/store/Modal'
+
+import close from './close.svg'
 import meshBottom from './mesh-bottom.svg'
 import meshTop from './mesh-top.svg'
 import titlebg from './titlebg.svg'
 
 const Decorations: FC = () => {
+  const setModalState = useSetModalState()
+  const closeModal = () =>
+    setModalState(s => {
+      return {
+        ...s,
+        isOpen: false
+      }
+    })
   return (
     <>
       <img src={meshTop} className="absolute top-0 left-[55%] min-w-[45%]" />
@@ -20,6 +31,11 @@ const Decorations: FC = () => {
       <div className="absolute top-11 <sm:top-5 <sm:left-12 text-sm text-mycyan font-rubik left-22">
         HOW TO PLAY
       </div>
+      <img
+        src={close}
+        className="absolute top-10 right-5 sm:right-10 z-50 w-10 sm:w-12"
+        onClick={closeModal}
+      />
     </>
   )
 }
