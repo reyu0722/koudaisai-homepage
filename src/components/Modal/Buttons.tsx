@@ -1,9 +1,10 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { useEffect, useState } from 'preact/hooks'
 
-import Blog from '/@/components/Button/Blog'
-import PlayNowDark from '/@/components/Button/PlayNowDark'
 import { useSetModalState } from '/@/store/Modal'
+
+import Blog from './Button/Blog'
+import PlayNowDark from './Button/PlayNowDark'
 
 type Props = {
   blogUrl?: string

@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from 'preact/hooks'
 
-import Download from '/@/components/Button/Download'
-import More from '/@/components/Button/More'
-import PlayNow from '/@/components/Button/PlayNow'
-
+// import Download from './Button/Download'
 import Animation from './Animation'
+import More from './Button/More'
+import PlayNow from './Button/PlayNow'
 import Image from './Image'
 import Title from './Title'
 
@@ -83,8 +82,9 @@ const Game: FC<Props> = ({
                 <div className="whitespace-pre-wrap">{description}</div>
                 <div className="flex gap-3 w-full h-12">
                   {launcher ? (
-                    <Download url={gameUrl} />
+                    'COMMING SOON...'
                   ) : (
+                    // <Download url={gameUrl} />
                     <>
                       <PlayNow url={gameUrl} />
                       <More {...modalContent} />
