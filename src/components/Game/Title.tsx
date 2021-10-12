@@ -3,13 +3,15 @@ import { useState, useEffect } from 'preact/hooks'
 type Props = {
   text: string
   reverse: boolean
+  visible: boolean
 }
 
-const Title: FC<Props> = ({ text }) => {
+const Title: FC<Props> = ({ text, visible }) => {
   const [animationText, setAnimationText] = useState('')
 
   useEffect(() => {
     if (animationText === text) return
+    if (!visible) return
     const timer = setInterval(() => {
       let pushNewChar = true
       let newText = animationText
@@ -63,7 +65,7 @@ const Title: FC<Props> = ({ text }) => {
       setAnimationText(newText)
     }, 0)
     return () => clearInterval(timer)
-  }, [text, animationText])
+  }, [text, animationText, visible])
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname

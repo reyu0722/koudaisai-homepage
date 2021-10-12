@@ -69,7 +69,7 @@ const Game: FC<Props> = ({
       {true && (
         <>
           <div className="mx-6 sm:mx-12 md:mx-24 space-y-16">
-            <Title text={title} reverse={reverse} />
+            <Title text={title} reverse={reverse} visible={visible} />
             <div
               className={`flex flex-col ${
                 reverse ? 'lg:flex-row' : 'lg:flex-row-reverse'
