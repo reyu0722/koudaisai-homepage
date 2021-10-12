@@ -17,7 +17,7 @@ const Button: FC<Props> = ({ url }) => {
 
   return (
     <div className="h-16 w-58">
-      <div
+      <button
         className={`flex justify-evenly items-center w-full h-full rounded-[36px] border-solid border-[#f2518b] border-3 ${
           hover ? 'bg-[#f2518b] text-[#131229]' : 'text-[#f2518b]'
         }`}
@@ -28,7 +28,7 @@ const Button: FC<Props> = ({ url }) => {
           DOWNLOAD
         </p>
         <ArrowDown color={hover ? undefined : '#F2518B'} />
-      </div>
+      </button>
     </div>
   )
 }

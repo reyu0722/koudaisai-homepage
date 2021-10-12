@@ -17,7 +17,7 @@ const Button: FC<Props> = newState => {
 
   return (
     <div className="h-16 w-39">
-      <div
+      <button
         className={`flex justify-center items-center <sm:py-4 w-full sm:h-full rounded-[36px] border-solid border-mycyan border-3 ${
           hover ? 'bg-mycyan text-[#131229]' : 'text-mycyan'
         }`}
@@ -27,7 +27,7 @@ const Button: FC<Props> = newState => {
         <p className="font-medium leading-none align-top whitespace-nowrap bg-opa text-[24px] <sm:text-[18px] font-rubik">
           MORE
         </p>
-      </div>
+      </button>
     </div>
   )
 }

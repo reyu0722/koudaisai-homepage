@@ -17,7 +17,7 @@ const Button: FC<Props> = ({ url }) => {
 
   return (
     <div className="h-16 w-58">
-      <div
+      <button
         className={`flex justify-evenly items-center <sm:py-4 w-full sm:h-full rounded-[36px] ${
           hover ? 'bg-[#dcf9ff]' : 'bg-mycyan'
         }`}
@@ -28,7 +28,7 @@ const Button: FC<Props> = ({ url }) => {
           PLAY NOW
         </p>
         <ArrowLeft />
-      </div>
+      </button>
     </div>
   )
 }

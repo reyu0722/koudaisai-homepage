@@ -83,9 +83,9 @@ const Game: FC<Props> = ({
                 <div className="whitespace-pre-wrap">{description}</div>
                 <div className="flex gap-3 w-full h-12">
                   {launcher ? (
+                    // <Download url={gameUrl} />
                     <CommingSoon />
                   ) : (
-                    // <Download url={gameUrl} />
                     <>
                       <PlayNow url={gameUrl} />
                       <More {...modalContent} />
