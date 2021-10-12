@@ -65,7 +65,8 @@ const ScrollManager: FC<Props> = ({ refs, refObj }) => {
 
   return (
     <div className="fixed right-0 bottom-0 z-20">
-      <div className="flex flex-col w-12 h-24 text-black">
+      {/*eslint-disable-next-line tailwindcss/no-custom-classname*/}
+      <div className="flex flex-col w-12 h-24 text-myblack">
         <div className="w-full h-full bg-white" onClick={scrollUp}>
           ↑
         </div>
