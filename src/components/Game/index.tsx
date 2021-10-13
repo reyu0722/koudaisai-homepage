@@ -8,8 +8,6 @@ import PlayNow from './Button/PlayNow'
 import Image from './Image'
 import Title from './Title'
 
-type Props = Game
-
 export type Game = {
   title: string
   description: string
@@ -21,19 +19,27 @@ export type Game = {
   launcher?: boolean
 }
 
+type Props = {
+  game: Game
+  reverse: boolean
+}
+
 const options = {
   rootMargin: `-30% 0px -30% 0px`
 }
 
 const Game: FC<Props> = ({
-  title,
-  description,
-  howToPlay,
-  image,
-  carouselImages,
-  blogUrl,
-  gameUrl,
-  launcher
+  game: {
+    title,
+    description,
+    howToPlay,
+    image,
+    carouselImages,
+    blogUrl,
+    gameUrl,
+    launcher
+  },
+  reverse
 }) => {
   const [visible, setVisible] = useState(false)
 
@@ -60,15 +66,13 @@ const Game: FC<Props> = ({
     gameUrl
   }
 
-  const reverse = false
-
   return (
     <div className="py-32 my-64">
       <div className="z-10" ref={ref} />
       <Animation visible={visible} />
       {true && (
         <>
-          <div className="mx-6 sm:mx-12 md:mx-24 space-y-16">
+          <div className="mx-6 sm:mx-12 md:mx-24 mt-12 space-y-16">
             <Title text={title} reverse={reverse} visible={visible} />
             <div
               className={`flex flex-col ${

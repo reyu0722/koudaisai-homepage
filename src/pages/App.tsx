@@ -51,7 +51,7 @@ const App: FC = () => {
               <div className="my-60" />
               {games.map((game, i) => (
                 <div ref={gameRefs.current[i + 1]} key={game.title}>
-                  <Game {...game} />
+                  <Game game={game} reverse={!!(i % 2)} />
                 </div>
               ))}
               <div className="py-20"> </div>
