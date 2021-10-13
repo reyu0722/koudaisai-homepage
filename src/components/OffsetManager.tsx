@@ -19,6 +19,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref }) => {
 
   useEffect(() => {
     const cur = ref.current
+
     const listener = () => {
       setOffset((ref.current?.scrollTop ?? 0) / (cur?.clientWidth ?? 1))
       if (
@@ -44,9 +45,34 @@ const OffsetManager: FC<Props> = ({ refObj: ref }) => {
         )
       }
     }
+
     cur?.addEventListener('scroll', listener)
     return () => cur?.removeEventListener('scroll', listener)
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref, status])
+
+  useEffect(() => {
+    const el = ref.current
+    let d = 1
+    let count = 0
+    if (!el || status.illustChanged) return
+
+    const preventListener = (e: Event) => e.preventDefault()
+    el.addEventListener('wheel', preventListener)
+    el.addEventListener('touchmove', preventListener)
+    const timer = setInterval(() => {
+      if (count < 100) {
+        count++
+        return
+      }
+      el.scrollTop += d
+      d += 0.3
+    }, 10)
+    return () => {
+      clearInterval(timer)
+      el.removeEventListener('wheel', preventListener)
+      el.removeEventListener('touchmove', preventListener)
+    }
   }, [ref, status])
 
   return null
