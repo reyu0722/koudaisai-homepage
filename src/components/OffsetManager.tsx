@@ -109,7 +109,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
         className="absolute inset-0 mx-auto h-full bg-[#A5E7F5] w-[3px]"
         style={{
           height: `${getPercentage()}%`,
-          'box-shadow': '0px 0px 5px #8DC3CE'
+          boxShadow: '0px 0px 5px #8DC3CE'
         }}
       />
       {contentHeights.map((offsetTop, i) => {
@@ -120,7 +120,9 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
             style={{
               top: `${offsetTop * 100}%`,
               backgroundColor:
-                getPercentage() > offsetTop * 100 ? '#A5E7F5' : '#efefef'
+                getPercentage() > offsetTop * 100 ? '#A5E7F5' : '#efefef',
+              boxShadow:
+                getPercentage() > offsetTop * 100 ? '0px 0px 10px #8DC3CE' : ''
             }}
             key={i}
             onClick={() =>
@@ -135,19 +137,5 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
     </div>
   )
 }
-
-/* Ellipse 13 */
-/*
-
-position: absolute;
-width: 3px;
-height: 157px;
-left: 1369px;
-top: 182.18px;
-
-background: #A5E7F5;
-box-shadow: 0px 0px 5px #8DC3CE;
-
-*/
 
 export default OffsetManager
