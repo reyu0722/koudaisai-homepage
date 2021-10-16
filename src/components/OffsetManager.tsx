@@ -105,16 +105,22 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="absolute inset-0 mx-auto h-full bg-[#efefef] w-[3px]" />
       <div
+        // eslint-disable-next-line tailwindcss/no-custom-classname
         className="absolute inset-0 mx-auto h-full bg-[#A5E7F5] w-[3px]"
-        style={`height: ${getPercentage()}%`}
+        style={{
+          height: `${getPercentage()}%`,
+          'box-shadow': '0px 0px 5px #8DC3CE'
+        }}
       />
       {contentHeights.map((offsetTop, i) => {
         return (
           <div
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="absolute inset-0 z-10 w-3 h-3 bg-[#efefef]"
+            className="absolute inset-0 z-10 w-3 h-3 bg-[]"
             style={{
-              top: `${offsetTop * 100}%`
+              top: `${offsetTop * 100}%`,
+              backgroundColor:
+                getPercentage() > offsetTop * 100 ? '#A5E7F5' : '#efefef'
             }}
             key={i}
             onClick={() =>
