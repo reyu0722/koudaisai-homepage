@@ -31,7 +31,7 @@ const App: FC = () => {
             className="overflow-x-hidden overflow-y-auto relative w-full h-full"
             style="overflow-y: overlay"
             ref={ref}>
-            <OffsetManager refObj={ref} />
+            <OffsetManager refObj={ref} scrollRefs={gameRefs} />
             <ScrollManager refs={gameRefs} refObj={ref} />
             <Modal />
             <Background />
