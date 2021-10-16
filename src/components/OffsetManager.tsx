@@ -1,6 +1,7 @@
 import { RefObject } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
 
+import { games } from '/@/assets/data'
 import { useOffsetState, useSetOffsetState } from '/@/store/Offset'
 import { useStatusState, useSetStatusState } from '/@/store/Status'
 
@@ -114,24 +115,35 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       />
       {contentHeights.map((offsetTop, i) => {
         return (
-          <div
-            // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="absolute inset-0 z-10 w-3 h-3 bg-[]"
-            style={{
-              top: `${offsetTop * 100}%`,
-              backgroundColor:
-                getPercentage() > offsetTop * 100 ? '#A5E7F5' : '#efefef',
-              boxShadow:
-                getPercentage() > offsetTop * 100 ? '0px 0px 10px #8DC3CE' : ''
-            }}
-            key={i}
-            onClick={() =>
-              ref.current?.scrollTo({
-                top: offsetTop * ref.current.scrollHeight,
-                behavior: 'smooth'
-              })
-            }
-          />
+          <>
+            <div
+              className="absolute right-5 text-xs leading-none text-right whitespace-nowrap text-mypurple"
+              style={{ top: `${offsetTop * 100}%` }}>
+              {games[i].title}
+            </div>
+            <div
+              // eslint-disable-next-line tailwindcss/no-custom-classname
+              className="absolute inset-0 z-10 w-3 h-3"
+              style={{
+                top: `${offsetTop * 100}%`,
+                backgroundColor:
+                  getPercentage() + 1 >= offsetTop * 100
+                    ? '#A5E7F5'
+                    : '#efefef',
+                boxShadow:
+                  getPercentage() + 1 >= offsetTop * 100
+                    ? '0px 0px 10px #8DC3CE'
+                    : ''
+              }}
+              key={i}
+              onClick={() =>
+                ref.current?.scrollTo({
+                  top: offsetTop * ref.current.scrollHeight,
+                  behavior: 'smooth'
+                })
+              }
+            />
+          </>
         )
       })}
     </div>
