@@ -8,7 +8,6 @@ import Footer from '/@/components/Footer'
 import Game from '/@/components/Game'
 import Modal from '/@/components/Modal'
 import OffsetManager from '/@/components/OffsetManager'
-import ScrollManager from '/@/components/ScrollManager'
 import Provider from '/@/store'
 
 const App: FC = () => {
@@ -32,7 +31,6 @@ const App: FC = () => {
             style="overflow-y: overlay"
             ref={ref}>
             <OffsetManager refObj={ref} scrollRefs={gameRefs} />
-            <ScrollManager refs={gameRefs} refObj={ref} />
             <Modal />
             <Background />
             {/* eslint-disable-next-line tailwindcss/no-custom-classname */}

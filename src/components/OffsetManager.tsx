@@ -21,24 +21,21 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
 
   const [contentHeights, setContentHeights] = useState<number[]>([])
 
+  // イラストとヘッダーのタイミング
   useEffect(() => {
     const cur = ref.current
+    if (!cur) return
 
     const listener = () => {
-      setOffset((ref.current?.scrollTop ?? 0) / (cur?.clientWidth ?? 1))
-      if (
-        !status.illustChanged &&
-        (ref.current?.scrollTop ?? 0) / (cur?.clientWidth ?? 1) >= CHANGE_OFFSET
-      ) {
+      const nowOffset = cur.scrollTop / cur.clientWidth
+      setOffset(nowOffset)
+      if (!status.illustChanged && nowOffset >= CHANGE_OFFSET) {
         setStatus({
           illustChanged: true,
           headerVisible: false
         })
       }
-      if (
-        !status.headerVisible &&
-        (ref.current?.scrollTop ?? 0) / (cur?.clientWidth ?? 1) >= HEADER_OFFSET
-      ) {
+      if (!status.headerVisible && nowOffset >= HEADER_OFFSET) {
         setTimeout(
           () =>
             setStatus({
@@ -50,20 +47,25 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       }
     }
 
-    cur?.addEventListener('scroll', listener)
-    return () => cur?.removeEventListener('scroll', listener)
+    cur.addEventListener('scroll', listener)
+    return () => cur.removeEventListener('scroll', listener)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, status])
 
+  // 最初の自動スクロール
   useEffect(() => {
     const el = ref.current
-    let d = 1
-    let count = 0
+
     if (!el || status.illustChanged) return
 
+    let d = 1
+    let count = 0
+
     const preventListener = (e: Event) => e.preventDefault()
+
     el.addEventListener('wheel', preventListener)
     el.addEventListener('touchmove', preventListener)
+
     const timer = setInterval(() => {
       if (count < 100) {
         count++
@@ -79,23 +81,29 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
     }
   }, [ref, status])
 
+  // 横のスクロールするやつ
   useEffect(() => {
     const cur = ref.current
+    if (!cur) return
+
     setContentHeights(
       scrollRefs.current?.map(ref => {
         const el = ref.current
         if (!el) return 0
-        return el.offsetTop / (cur?.scrollHeight ?? 1)
+        return el.offsetTop / cur.scrollHeight
       }) ?? []
     )
   }, [scrollRefs, ref, status])
 
   return (
+    // eslint-disable-next-line tailwindcss/no-custom-classname
     <div className="fixed inset-y-0 right-10 my-auto w-3 h-[70vh] z-100">
+      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="absolute inset-0 mx-auto h-full bg-[#efefef] w-[3px]" />
       {contentHeights.map((offset, i) => {
         return (
           <div
+            // eslint-disable-next-line tailwindcss/no-custom-classname
             className="absolute inset-0 z-10 m-auto w-3 h-3 bg-[#efefef]"
             style={{
               top: `${offset * 100}%`
