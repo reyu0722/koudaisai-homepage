@@ -95,23 +95,31 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
     )
   }, [scrollRefs, ref, status])
 
+  const getPercentage = () =>
+    (offset * (ref.current?.clientWidth ?? 0) * 100) /
+    (ref.current?.scrollHeight ?? 1)
+
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
     <div className="fixed inset-y-0 right-10 my-auto w-3 h-[70vh] z-100">
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="absolute inset-0 mx-auto h-full bg-[#efefef] w-[3px]" />
-      {contentHeights.map((offset, i) => {
+      <div
+        className="absolute inset-0 mx-auto h-full bg-[#A5E7F5] w-[3px]"
+        style={`height: ${getPercentage()}%`}
+      />
+      {contentHeights.map((offsetTop, i) => {
         return (
           <div
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="absolute inset-0 z-10 m-auto w-3 h-3 bg-[#efefef]"
+            className="absolute inset-0 z-10 w-3 h-3 bg-[#efefef]"
             style={{
-              top: `${offset * 100}%`
+              top: `${offsetTop * 100}%`
             }}
             key={i}
             onClick={() =>
               ref.current?.scrollTo({
-                top: offset * (ref.current.scrollHeight ?? 1),
+                top: offsetTop * ref.current.scrollHeight,
                 behavior: 'smooth'
               })
             }
@@ -124,14 +132,16 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
 
 /* Ellipse 13 */
 /*
-position: absolute;
-width: 12.22px;
-height: 12.22px;
-left: 1364.39px;
-top: 487.96px;
 
-background: #EFEFEF;
-border-radius: 52.5px;
+position: absolute;
+width: 3px;
+height: 157px;
+left: 1369px;
+top: 182.18px;
+
+background: #A5E7F5;
+box-shadow: 0px 0px 5px #8DC3CE;
+
 */
 
 export default OffsetManager
