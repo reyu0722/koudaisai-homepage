@@ -51,7 +51,7 @@ const Carousel: FC<Props> = ({ images }) => {
         index !== 0 && (
           <img
             src={left}
-            className="absolute inset-y-0 z-50 my-auto w-8"
+            className="absolute inset-y-0 z-50 my-auto w-8 md:w-16"
             style={`left: ${offset}px`}
             onClick={decrement}
           />
@@ -60,7 +60,7 @@ const Carousel: FC<Props> = ({ images }) => {
         index !== images.length - 1 && (
           <img
             src={right}
-            className="absolute inset-y-0 z-50 my-auto w-8"
+            className="absolute inset-y-0 z-50 my-auto w-8 md:w-16"
             style={`right: ${offset}px`}
             onClick={increment}
           />
