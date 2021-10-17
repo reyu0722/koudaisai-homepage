@@ -106,7 +106,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
-    <div className="fixed inset-y-0 right-10 my-auto w-3 h-[70vh] z-100">
+    <div className="fixed inset-y-0 right-10 z-30 my-auto w-3 h-[70vh]">
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="absolute inset-0 mx-auto h-full bg-[#efefef] w-[3px]" />
       <div
@@ -121,6 +121,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
         return (
           <>
             <a
+              // eslint-disable-next-line tailwindcss/no-custom-classname
               className="absolute right-5 text-xs leading-none text-right whitespace-nowrap select-none text-mypurple"
               style={{ top: `${offsetTop * 100}%` }}
               onClick={() =>

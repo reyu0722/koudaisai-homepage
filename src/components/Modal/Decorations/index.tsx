@@ -29,7 +29,7 @@ const Decorations: FC = () => {
       />
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
       <div className="absolute top-11 <sm:top-5 text-sm <sm:left-[2.8rem] text-mycyan font-rubik left-22">
-        HOW TO PLAY
+        SCREENSHOTS
       </div>
       <img
         src={close}
