@@ -40,7 +40,7 @@ const Title: FC<Props> = ({ text, visible, reverse }) => {
 
           const goal = text.charCodeAt(i)
 
-          let interval = 2
+          let interval = 3
 
           //ひらがなの場合は少し速くする
           if (c >= 'ぁ') interval = 6
@@ -94,7 +94,7 @@ const Title: FC<Props> = ({ text, visible, reverse }) => {
       }
 
       setAnimationText(newText)
-    }, 0)
+    }, 10)
     return () => clearInterval(timer)
   }, [text, animationText, visible, index])
 

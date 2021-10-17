@@ -75,6 +75,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       el.scrollTop += d
       d += 0.3
     }, 10)
+
     return () => {
       clearInterval(timer)
       el.removeEventListener('wheel', preventListener)
@@ -119,7 +120,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       />
       {contentHeights.map((offsetTop, i) => {
         return (
-          <>
+          <div key={i}>
             <a
               // eslint-disable-next-line tailwindcss/no-custom-classname
               className="absolute right-5 text-xs leading-none text-right whitespace-nowrap select-none text-mypurple"
@@ -148,7 +149,6 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
                     ? '0px 0px 10px #8DC3CE'
                     : ''
               }}
-              key={i}
               onClick={() =>
                 ref.current?.scrollTo({
                   top:
@@ -158,7 +158,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
                 })
               }
             />
-          </>
+          </div>
         )
       })}
     </div>
