@@ -88,17 +88,21 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
     if (!cur) return
 
     setContentHeights(
-      scrollRefs.current?.map(ref => {
-        const el = ref.current
-        if (!el) return 0
-        return el.offsetTop / cur.scrollHeight
-      }) ?? []
+      [0]
+        .concat(
+          scrollRefs.current?.map(ref => {
+            const el = ref.current
+            if (!el) return 0
+            return el.offsetTop / (cur.scrollHeight - cur.offsetHeight)
+          }) ?? []
+        )
+        .concat(1)
     )
   }, [scrollRefs, ref, status])
 
   const getPercentage = () =>
     (offset * (ref.current?.clientWidth ?? 0) * 100) /
-    (ref.current?.scrollHeight ?? 1)
+    ((ref.current?.scrollHeight ?? 1) - (ref.current?.offsetHeight ?? 0))
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
@@ -116,20 +120,28 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       {contentHeights.map((offsetTop, i) => {
         return (
           <>
+            <a
+              className="absolute right-5 text-xs leading-none text-right whitespace-nowrap select-none text-mypurple"
+              style={{ top: `${offsetTop * 100}%` }}
+              onClick={() =>
+                ref.current?.scrollTo({
+                  top:
+                    offsetTop *
+                    (ref.current.scrollHeight - ref.current.offsetHeight),
+                  behavior: 'smooth'
+                })
+              }>
+              {i === 0 ? 'TOP' : games[i - 1]?.title ?? ''}
+            </a>
             <div
-              className="absolute right-5 text-xs leading-none text-right whitespace-nowrap text-mypurple"
-              style={{ top: `${offsetTop * 100}%` }}>
-              {games[i].title}
-            </div>
-            <div
-              // eslint-disable-next-line tailwindcss/no-custom-classname
-              className="absolute inset-0 z-10 w-3 h-3"
+              className={
+                'absolute inset-0 z-10 w-3 h-3 rounded-lg hover:bg-[#DCF9FF] ' +
+                (getPercentage() + 1 >= offsetTop * 100
+                  ? 'bg-[#A5E7F5]'
+                  : 'bg-[#efefef]')
+              }
               style={{
                 top: `${offsetTop * 100}%`,
-                backgroundColor:
-                  getPercentage() + 1 >= offsetTop * 100
-                    ? '#A5E7F5'
-                    : '#efefef',
                 boxShadow:
                   getPercentage() + 1 >= offsetTop * 100
                     ? '0px 0px 10px #8DC3CE'
@@ -138,7 +150,9 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
               key={i}
               onClick={() =>
                 ref.current?.scrollTo({
-                  top: offsetTop * ref.current.scrollHeight,
+                  top:
+                    offsetTop *
+                    (ref.current.scrollHeight - ref.current.offsetHeight),
                   behavior: 'smooth'
                 })
               }
