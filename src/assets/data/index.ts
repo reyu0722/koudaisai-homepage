@@ -19,12 +19,21 @@ launcher(optional): ランチャーだけtrue入れて他は何も書かなく�
 
 export const games: Game[] = [
   {
-    title: 'traPDispel',
+    title: 'JumpJumpJump',
+    description: `落下したプレイヤーはその場で脱落！
+生き残って最後の一人になったらその場で勝利！
+葉っぱの上を飛び移って、落ちないように生き残ろう！
+落ちてくるフルーツを取って、相手を弾き飛ばすのももちろんOK！`,
+    image: dummy,
+    carouselImages: [dummy1, dummy2, dummy3, dummy4],
+    blogUrl: 'https://trap.jp/post/1085/',
+    gameUrl: 'https://trapdispel.trap.games/'
+  },
+  {
+    title: 'TraPDispel',
     description: `ブラウザで遊べるオンライン対戦型タワーディフェンスゲーム!
 マップの真ん中から進行してくる敵から自分の陣地を守りつつ、他の人を妨害しよう!
 最後まで拠点を守り切れた人が勝者だ!!`,
-    howToPlay:
-      'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
     image: dummy,
     carouselImages: [dummy1, dummy2, dummy3, dummy4],
     blogUrl: 'https://trap.jp/post/1085/',
@@ -35,17 +44,23 @@ export const games: Game[] = [
     description: `『けものフレンズ』の二次創作パーティーゲームが遂に登場！！
 フレンズになってジャパリパークを駆け巡り、どったんばったん大騒ぎ？！
 目的地探しやミッションでポイントを集め、フレンズの頂点を目指せ！！`,
-    howToPlay:
-      'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ',
     image: dummy,
     carouselImages: [dummy1, dummy2, dummy3, dummy4],
     gameUrl: 'https://japari.toki317.dev/'
   },
   {
+    title: 'To_America',
+    description: `制限時間15分、目標はアメリカ行き飛行機の搭乗。
+走行距離に応じて金額がたまることを駆使し、効率よくアメリカ行きチケット代50000円をためろ!`,
+    image: dummy,
+    carouselImages: [dummy1, dummy2, dummy3, dummy4],
+    blogUrl: 'https://trap.jp/post/1085/',
+    gameUrl: 'https://trapdispel.trap.games/'
+  },
+  {
     // ランチャーではモーダルに載せる系の情報は使わない (本来ならちゃんと型を書くべき)
     title: 'traP Collection',
     description: 'ランチャーだよ',
-    howToPlay: '',
     image: dummy,
     carouselImages: [],
     blogUrl: '',

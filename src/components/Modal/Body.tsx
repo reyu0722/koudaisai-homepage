@@ -6,7 +6,7 @@ import Carousel from './Carousel'
 import Decorations from './Decorations'
 
 const Body: FC = () => {
-  const { howToPlay, carouselImages, blogUrl, gameUrl } = useModalState()
+  const { carouselImages, blogUrl, gameUrl } = useModalState()
 
   return (
     <div className="overflow-hidden fixed inset-0 z-50 m-auto text-myblack rounded-4xl md:rounded-6xl bg-[#E9FAFF] w-240 h-[min(90vh,120vw)] max-w-[min(90vw,120vh)] ">

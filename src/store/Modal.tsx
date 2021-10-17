@@ -5,7 +5,6 @@ import { useState, useContext, StateUpdater } from 'preact/hooks'
 
 export type ModalState = {
   isOpen: boolean
-  howToPlay: string
   carouselImages: string[]
   blogUrl?: string
   gameUrl: string
@@ -13,7 +12,6 @@ export type ModalState = {
 
 const initialState: ModalState = {
   isOpen: false,
-  howToPlay: '',
   carouselImages: [],
   blogUrl: '',
   gameUrl: ''

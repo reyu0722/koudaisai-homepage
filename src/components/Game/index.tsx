@@ -11,7 +11,6 @@ import Title from './Title'
 export type Game = {
   title: string
   description: string
-  howToPlay: string
   image: string
   carouselImages: string[]
   blogUrl?: string
@@ -32,7 +31,6 @@ const Game: FC<Props> = ({
   game: {
     title,
     description,
-    howToPlay,
     image,
     carouselImages,
     blogUrl,
@@ -60,7 +58,6 @@ const Game: FC<Props> = ({
 
   const modalContent = {
     isOpen: true,
-    howToPlay,
     carouselImages,
     blogUrl,
     gameUrl
