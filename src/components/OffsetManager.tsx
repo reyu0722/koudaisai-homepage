@@ -125,10 +125,9 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       {contentHeights.map((offsetTop, i) => {
         return (
           <div key={i}>
-            <a
-              // eslint-disable-next-line tailwindcss/no-custom-classname
-              className="absolute right-5 mr-1 text-sm leading-none text-right whitespace-nowrap select-none text-mypurple"
-              style={{ top: `${offsetTop * 100}%` }}
+            <div
+              className="flex absolute -right-2 flex-row-reverse items-center p-2"
+              style={{ top: `calc(${offsetTop * 100}% - 8px)` }}
               onClick={() =>
                 ref.current?.scrollTo({
                   top:
@@ -137,31 +136,26 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
                   behavior: 'smooth'
                 })
               }>
-              {i === 0 ? 'TOP' : games[i - 1]?.title ?? ''}
-            </a>
-            <div
-              className={
-                'absolute inset-0 z-10 w-4 h-4 rounded-lg hover:bg-[#DCF9FF] ' +
-                (getPercentage() + 1 >= offsetTop * 100
-                  ? 'bg-[#A5E7F5]'
-                  : 'bg-[#efefef]')
-              }
-              style={{
-                top: `${offsetTop * 100}%`,
-                boxShadow:
-                  getPercentage() + 1 >= offsetTop * 100
-                    ? '0px 0px 10px #8DC3CE'
-                    : ''
-              }}
-              onClick={() =>
-                ref.current?.scrollTo({
-                  top:
-                    offsetTop *
-                    (ref.current.scrollHeight - ref.current.offsetHeight),
-                  behavior: 'smooth'
-                })
-              }
-            />
+              <div
+                className={
+                  'z-10 w-4 h-4 rounded-lg hover:bg-[#DCF9FF] ' +
+                  (getPercentage() + 1 >= offsetTop * 100
+                    ? 'bg-[#A5E7F5]'
+                    : 'bg-[#efefef]')
+                }
+                style={{
+                  boxShadow:
+                    getPercentage() + 1 >= offsetTop * 100
+                      ? '0px 0px 10px #8DC3CE'
+                      : ''
+                }}
+              />
+              <a
+                // eslint-disable-next-line tailwindcss/no-custom-classname
+                className="mr-1 text-sm leading-none text-right whitespace-nowrap select-none text-mypurple">
+                {i === 0 ? 'TOP' : games[i - 1]?.title ?? ''}
+              </a>
+            </div>
           </div>
         )
       })}
