@@ -123,7 +123,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
           <div key={i}>
             <a
               // eslint-disable-next-line tailwindcss/no-custom-classname
-              className="absolute right-5 text-xs leading-none text-right whitespace-nowrap select-none text-mypurple"
+              className="absolute right-5 text-sm leading-none text-right whitespace-nowrap select-none text-mypurple"
               style={{ top: `${offsetTop * 100}%` }}
               onClick={() =>
                 ref.current?.scrollTo({
