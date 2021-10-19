@@ -107,12 +107,16 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
-    <div className="fixed inset-y-0 right-10 z-30 my-auto w-3 h-[70vh]">
+    <div
+      className={
+        'fixed inset-y-0 right-10 z-30 my-auto w-4 h-[70vh] transition duration-1000 ' +
+        (status.headerVisible ? '' : 'opacity-0')
+      }>
       {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-      <div className="absolute inset-0 mx-auto h-full bg-[#efefef] w-[3px]" />
+      <div className="absolute inset-0 mx-auto h-full bg-[#efefef] w-[4px]" />
       <div
         // eslint-disable-next-line tailwindcss/no-custom-classname
-        className="absolute inset-0 mx-auto h-full bg-[#A5E7F5] w-[3px]"
+        className="absolute inset-0 mx-auto h-full bg-[#A5E7F5] w-[4px]"
         style={{
           height: `${getPercentage()}%`,
           boxShadow: '0px 0px 5px #8DC3CE'
@@ -123,7 +127,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
           <div key={i}>
             <a
               // eslint-disable-next-line tailwindcss/no-custom-classname
-              className="absolute right-5 text-sm leading-none text-right whitespace-nowrap select-none text-mypurple"
+              className="absolute right-5 mr-1 text-sm leading-none text-right whitespace-nowrap select-none text-mypurple"
               style={{ top: `${offsetTop * 100}%` }}
               onClick={() =>
                 ref.current?.scrollTo({
@@ -137,7 +141,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
             </a>
             <div
               className={
-                'absolute inset-0 z-10 w-3 h-3 rounded-lg hover:bg-[#DCF9FF] ' +
+                'absolute inset-0 z-10 w-4 h-4 rounded-lg hover:bg-[#DCF9FF] ' +
                 (getPercentage() + 1 >= offsetTop * 100
                   ? 'bg-[#A5E7F5]'
                   : 'bg-[#efefef]')
