@@ -35,12 +35,13 @@ const App: FC = () => {
             <div className="py-[70vw]"> </div>
 
             <div className="text-lg md:text-2xl">
+              {/* eslint-disable-next-line tailwindcss/no-custom-classname*/}
               <div className="pt-32 mx-6 sm:mx-12 md:mr-48 md:ml-24 mb-160">
                 {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
                 <div className="mt-12 text-6xl mb-18 text-mypurple">
                   World of Games
                 </div>
-                <div>{description}</div>
+                <div className="whitespace-pre-wrap">{description}</div>
               </div>
               <div className="my-60" />
               {games.map((game, i) => (
