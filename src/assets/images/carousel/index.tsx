@@ -1,4 +1,4 @@
-export { default as dummy1 } from './dummy1.jpg'
-export { default as dummy2 } from './dummy2.jpg'
-export { default as dummy3 } from './dummy3.jpg'
-export { default as dummy4 } from './dummy4.jpg'
+export { default as japari } from './japari'
+export { default as jump3 } from './jump3'
+export { default as to_america } from './to_america'
+export { default as trapdispel } from './trapdispel'
