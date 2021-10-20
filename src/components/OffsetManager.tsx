@@ -22,6 +22,11 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
 
   const [contentHeights, setContentHeights] = useState<number[]>([])
 
+  const [width, setWidth] = useState(0)
+  useEffect(() => {
+    setWidth(document.body.clientWidth)
+  }, [])
+
   // イラストとヘッダーのタイミング
   useEffect(() => {
     const cur = ref.current
@@ -88,6 +93,7 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
       el.removeEventListener('wheel', preventListener)
       el.removeEventListener('touchmove', preventListener)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, status])
 
   // 横のスクロールするやつ
@@ -111,6 +117,8 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
   const getPercentage = () =>
     (offset * (ref.current?.clientWidth ?? 0) * 100) /
     ((ref.current?.scrollHeight ?? 1) - (ref.current?.offsetHeight ?? 0))
+
+  if (width < 640) return null
 
   return (
     // eslint-disable-next-line tailwindcss/no-custom-classname
