@@ -1,3 +1,4 @@
+import To_America from '/@/assets/data/To_America.zip?url'
 import launcher from '/@/assets/data/traP_Collection.zip?url'
 import {
   japari,
@@ -68,8 +69,8 @@ export const games: Game[] = [
 走行距離に応じて金額がたまることを駆使し、効率よくアメリカ行きチケット代50000円をためろ!`,
     image: to_americaTop,
     carouselImages: to_america,
-    blogUrl: 'https://trap.jp/post/1085/',
-    gameUrl: 'https://trapdispel.trap.games/'
+    blogUrl: '',
+    gameUrl: To_America
   },
   {
     // ランチャーではモーダルに載せる系の情報は使わない (本来ならちゃんと型を書くべき)
