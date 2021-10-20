@@ -5,8 +5,13 @@ import {
   to_america,
   trapdispel
 } from '/@/assets/images/carousel'
-import dummy from '/@/assets/images/dummy.svg'
-import { trapdispelTop, japariTop, jump3Top } from '/@/assets/images/game'
+import {
+  trapdispelTop,
+  japariTop,
+  jump3Top,
+  to_americaTop,
+  trap_collectionTop
+} from '/@/assets/images/game'
 import { Game } from '/@/components/Game'
 
 // "World of Games" の下にくる説明文
@@ -61,7 +66,7 @@ export const games: Game[] = [
     title: 'To_America',
     description: `制限時間15分、目標はアメリカ行き飛行機の搭乗。
 走行距離に応じて金額がたまることを駆使し、効率よくアメリカ行きチケット代50000円をためろ!`,
-    image: dummy,
+    image: to_americaTop,
     carouselImages: to_america,
     blogUrl: 'https://trap.jp/post/1085/',
     gameUrl: 'https://trapdispel.trap.games/'
@@ -71,7 +76,7 @@ export const games: Game[] = [
     title: 'traP Collection',
     description:
       'traP Collectionはゲームランチャーで、今回配布されているほぼすべてのゲームが入っています。工大祭期間中、適宜更新やゲームの追加などが行われる予定ですので、ぜひこちらからダウンロードして遊んでみてください！',
-    image: dummy,
+    image: trap_collectionTop,
     carouselImages: [],
     blogUrl: '',
     gameUrl: launcher,
