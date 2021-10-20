@@ -28,17 +28,17 @@ const Image: FC<Props> = ({ image, launcher }) => {
   }, [])
 
   const getClass = () =>
-    'relative z-3 w-full h-auto transition-all duration-500 ease-in-out' +
-    (active ? ' -top-3' : ' -top-1')
+    'relative z-3 right-[1.6%] h-auto transition-all duration-500 ease-in-out' +
+    (active ? ' -top-2 md:-top-3 ' : ' -top-1 md:-top-2')
   return (
     <>
       <div ref={ref} />
       <Frame
-        className="absolute top-2 w-full h-auto"
+        className="absolute md:top-2 h-auto top-[6px] w-[97%]"
         color={launcher ? '#f2518b' : undefined}
       />
       <Frame
-        className="absolute top-5 w-full h-auto"
+        className="absolute top-3 md:top-5 h-auto w-[97%]"
         color={launcher ? '#f2518b' : undefined}
       />
       <img src={image} className={getClass()} />

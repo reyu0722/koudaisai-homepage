@@ -6,6 +6,7 @@ import {
   trapdispel
 } from '/@/assets/images/carousel'
 import dummy from '/@/assets/images/dummy.svg'
+import { trapdispelTop, japariTop, jump3Top } from '/@/assets/images/game'
 import { Game } from '/@/components/Game'
 
 // "World of Games" の下にくる説明文
@@ -32,7 +33,7 @@ export const games: Game[] = [
 生き残って最後の一人になったらその場で勝利！
 葉っぱの上を飛び移って、落ちないように生き残ろう！
 落ちてくるフルーツを取って、相手を弾き飛ばすのももちろんOK！`,
-    image: dummy,
+    image: jump3Top,
     carouselImages: jump3,
     blogUrl: 'https://trap.jp/post/1085/',
     gameUrl: 'https://trapdispel.trap.games/'
@@ -42,7 +43,7 @@ export const games: Game[] = [
     description: `ブラウザで遊べるオンライン対戦型タワーディフェンスゲーム!
 マップの真ん中から進行してくる敵から自分の陣地を守りつつ、他の人を妨害しよう!
 最後まで拠点を守り切れた人が勝者だ!!`,
-    image: dummy,
+    image: trapdispelTop,
     carouselImages: trapdispel,
     blogUrl: 'https://trap.jp/post/1085/',
     gameUrl: 'https://trapdispel.trap.games/'
@@ -52,7 +53,7 @@ export const games: Game[] = [
     description: `『けものフレンズ』の二次創作パーティーゲームが遂に登場！！
 フレンズになってジャパリパークを駆け巡り、どったんばったん大騒ぎ？！
 目的地探しやミッションでポイントを集め、フレンズの頂点を目指せ！！`,
-    image: dummy,
+    image: japariTop,
     carouselImages: japari,
     gameUrl: 'https://japari.toki317.dev/'
   },
