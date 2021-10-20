@@ -47,23 +47,34 @@ const Carousel: FC<Props> = ({ images }) => {
     <div
       className="overflow-x-hidden relative mx-auto w-full h-full"
       ref={containerRef}>
-      {offset !== (containerRef.current?.offsetWidth ?? 1) / 2 &&
-        index !== 0 && (
+      {offset !== (containerRef.current?.offsetWidth ?? 1) / 2 && index !== 0 && (
+        <>
           <img
             src={left}
-            className="absolute inset-y-0 z-50 my-auto w-8 md:w-16"
+            className="absolute inset-y-0 z-50 my-auto w-8 md:w-12"
             style={`left: ${offset}px`}
+          />
+          <div
+            // eslint-disable-next-line tailwindcss/no-custom-classname
+            className="absolute w-1/4 h-full z-100"
             onClick={decrement}
           />
-        )}
+        </>
+      )}
       {offset !== (containerRef.current?.offsetWidth ?? 1) / 2 &&
         index !== images.length - 1 && (
-          <img
-            src={right}
-            className="absolute inset-y-0 z-50 my-auto w-8 md:w-16"
-            style={`right: ${offset}px`}
-            onClick={increment}
-          />
+          <>
+            <img
+              src={right}
+              className="absolute inset-y-0 z-50 my-auto w-8 md:w-12"
+              style={`right: ${offset}px`}
+            />
+            <div
+              // eslint-disable-next-line tailwindcss/no-custom-classname
+              className="absolute right-0 w-1/4 h-full z-100"
+              onClick={increment}
+            />
+          </>
         )}
       <div
         className="flex relative w-full h-full carousel"

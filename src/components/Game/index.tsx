@@ -81,7 +81,7 @@ const Game: FC<Props> = ({
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="space-y-12 <lg:w-full lg:w-150">
                 <div className="whitespace-pre-wrap">{description}</div>
-                <div className="flex gap-3 w-full h-12">
+                <div className="flex gap-6 w-full h-12">
                   {launcher ? (
                     // <CommingSoon />
                     <Download url={gameUrl} />

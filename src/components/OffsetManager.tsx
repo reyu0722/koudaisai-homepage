@@ -30,21 +30,12 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
     const listener = () => {
       const nowOffset = cur.scrollTop / cur.clientWidth
       setOffset(nowOffset)
-      if (!status.illustChanged && nowOffset >= CHANGE_OFFSET) {
+
+      if (!status.headerVisible && nowOffset >= HEADER_OFFSET) {
         setStatus({
           illustChanged: true,
-          headerVisible: false
+          headerVisible: true
         })
-      }
-      if (!status.headerVisible && nowOffset >= HEADER_OFFSET) {
-        setTimeout(
-          () =>
-            setStatus({
-              illustChanged: true,
-              headerVisible: true
-            }),
-          210
-        )
       }
     }
 
@@ -68,12 +59,28 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
     el.addEventListener('touchmove', preventListener)
 
     const timer = setInterval(() => {
-      if (count < 100) {
+      if (count < 200) {
         count++
         return
       }
-      el.scrollTop += d
-      d += 0.3
+
+      if (
+        !status.illustChanged &&
+        el.scrollTop / el.clientWidth >= CHANGE_OFFSET
+      ) {
+        if (d < 0) {
+          setStatus({
+            illustChanged: true,
+            headerVisible: false
+          })
+        } else {
+          el.scrollTop += d
+          d -= 2
+        }
+      } else {
+        el.scrollTop += d
+        d += d / 50 + 0.1
+      }
     }, 10)
 
     return () => {

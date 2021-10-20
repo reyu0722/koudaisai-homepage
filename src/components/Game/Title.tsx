@@ -40,7 +40,7 @@ const Title: FC<Props> = ({ text, visible, reverse }) => {
 
           const goal = text.charCodeAt(i)
 
-          let interval = 3
+          let interval = 2
 
           //ひらがなの場合は少し速くする
           if (c >= 'ぁ') interval = 6
