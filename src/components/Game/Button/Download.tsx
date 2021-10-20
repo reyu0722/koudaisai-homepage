@@ -17,18 +17,19 @@ const Button: FC<Props> = ({ url }) => {
 
   return (
     <div className="h-16 w-58">
-      <button
-        className={`flex justify-evenly items-center w-full h-full rounded-[36px] border-solid border-[#f2518b] border-3 ${
-          hover ? 'bg-[#f2518b] text-[#131229]' : 'text-[#f2518b]'
-        }`}
+      <a
+        className={`flex justify-evenly items-center w-full h-full rounded-[36px] border-solid border-[#f2518b] border-3 ${hover ? 'bg-[#f2518b] text-[#131229]' : 'text-[#f2518b]'
+          }`}
         onMouseOver={hoverOn}
         onMouseOut={hoverOff}
-        onClick={handleClick}>
+        href={url}
+        download="traP_Collection.zip"
+      >
         <p className="font-medium leading-none align-top whitespace-nowrap text-[24px] font-rubik">
           DOWNLOAD
         </p>
         <ArrowDown color={hover ? undefined : '#F2518B'} />
-      </button>
+      </a>
     </div>
   )
 }

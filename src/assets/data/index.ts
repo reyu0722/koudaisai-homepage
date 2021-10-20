@@ -1,5 +1,6 @@
 import { dummy1, dummy2, dummy3, dummy4 } from '/@/assets/images/carousel'
 import dummy from '/@/assets/images/dummy.svg'
+import launcher from '/@/assets/test.zip?url'
 import { Game } from '/@/components/Game'
 
 // "World of Games" の下にくる説明文
@@ -67,7 +68,7 @@ export const games: Game[] = [
     image: dummy,
     carouselImages: [],
     blogUrl: '',
-    gameUrl: 'https://trap.jp/', // ここにダウンロードリンク
+    gameUrl: launcher,
     launcher: true
   }
 ]
