@@ -1,3 +1,4 @@
+import launcher from '/@/assets/data/traP_Collection.zip?url'
 import {
   japari,
   jump3,
@@ -5,7 +6,6 @@ import {
   trapdispel
 } from '/@/assets/images/carousel'
 import dummy from '/@/assets/images/dummy.svg'
-import launcher from '/@/assets/test.zip?url'
 import { Game } from '/@/components/Game'
 
 // "World of Games" の下にくる説明文
