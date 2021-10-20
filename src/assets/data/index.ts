@@ -41,8 +41,8 @@ export const games: Game[] = [
 落ちてくるフルーツを取って、相手を弾き飛ばすのももちろんOK！`,
     image: jump3Top,
     carouselImages: jump3,
-    blogUrl: 'https://trap.jp/post/1085/',
-    gameUrl: 'https://trapdispel.trap.games/'
+    blogUrl: 'https://trap.jp/post/1312-2/',
+    gameUrl: 'https://play.google.com/store/apps/details?id=com.traP.JumpJumpJump'
   },
   {
     title: 'TraPDispel',
@@ -69,7 +69,7 @@ export const games: Game[] = [
 走行距離に応じて金額がたまることを駆使し、効率よくアメリカ行きチケット代50000円をためろ!`,
     image: to_americaTop,
     carouselImages: to_america,
-    blogUrl: '',
+    // blogUrl: '',
     gameUrl: To_America
   },
   {
