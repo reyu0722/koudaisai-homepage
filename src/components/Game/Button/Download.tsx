@@ -18,13 +18,13 @@ const Button: FC<Props> = ({ url }) => {
   return (
     <div className="h-16 w-58">
       <a
-        className={`flex justify-evenly items-center w-full h-full rounded-[36px] border-solid border-[#f2518b] border-3 ${hover ? 'bg-[#f2518b] text-[#131229]' : 'text-[#f2518b]'
-          }`}
+        className={`hover:no-underline flex justify-evenly items-center w-full h-full rounded-[36px] border-solid border-[#f2518b] border-3 ${
+          hover ? 'bg-[#f2518b] text-[#131229]' : 'text-[#f2518b]'
+        }`}
         onMouseOver={hoverOn}
         onMouseOut={hoverOff}
         href={url}
-        download="traP_Collection.zip"
-      >
+        download="traP_Collection.zip">
         <p className="font-medium leading-none align-top whitespace-nowrap text-[24px] font-rubik">
           DOWNLOAD
         </p>
