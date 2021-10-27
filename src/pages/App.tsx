@@ -42,6 +42,8 @@ const App: FC = () => {
                   World of Games
                 </div>
                 <div className="whitespace-pre-wrap">{description}</div>
+                <div>遊んだらぜひアンケートにご協力ください！</div>
+                <a>https://forms.gle/h8rapwboFtoUVFGh8</a>
               </div>
               <div className="my-60" />
               {games.map((game, i) => (
