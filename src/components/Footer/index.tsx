@@ -12,14 +12,14 @@ const Footer: FC = () => {
           logo={TrapLogo}
           name="東京工業大学デジタル創作同好会traP"
           contacts={[
-            { iconSrc: twitterIconSrc, text: '@traPtitech' },
+            { iconSrc: twitterIconSrc, text: '@traPtitech', url: 'https://twitter.com/traPtitech' },
             { iconSrc: mailIconSrc, text: 'info@trap.jp' }
           ]}
         />
         <Content
           logo={KoudaisaiLogo}
           name="工大祭実行委員会"
-          contacts={[{ iconSrc: twitterIconSrc, text: '@tokyotechfest' }]}
+          contacts={[{ iconSrc: twitterIconSrc, text: '@tokyotechfest', url: 'https://twitter.com/tokyotechfest' }]}
         />
       </div>
     </div>

@@ -4,6 +4,7 @@ type Props = {
   contacts: {
     iconSrc: string
     text: string
+    url?: string
   }[]
 }
 
@@ -13,10 +14,10 @@ const Content: FC<Props> = ({ logo, name, contacts }) => {
       <div className="flex items-center h-32">{logo}</div>
       <div className="text-2xl">{name}</div>
       <div className="my-3">
-        {contacts.map(({ iconSrc, text }) => (
+        {contacts.map(({ iconSrc, text, url }) => (
           <div className="flex items-center my-4 space-x-4" key={text}>
             <img src={iconSrc} />
-            <div className="text-lg leading-none">{text}</div>
+            <div className="text-lg leading-none" href={url}>{text}</div>
           </div>
         ))}
       </div>
