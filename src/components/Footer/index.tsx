@@ -1,3 +1,4 @@
+import homepageIconSrc from '/@/assets/icon/homepage.svg'
 import mailIconSrc from '/@/assets/icon/mail.svg'
 import twitterIconSrc from '/@/assets/icon/twitter.svg'
 import { TrapLogo, KoudaisaiLogo } from '/@/assets/logo'
@@ -12,14 +13,34 @@ const Footer: FC = () => {
           logo={TrapLogo}
           name="東京工業大学デジタル創作同好会traP"
           contacts={[
-            { iconSrc: twitterIconSrc, text: '@traPtitech', url: 'https://twitter.com/traPtitech' },
+            {
+              iconSrc: homepageIconSrc,
+              text: 'trap.jp',
+              url: 'https://trap.jp/'
+            },
+            {
+              iconSrc: twitterIconSrc,
+              text: '@traPtitech',
+              url: 'https://twitter.com/traPtitech'
+            },
             { iconSrc: mailIconSrc, text: 'info@trap.jp' }
           ]}
         />
         <Content
           logo={KoudaisaiLogo}
           name="工大祭実行委員会"
-          contacts={[{ iconSrc: twitterIconSrc, text: '@tokyotechfest', url: 'https://twitter.com/tokyotechfest' }]}
+          contacts={[
+            {
+              iconSrc: homepageIconSrc,
+              text: 'koudaisai.jp',
+              url: 'https://koudaisai.jp/'
+            },
+            {
+              iconSrc: twitterIconSrc,
+              text: '@tokyotechfest',
+              url: 'https://twitter.com/tokyotechfest'
+            }
+          ]}
         />
       </div>
     </div>
