@@ -4,7 +4,7 @@ import webp from '/@/assets/logo/koudaisai.webp'
 import trapLogoSrc from '/@/assets/logo/trap.svg'
 
 export const TrapLogo = (
-  <a href="https://trap.jp/">
+  <a href="https://trap.jp/" target="_blank" rel="noreferrer">
     <img src={trapLogoSrc} />
   </a>
 )

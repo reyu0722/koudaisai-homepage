@@ -17,7 +17,13 @@ const Content: FC<Props> = ({ logo, name, contacts }) => {
         {contacts.map(({ iconSrc, text, url }) => (
           <div className="flex items-center my-4 space-x-4" key={text}>
             <img src={iconSrc} />
-            <a className="text-lg leading-none" href={url}>{text}</a>
+            <a
+              className="text-lg leading-none"
+              href={url}
+              target="_blank"
+              rel="noreferrer">
+              {text}
+            </a>
           </div>
         ))}
       </div>
