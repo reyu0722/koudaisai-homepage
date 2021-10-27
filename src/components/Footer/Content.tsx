@@ -18,7 +18,9 @@ const Content: FC<Props> = ({ logo, name, contacts }) => {
           <div className="flex items-center my-4 space-x-4" key={text}>
             <img src={iconSrc} />
             <a
-              className="text-lg leading-none"
+              className={
+                'text-lg leading-none' + (url ? '' : ' hover:no-underline')
+              }
               href={url}
               target="_blank"
               rel="noreferrer">
