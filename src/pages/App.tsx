@@ -42,7 +42,7 @@ const App: FC = () => {
                   World of Games
                 </div>
                 <div className="whitespace-pre-wrap">{description}</div>
-                <div className="mt-2">
+                <div className="mt-4">
                   遊んだらぜひ下のアンケートにご協力ください！
                 </div>
                 <a
