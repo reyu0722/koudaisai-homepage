@@ -18,8 +18,7 @@ import { Game } from '/@/components/Game'
 // "World of Games" の下にくる説明文
 export const description = `World of Gamesの特設ページへようこそ！このページでは、サークル内部のプロジェクト・イベントで制作したゲームを公開しています。
 ブラウザゲームから3Dゲームなど力作がそろっていますので、ぜひ遊んでみてください！
-
-注意：ここに公開されているゲームはWindows/Androidのみの対応となります`
+`
 
 /*
 title: タイトル (全角文字についてはフォントを追加する必要あり)
@@ -38,7 +37,9 @@ export const games: Game[] = [
     description: `落下したプレイヤーはその場で脱落！
 生き残って最後の一人になったらその場で勝利！
 葉っぱの上を飛び移って、落ちないように生き残ろう！
-落ちてくるフルーツを取って、相手を弾き飛ばすのももちろんOK！`,
+落ちてくるフルーツを取って、相手を弾き飛ばすのももちろんOK！
+
+※Androidのみの対応となります`,
     image: jump3Top,
     carouselImages: jump3,
     blogUrl: 'https://trap.jp/post/1312-2/',
@@ -66,7 +67,9 @@ export const games: Game[] = [
   {
     title: 'To_America',
     description: `制限時間15分、目標はアメリカ行き飛行機の搭乗。
-走行距離に応じて金額がたまることを駆使し、効率よくアメリカ行きチケット代50000円をためろ!`,
+走行距離に応じて金額がたまることを駆使し、効率よくアメリカ行きチケット代50000円をためろ!
+
+※Windowsのみの対応となります`,
     image: to_americaTop,
     carouselImages: to_america,
     // blogUrl: '',
@@ -76,7 +79,9 @@ export const games: Game[] = [
     // ランチャーではモーダルに載せる系の情報は使わない (本来ならちゃんと型を書くべき)
     title: 'traP Collection',
     description:
-      'traP Collectionはゲームランチャーで、今回配布されているほぼすべてのゲームが入っています。工大祭期間中、適宜更新やゲームの追加などが行われる予定ですので、ぜひこちらからダウンロードして遊んでみてください！',
+      `traP Collectionはゲームランチャーで、今回配布されているほぼすべてのゲームが入っています。工大祭期間中、適宜更新やゲームの追加などが行われる予定ですので、ぜひこちらからダウンロードして遊んでみてください！
+
+※Windowsのみの対応となります`,
     image: trap_collectionTop,
     carouselImages: [],
     blogUrl: '',
