@@ -13,6 +13,15 @@ type Props = {
 const CHANGE_OFFSET = 0.64
 const HEADER_OFFSET = 0.9
 
+async function* rAF() {
+  while (true) {
+    const promise = new Promise(resolve => {
+      requestAnimationFrame(resolve)
+    })
+    yield await promise
+  }
+}
+
 const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
   const offset = useOffsetState()
   const setOffset = useSetOffsetState()
@@ -56,40 +65,56 @@ const OffsetManager: FC<Props> = ({ refObj: ref, scrollRefs }) => {
     if (!el || status.illustChanged) return
 
     let d = 1
-    let count = 0
 
     const preventListener = (e: Event) => e.preventDefault()
 
     el.addEventListener('wheel', preventListener)
     el.addEventListener('touchmove', preventListener)
 
-    const timer = setInterval(() => {
-      if (count < 200) {
-        count++
-        return
-      }
+    let cancelled = false
+    ;(async () => {
+      const first = Date.now()
+      let last = Date.now()
 
-      if (
-        !status.illustChanged &&
-        el.scrollTop / el.clientWidth >= CHANGE_OFFSET
-      ) {
-        if (d < 0) {
-          setStatus({
-            illustChanged: true,
-            headerVisible: false
-          })
+      for await (const _ of rAF()) {
+        if (cancelled) {
+          break
+        }
+
+        const now = Date.now()
+        if (now - first < 2000) {
+          continue
+        }
+
+        const diff = now - last
+        last = now
+        // 60FPSで1px動く
+        // => 1msで60/1000px
+        // => diff(ms)で60/1000*diff(px)
+        const ratio = (60 / 1000) * diff
+
+        if (
+          !status.illustChanged &&
+          el.scrollTop / el.clientWidth >= CHANGE_OFFSET
+        ) {
+          if (d < 0) {
+            setStatus({
+              illustChanged: true,
+              headerVisible: false
+            })
+          } else {
+            el.scrollTop += d * ratio
+            d -= 2
+          }
         } else {
           el.scrollTop += d
-          d -= 2
+          d += d / 50 + 0.1
         }
-      } else {
-        el.scrollTop += d
-        d += d / 50 + 0.1
       }
-    }, 10)
+    })()
 
     return () => {
-      clearInterval(timer)
+      cancelled = true
       el.removeEventListener('wheel', preventListener)
       el.removeEventListener('touchmove', preventListener)
     }
